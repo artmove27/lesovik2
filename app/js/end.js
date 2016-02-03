@@ -1,7 +1,7 @@
 /**
  * Created by zews on 28.01.2016.
  */
-var versions = "end.js@1.0.8";
+var versions = "end.js@1.0.10";
 
 //localStorage.setItem('key', 'COM');
 //   alert(localStorage.getItem('key'));
