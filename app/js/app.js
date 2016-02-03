@@ -1,11 +1,12 @@
 
-var versions2 = "app.js@4.2.8"
+var versions2 = "app.js@6.2.12"
 
 // Load native UI library
 var gui = require('nw.gui'); //or global.window.nwDispatcher.requireNwGui()
 global.window = window
 // Global
 //
+var versions = "LesoViK v.4.0.5" ;
 global.gui = gui;
 var win = gui.Window.get(); //окно
 //global.jQuery = jQuery;
@@ -15,9 +16,40 @@ sysstatus = {
       useronline: "Off",
            idvk : "No",
    processstatus: "Free",
-       barstatus: "LesoViK v.3.0.5"
+       barstatus: versions,
+       statusmsg: {
+          title: versions,
+          msg: "Ваш бизнес Вконтакте",
+          img: "./icons/icon-64.png",
+          link: "",
+       },
+       setbar: function(){
+           $("#statusinfo").html(sysstatus.barstatus);
+
+  var message = "";
+
+   if (sysstatus.statusmsg.title) {
+        message = message + "<h3>" + sysstatus.statusmsg.title + "</h3>";
+          }
+     if (sysstatus.statusmsg.title){
+       message = message + "<img src=" + sysstatus.statusmsg.img + ">";
+            };
+     if (sysstatus.statusmsg.msg){
+     message = message + "<p>" + sysstatus.statusmsg.msg + "</p>";
+                };
+           $("#item3").html(message);
+           if(sysstatus.statusmsg.link) {
+               $("#statusinfo").attr({"href": sysstatus.statusmsg.link, "target":"_blank"});
+           } else {
+               $("#statusinfo").attr("href","#");
+           };
+         },
+
     };
 
+// window.alert(message);
+sysstatus.setbar();
+//window.alert(sysstatus.statusmsg.title);
 
 //gui.Shell(); //оболочка
 //gui.Tray // трей
@@ -36,10 +68,6 @@ require('nw.gui').Window.get().evalNWBin(null, './js/lib.bin');
 
 
 //старотвые установки
-
-
-
-
 
 //модули программы bin
 //require('nw.gui').Window.get().evalNWBin(null, './js/mytest.bin');

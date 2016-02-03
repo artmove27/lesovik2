@@ -1,7 +1,7 @@
 /**
  * Created by zews on 01.02.2016.
  */
-var versions = "lib.js@4.0.5";
+var versions = "lib.js@5.0.7";
 //
 function mytest(){
      return a;
@@ -78,7 +78,7 @@ user2.name = user_list[2];
 //usr1
 usr1 = user_list[1];
 var user_string = "<li><a href=# id=user1>" + user1.getLogin();
-user_string  = user_string   + "</a>  <a href=# id=edit>(Редактировать)</a></li>";
+user_string  = user_string   + "</a>  <a href=# id=user1-edit>(Редактировать)</a></li>";
 $("#user1").live('click',
     function() {
         $("#modal-3").removeClass("md-show");
@@ -86,10 +86,18 @@ $("#user1").live('click',
          openVK(user1.LogIn());
     }
 );
+//user1-edit
+$("#user1-edit").live('click',
+    function() {
+        $("#modal-3").removeClass("md-show");
+        $("#mdoverlay").removeClass("md-show");
+
+    }
+);
 
 //user2
 user_string = user_string  + "<li><a href=# id=user2>" + user2.getLogin();
-user_string  = user_string   + "</a>  <a href=# id=edit>(Редактировать)</a></li>";
+user_string  = user_string   + "</a>  <a href=# id=user2-edit>(Редактировать)</a></li>";
 $("#user2").live('click',
     function() {
         $("#modal-3").removeClass("md-show");
@@ -97,15 +105,23 @@ $("#user2").live('click',
         openVK(user2.LogIn());
     }
 );
+//user2-edit
+$("#user2-edit").live('click',
+    function() {
+        $("#modal-3").removeClass("md-show");
+        $("#mdoverlay").removeClass("md-show");
 
+    }
+);
+
+//
 $("#userlist").html(user_string);
 //getLogin()
 //getPass()
 //добавить в #userlist
 // <li><a href="логин вконтакте">User_login</a> / <a href ="edit">Редактировать</a></li>
 
-//сообщения с окон
-
+//ообщение с окон
 
 $(function(){
     $(window).on("message", function(e) {
@@ -119,22 +135,67 @@ $(function(){
             }
             sysstatus.useronline = data.status ;
             sysstatus.idvk = data.value;
-            window.alert(sysstatus.useronline + " " +sysstatus.idvk + " " + versions2 );
             sysstatus.barstatus = "Авторизован пользователь VKid " + sysstatus.idvk ;
+            window.alert(sysstatus.barstatus);
+            // sysstatus.statusmsg.title = "";
+           // sysstatus.statusmsg.img = "";
+           // sysstatus.statusmsg.msg = "";
+             sysstatus.statusmsg.link = "http://vk.com";
+            sysstatus.setbar();
 
             //
         }
     });
 });
 // подсказки
+// useElement: "statusmsg",
+$(document).ready(function(){
+    $("#txt").easyTooltip({
+        xOffset : -200,
+        yOffset :-20,
+        useElement: "timerdata1",
+        });
+    $("#statusinfo").easyTooltip({
+        xOffset : -10,
+        yOffset :-25,
+        useElement: "item3",
+    });
 
+    $("a#link3").easyTooltip({
+        useElement: "item3"
+    });
+    $("a#link4").easyTooltip({
+        useElement: "item4"
+    });
+    $("a#link5").easyTooltip({
+        useElement: "item5"
+    });
+
+    $("a#link6").easyTooltip({
+        useElement: "item6"
+    });
+
+    $("a#link7").easyTooltip({
+        useElement: "item7"
+    });
+
+    $("a#link8").easyTooltip({
+        useElement: "item8"
+    });
+
+    $("a#link9").easyTooltip({
+        useElement: "item9"
+    });
+
+});
 
 //статус информер
 
 //var timerId = setInterval(function() {
     //alert( "тик" );
-//    $("#statusinfo").html(sysstatus.barstatus);
-//},50000);
+  //  $("#statusinfo").html(sysstatus.barstatus);
+  //  statusBarInfo();
+//},5000); //},50000);
 
 
 console.log(versions);
