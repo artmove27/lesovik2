@@ -2,7 +2,6 @@ function mytest() {
     //document.write(a + 42);
     return a;
 }
-//<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
 
 // общение между окнами
 

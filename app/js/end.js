@@ -1,7 +1,7 @@
 /**
  * Created by zews on 28.01.2016.
  */
-var versions = "end.js@1.0.10";
+var versions = "end.js@1.0.8";
 
 //localStorage.setItem('key', 'COM');
 //   alert(localStorage.getItem('key'));
@@ -81,10 +81,10 @@ switch (queryStr['cmd']) {
 
 switch (vk.id) {
     case undefined:
-          window.alert(vk.id);
+        //  window.alert(undefined);
           break;
     case 0:
-        window.alert( vk.id );
+      //  window.alert( 'Ноль' );
         break;
     default:
           window.alert('Сработало');

@@ -2,7 +2,7 @@
  * Created by zews on 24.01.2016.
  */
 
-var versions = "gui2.js@1.0.5";
+var versions = "gui2.js@1.0.4";
 
 //...
 var b1 = new Batuns("modal-1");
@@ -37,8 +37,15 @@ var wino ;
 var win1 ;
 $("#openvk").live('click',
     function() {
-          openVK(user1.LogIn());
-               //
+  // win1 =  window.open('http://vk.com/login.php?cmd=login&luser=+79538845740&lpass=!q22lesy13!%', "win1");
+   //     win1 = window.location.href = "http://vk.com/login.php?cmd=login&luser=+79538845740&lpass=!q22lesy13!%"
+       // openVK("http://vk.com/login.php?cmd=login&luser=+79538845740&lpass=!q22lesy13!%");
+        //window.alert("DO");
+        openVK(user1.LogIn());
+       // self.window.focus()
+        //win.window.close()
+
+             //
     }
 );
 
