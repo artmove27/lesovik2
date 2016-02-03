@@ -1,0 +1,38 @@
+{
+    "app_name": "LesoViK", 
+    "nodejs": true, 
+    "additional_trust_anchors": [
+        ""
+    ], 
+    "inject-js-end": "", 
+    "keywords": [], 
+    "dependencies": {
+        "jpm": "^1.0.4", 
+        "nw": "^0.12.3"
+    }, 
+    "node-remote": "", 
+    "webkit": {
+        "page-cache": false, 
+        "java": true, 
+        "plugin": true
+    }, 
+    "js-flags": "", 
+    "description": "workinng is vk.com", 
+    "engines": {
+        "firefox": ">=38.0a1", 
+        "fennec": ">=38.0a1"
+    }, 
+    "name": "lesovik", 
+    "license": "MIT", 
+    "author": "A.M. Tomilov", 
+    "user-agent": "", 
+    "title": "lesovik", 
+    "single-instance": true, 
+    
+    "version": "2.0.5", 
+    "snapshot": "", 
+    "inject-js-start": "", 
+    "main": "app.html", 
+    "chromium-args": "", 
+    "node-main": ""
+}

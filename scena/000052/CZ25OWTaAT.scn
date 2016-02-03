@@ -1,0 +1,167 @@
+
+<script language="JavaScript">
+<!--
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+//-->
+</script>
+
+<table width="900" border="0" cellpadding="0" cellspacing="0" background="magazin.jpg" align="center" height="460">
+  <tr> 
+    <td width="18" height="9"></td>
+    <td width="34"></td>
+    <td width="56"></td>
+    <td width="111"></td>
+    <td width="27"></td>
+    <td width="63"></td>
+    <td width="541"></td>
+    <td width="50"></td>
+  </tr>
+  <tr> 
+    <td height="64"></td>
+    <td background="http://www.er404.ru/a.gif" valign="top" colspan="5"> <b><font size="3" color="#990033">Quest: 
+      В поисках источника</font></b><br>
+      <i><a href="#" onClick="MM_openBrWindow('http://www.er404.ru/help/','','resizable=yes,width=300')" id=link3>Подсказка</a>: 
+      Тут сейчас делать нечего</i></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr> 
+    <td height="13"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td height="14"></td>
+    <td></td>
+    <td></td>
+    <td rowspan="5" valign="top"><a href="#" id="link"><img src="http://www.er404.ru/img/a.gif" width="111" height="351" border="0" ></a></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr> 
+    <td height="121"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td colspan="2" valign="top" background="http://www.er404.ru/img/2.png"> 
+      <div align="center"><b><font color="#FFFFFF"><i>Место для вашей рекламы 
+        и товаров :)</i></font></b></div>
+    </td>
+    <td></td>
+  </tr>
+  <tr> 
+    <td height="49"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr> 
+    <td height="133"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td colspan="2" valign="top" background="http://www.er404.ru/img/2.png"> 
+      <p><b><font color="#FFFFFF"><i>Магазин (от magasin)</i></font></b><i><font color="#FFFFFF"> 
+        — специально оборудованное стационарное здание или его часть, предназначенное 
+        для продажи товаров и оказания услуг покупателям и обеспеченное торговыми, 
+        подсобными, административно-бытовыми помещениями, а также помещениями 
+        для приёма, хранения товаров и подготовки их к ...</font></i></p>
+      <p><i><font color="#FFFFFF">Говоря проще, там, где вы меняете свои деньги 
+        на всякие вещи</font></i></p>
+    </td>
+    <td></td>
+  </tr>
+  <tr> 
+    <td height="34"></td>
+    <td valign="top" rowspan="2"><a href="http://www.er404.ru/scena/000003/scena.php?sc=000001" id="link4"><img src="http://www.er404.ru/img/ll_r.png" border="0"></a></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td height="23"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+</table>
+
+<div id="item">
+	
+  <h3>Покупательница</h3>
+	
+  <img src="f1.jpg" width="100" height="126" /> 
+  <p>Где купить источник? Что это? Что-то новоое и модное? Не знаю... А точно 
+    это сейчас в моде? Я побежала искать... 
+  <hr>
+  <b>Хотите креативный сайт? <br>
+  Звоните </b><font color="#FF0000"><b> <br>
+  т. 8-950-954-8621 </b></font></div>
+
+
+<div id="item2">
+	
+  <h3>Аптека</h3>
+	
+  <img src="apteka.jpg" width="100" height="78" /> 
+  <p>Можно зайти, но делать там не чего<br>
+<hr>
+
+  <b>Ваш системный администратор <br>
+  в Новосибирске</b> <br>
+  <font color="#FF0000"><b> т. 8-950-954-8621 </b></font></div>
+<div id="item3"> 
+  <h3>Как узнать больше?</h3>
+  <img src="http://www.er404.ru/zaklinatel_p.jpg"> 
+  <p> <b>Наведя мышку</b> на персонажа, узнаешь, что он говорит. <br>
+    <b>Ккликая</b> по персанажу, можно узнать больше информации. </p>
+</div>
+<div id="item4">
+  <h3>Назад в город</h3>
+<img src="http://www.er404.ru/zaklinatel_p.jpg"> 
+  <p> Этот путь приведет тебя в неизвестность! Возможно он правильный? </p>
+
+	</div>
+<div id="item5">
+	<h3>Дорога в Лес</h3>
+<img src="http://www.er404.ru/zaklinatel_p.jpg"> 
+  <p> Этот путь приведет тебя в неизвестность! Возможно он правильный? </p>
+
+	</div>
+<div id="item6">
+  <h3>Магазин</h3>
+  <img src="magazin.jpg" width="100" height="94"> 
+  <p> Тут все дорого, можешь идти дальше</p>
+</div>
+	
+<div id="item7">
+	
+  <h3>Дорога К набережной</h3>
+<img src="http://www.er404.ru/zaklinatel_p.jpg"> 
+  <p> Этот путь приведет тебя в неизвестность! Возможно он правильный? </p>
+	</div>
+<div id="item8">
+	<h3>Дорога в Пустыню</h3>
+<img src="http://www.er404.ru/zaklinatel_p.jpg"> 
+  <p> Этот путь приведет тебя в неизвестность! Возможно он правильный? </p>
+</div>
+	<div id="item9">
+	<h3>Item title 9</h3>
+	</div>

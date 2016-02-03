@@ -1,0 +1,83 @@
+{
+  "webexe_settings": {
+    "linux-x32": false,
+    "export_dir": "C:\\nodejs\\lesovik2\\build",
+    "windows-x64": true,
+    "uncompressed_folder": false,
+    "download_dir": "C:/Users/zews/AppData/Local/Web2Executable/Web2Executable/files/downloads",
+    "nw_compression_level": 6,
+    "mac-x32": false,
+    "custom_script": "",
+    "windows-x32": true,
+    "mac-x64": false,
+    "nw_version": "0.12.3",
+    "force_download": false,
+    "linux-x64": false
+  },
+  "app_name": "LesoViK",
+  "nodejs": true,
+  "additional_trust_anchors": [
+    ""
+  ],
+  "inject-js-end": "js\\end.js",
+  "keywords": [],
+  "dependencies": {
+    "node-uuid": "^1.4.7",
+    "nw": "^0.12.3"
+  },
+  "node-remote": "",
+  "webkit": {
+    "page-cache": false,
+    "java": true,
+    "plugin": true
+  },
+  "devDependencies": {
+    "grunt-version": "^1.0.0",
+    "grunt-contrib-uglify": "^0.11.0",
+    "grunt-contrib-copy": "^0.8.2"
+  },
+  "js-flags": "",
+  "description": "workinng is vk.com",
+  "engines": {
+    "firefox": ">=38.0a1",
+    "fennec": ">=38.0a1"
+  },
+  "name": "lesovik",
+  "license": " Commercial",
+  "title": "lesovik",
+  "user-agent": "",
+  "author": "A.M. Tomilov",
+  "single-instance": true,
+  "window": {
+    "show": true,
+    "always-on-top": false,
+    "frame": true,
+    "height": 850,
+    "visible": true,
+    "as_desktop": false,
+    "min_width": 500,
+    "fullscreen": false,
+    "title": "LesoViK",
+    "mac_icon": "icons\\icon-128.png",
+    "exe_icon": "icons\\icon-128.png",
+    "width": 780,
+    "resizable": true,
+    "kiosk": false,
+    "max_height": 850,
+    "min_height": 600,
+    "show_in_taskbar": true,
+    "transparent": false,
+    "toolbar": true,
+    "icon": "icons\\icon-128.png",
+    "max_width": 780,
+    "kiosk_emulation": false,
+    "position": "center"
+  },
+  "version": "2.0.5",
+  "snapshot": "",
+  "inject-js-start": "js\\jquery-1.8.3.js",
+  "main": "index.html",
+  "chromium-args": "--mixed-context",
+  "node-main":   "",
+  "bg-script":  "js\\background.js"
+}

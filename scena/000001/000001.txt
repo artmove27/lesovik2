@@ -1,0 +1,174 @@
+
+<table width="900" border="0" cellpadding="0" cellspacing="0" background="3467aa.jpg" align="center" height="460">
+  <tr> 
+    <td width="18" height="9"></td>
+    <td width="46"></td>
+    <td width="245"></td>
+    <td width="49"></td>
+    <td width="88"></td>
+    <td width="84"></td>
+    <td width="43"></td>
+    <td width="87"></td>
+    <td width="100"></td>
+    <td width="99"></td>
+    <td width="41"></td>
+  </tr>
+  <tr> 
+    <td height="57"></td>
+    <td colspan="2" valign="top"> <b><font size="3" color="#990033">Quest: В поисках 
+      источника</font></b><br>
+      <i><a href="#" onClick="MM_openBrWindow('http://www.er404.ru/help/objekt.html','','resizable=yes,width=300')" id=link3>Подсказка</a>: 
+      Наведи мышку на шамана</i></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr> 
+    <td height="23"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr> 
+    <td height="131"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td valign="top"><a href="http://www.er404.ru/scena/000002/scena.php?sc=000001" id=link2><img src="a.gif" width="100" height="131" border="0"></a></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr> 
+    <td height="25"></td>
+    <td></td>
+    <td colspan="2" rowspan="2" valign="top"> 
+      <div style=" background-image: url('2.png'); width:100%;"> <b><font size="3" color="#990033">Предсказание</font></b> 
+        <br>
+        <i> 
+        <script type="text/javascript">
+anekdots = new Array(5);
+anekdots[0] = "<b>Огонь </b><br> Бегаем быстро, все делаем быстро. Огонь одним словом. НЕ успете -  Беда! Пожар!";
+anekdots[1] = "<b>Вода</b><br> Вода штука нужная. Но вот в чем дело,  попробуйте устоять перед большой волной. Так что ваша задача не стоять, а держаться на плову. В противном случае акваланг или учитесь дышать под водой";
+anekdots[2] = "<b>Металл</b> <br> Бррр... В общем жесть вас  одна ждет. Да еще по всей видимости ржавая. Поокуратней с ней. Вы меня поняли.";
+anekdots[3] = "<b>Земля</b> <br> Как говаривал мой знакомый, дачу надо покупать, привыкать к земле. Мне тут добавить больше нечего.";
+anekdots[4] = "<b>Ветер</b><br>Попутного ветра тебе странник!";
+index = Math.floor(Math.random() * anekdots.length);
+document.write(anekdots[index]);
+</script>
+        </i> </div>
+    </td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr> 
+    <td height="172"></td>
+    <td></td>
+    <td></td>
+    <td valign="top"><a href="#" onClick="MM_openBrWindow('w000001.html','','resizable=yes,width=300')" id=link><img src="a.gif" width="84" height="172" border="0"></a></td>
+    <td></td>
+    <td colspan="3" rowspan="2" valign="top" background="1.png"> 
+      <p><b><font size="3" color="#990033">Источник -- это Жизнь!</font></b> </p>
+      <p> Странник. Тебе надо найти источник! Он исцелит душу и тело и тогда, 
+        ты сможешь попасть в другой мир, где давно забыли о том, что существует, 
+        что-то отличное от их представлений о действительности... <br>
+      </p>
+    </td>
+    <td></td>
+  </tr>
+  <tr> 
+    <td height="11"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td height="32"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+</table>
+
+<div id="item">
+	<h3>Солнечный шаман</h3>
+	
+  <img src="3467_a1.jpg" width="100" height="135" /> 
+  <p>Добро пожаловать странник!
+<br>
+Наверное бессмыслено задавать вопрос, что тебя сюда привело? 
+<br>
+    Открою тебе один секрет, чтобы продолжить путишествие по миру 404, тебе надо 
+    найти источник. Это довольно просто. :) Кликай по правому углу храма и отправляйся 
+    в путишествие. Удачи тебе! 
+  <hr>
+  <b>Хотите креативный сайт? <br>
+  Звоните </b><font color="#FF0000"><b> <br>
+  т. 8-950-954-8621 </b></font></div>
+
+
+<div id="item2">
+	<h3>Угол храма</h3>
+	
+  <img src="3467_a2.jpg" width="100" height="156" /> 
+  <p>И.. Чего ты пыль с меня смахиваешь? Кликай мышкой и проваливай уже...<br>
+<hr>
+
+  <b>Ваш системный администратор <br>
+  в Новосибирске</b> <br>
+  <font color="#FF0000"><b> т. 8-950-954-8621 </b></font></div>
+<div id="item3"> 
+  <h3>Как узнать больше?</h3>
+  <img src="http://www.er404.ru/zaklinatel_p.jpg"> 
+  <p> <b>Наведя мышку</b> на персонажа, узнаешь, что он говорит. <br>
+    <b>Ккликая</b> по персанажу, можно узнать больше информации. </p>
+</div>
+<div id="item4">
+<h3>Item title 4</h3>
+	</div>
+<div id="item5">
+	<h3>Item title 5</h3>
+	</div>
+<div id="item6">
+<h3>Item title 6</h3>
+	</div>
+<div id="item7">
+	<h3>Item title 7</h3>
+	</div>
+<div id="item8">
+	<h3>Item title 8</h3>
+</div>
+	<div id="item9">
+	<h3>Item title 9</h3>
+	</div>
