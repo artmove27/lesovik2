@@ -2,36 +2,27 @@
  * Created by zews on 24.01.2016.
  */
 
-var versions = "gui2.js@0.0.1";
-//$ = global.jQuery;
+var versions = "gui2.js@1.0.5";
 
-//$("#menu").append("sdl;fkskdjfkldsjfljdsjfjdsf");
-
-
-function Batuns(IdModal){
-    this.OpenModal = function (){
-
-        $("#"+IdModal).addClass("md-show");
-        $("#mdoverlay").addClass("md-show");
-    }
-
-    this.CloseModal = function(){
-
-        $("#"+IdModal).removeClass("md-show");
-        $("#mdoverlay").removeClass("md-show");
-
-
-        //...
-    }
-
-   //..
-}
 //...
+var b4 = new Batuns("modal-4");
+$(".editusers").live('click', function(){
+    b3.CloseModal();
+     b4.OpenModal();
+});
+$("#b4Close").live('click',
+    function() {
+        b4.CloseModal();
+        // win.window.close();
+    }
+);
+
 var b1 = new Batuns("modal-1");
 $("#b1").live('click', function(){b1.OpenModal()});
 $("#b1Close").live('click',
     function() {
         b1.CloseModal();
+       // win.window.close();
     }
         );
 //...
@@ -43,7 +34,7 @@ $("#b2Close").live('click',
     }
 );
 
-//...
+// аккаунты
 var b3 = new Batuns("modal-3");
 $("#b3").live('click', function(){b3.OpenModal()});
 $("#b3Close").live('click',
@@ -53,20 +44,39 @@ $("#b3Close").live('click',
 );
 
 //vkopen_link
-function openVK() {
-    var win = gui.Window.open ('https://vk.com', {
-        position: 'center',
-        width: 900,
-        height: 700
-    });
-
-
-   }
-
-
+var wino ;
+//
+var win1 ;
 $("#openvk").live('click',
     function() {
-        openVK();
+          openVK(user1.LogIn());
+       // self.window.focus()
+        //win.window.close()
+
+             //
+    }
+);
+
+//
+$("#ovk").live('click',
+    function() {
+        openVk("http://vk.com/");
+    }
+);
+
+//wv
+$("#wv").live('click',
+    function() {
+        // window.open('http://oauth.vk.com/authorize?client_id=5130857&redirect_uri=close.html&display=popup&response_type=token', "win1");
+      //  var win2 =  window.open('wv.html', "win-wv");
+      //   global.M = "awaqda";
+      //  win1.window.close();
+    }
+);
+//vkclose
+$("#vkclose").live('click',
+    function() {
+       wino.window.close();
     }
 );
 

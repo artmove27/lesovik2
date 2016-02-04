@@ -2,9 +2,30 @@
  * Created by zews on 24.01.2016.
  */
 
-var versions = "gui2.js@1.0.5";
+var versions = "gui2.js@1.0.6";
 
 //...
+//edit AK
+var b4 = new Batuns("modal-4");
+$(".editusers").live('click', function(){
+     b3.CloseModal();
+     b4.OpenModal();
+
+});
+
+$("#b4Close").live('click',
+    function() {
+      b4.CloseModal();
+    adus(loginus.idusers.value, loginus.login.value, loginus.pass.value);
+       // window.alert(loginus.idusers.value)
+        //onsubmit="adus(loginus.idusers.value,loginus.login.value,loginus.pass.value );return false"
+        window.alert("SEND")
+       // vu();
+   }
+);
+
+//
+
 var b1 = new Batuns("modal-1");
 $("#b1").live('click', function(){b1.OpenModal()});
 $("#b1Close").live('click',

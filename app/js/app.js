@@ -2,7 +2,7 @@
  * Created by zews on 01.02.2016.
  */
 
-var versions2 = "app.js@6.2.14"
+var versions2 = "app.js@6.2.15"
 
 // Load native UI library
 var gui = require('nw.gui'); //or global.window.nwDispatcher.requireNwGui()
@@ -11,10 +11,10 @@ global.window = window
 //
 global.gui = gui;
 var win = gui.Window.get(); //окно
-//global.jQuery = jQuery;
+global.jQuery = jQuery;
 var gui = require('nw.gui');
 var sysstatus = global.sysstatus;
-var versions = "LesoViK v.a7.0.7";
+var versions = "LesoViK v.a8.0.9";
  sysstatus = {
     useronline: "Off",
     idvk : 0,
@@ -106,11 +106,44 @@ for (var i = 0; i < menu.items.length; ++i) {
 console.log(versions2);
 // пробы
 
+//class userlist
 
-//https://oauth.vk.com/authorize?client_id=5130857&scope=friends,photos&redirect_uri=http://oauth.vk.com/blank.html&display=touch&response_type=token
-//https://oauth.vk.com/authorize?client_id=5130857&scope=friends,photos&redirect_uri=http://oauth.vk.com/blank.html&display=wap&response_type=token
-//client_id=APP_ID&
-//scope=SETTINGS&
-//redirect_uri=REDIRECT_URI&
-//display=DISPLAY&
-//response_type=token
+
+function UserList(name) {
+    this.name = name;
+
+    this.lkey = function() {
+            var lkey =  this.name + "_l";
+        return lkey;
+    };
+    this.pkey = function(){
+        var pkey =  this.name + "_p";
+        return pkey;
+    };
+    this.login = function(log){
+        if (!arguments.length) {
+
+            var login = window.localStorage.getItem(this.lkey());
+            return login;
+
+        } else {
+
+            window.localStorage.setItem(this.lkey(), log);
+        }
+    };
+    this.pass = function(ps){
+        if (!arguments.length) {
+
+            var ps = window.localStorage.getItem(this.pkey());
+              return ps;
+
+        } else {
+
+            window.localStorage.setItem(this.pkey(), ps);
+        }
+
+    };
+
+};
+
+//window.alert(user3.pkey());

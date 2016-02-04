@@ -1,7 +1,7 @@
 /**
  * Created by zews on 01.02.2016.
  */
-var versions = "lib.js@4.0.6";
+var versions = "lib.js@4.1.9";
 //
 function mytest(){
      return a;
@@ -16,7 +16,7 @@ global.ID = uuid.v4();
 if (window.localStorage.getItem('userkey') == null) {
   //  window.alert(global.ID);
     window.localStorage.setItem('userkey', global.ID);
-
+    // создаем пользователя и аккаунты
 }else {
     console.log(window.localStorage.getItem('userkey'));
     };
@@ -25,7 +25,14 @@ if (window.localStorage.getItem('userkey') == null) {
 
 // Work
 //modal
-
+function adus(name, login, pass){
+    var loga = name + "_l";
+    var ps =  name + "_p";
+    window.localStorage.setItem(loga, login);
+    window.localStorage.setItem(ps, pass);
+    vu();
+   // location.reload();
+}
 
 function Batuns(IdModal){
     this.OpenModal = function (){
@@ -65,61 +72,67 @@ function openVK(uri) {
 
 
 //user_work
+
+
+//
+
 var user_list = ["cl_user","user1", "user2", "user3", "user4", "user5"];
 var user = require('./js/users.js');
-user1 = new user.users();
-user1.name = user_list[1];
-user2 = new user.users();
-user2.name = user_list[2];
+user1 = new user.users("user1");
+user2 = new user.users("user2");
+user3 = new user.users("user3");
+
 //user1.addUsers ("+79538845740", "!q22lesy13!%");
-//user2.addUsers ("+4542", "!gdgdfg!%");
+function vu(){
 
 //user1
-var user_string = "<li><a href=# id=user1>" + user1.getLogin();
-user_string  = user_string   + "</a>  <a href=# id=user1-edit>(Редактировать)</a></li>";
+
+var user_string = "";
+user_string = user_string + user1.view();
+$("#user1-edit").live("click", function() {
+   user1.edit();
+   });
 $("#user1").live('click',
     function() {
-        $("#modal-3").removeClass("md-show");
-        $("#mdoverlay").removeClass("md-show");
-         openVK(user1.LogIn());
+            b3.CloseModal();
+            openVK(user1.LogIn());
     }
 );
-//user1-edit
-$("#user1-edit").live('click',
-    function() {
-        $("#modal-3").removeClass("md-show");
-        $("#mdoverlay").removeClass("md-show");
 
-    }
-);
 //user2
-user_string = user_string  + "<li><a href=# id=user2>" + user2.getLogin();
-user_string  = user_string   + "</a>  <a href=# id=user2-edit>(Редактировать)</a></li>";
+
+user_string = user_string + user2.view();
+$("#user2-edit").live("click", function(){
+    user2.edit();
+
+}) ;
+
 $("#user2").live('click',
     function() {
-        $("#modal-3").removeClass("md-show");
-        $("#mdoverlay").removeClass("md-show");
+        b3.CloseModal();
         openVK(user2.LogIn());
     }
 );
 
-//user2-edit
-$("#user2-edit").live('click',
-    function() {
-        $("#modal-3").removeClass("md-show");
-        $("#mdoverlay").removeClass("md-show");
+//use3
 
-    }
-);
+    user_string = user_string + user3.view();
+    $("#user3-edit").live("click", function() {
+        user3.edit();
+    });
+    $("#user3").live('click',
+        function() {
+            b3.CloseModal();
+            openVK(user3.LogIn());
+        }
+   );
 
-//
-$("#userlist").html(user_string);
-//getLogin()
-//getPass()
-//добавить в #userlist
-// <li><a href="логин вконтакте">User_login</a> / <a href ="edit">Редактировать</a></li>
 
-//ообщение с окон
+    $("#userlist").html(user_string);
+};
+vu();
+
+//ообщение окон
 
 
 $(function(){
