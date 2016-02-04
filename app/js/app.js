@@ -2,7 +2,7 @@
  * Created by zews on 01.02.2016.
  */
 
-var versions2 = "app.js@6.2.12"
+var versions2 = "app.js@6.2.14"
 
 // Load native UI library
 var gui = require('nw.gui'); //or global.window.nwDispatcher.requireNwGui()
@@ -14,12 +14,12 @@ var win = gui.Window.get(); //окно
 //global.jQuery = jQuery;
 var gui = require('nw.gui');
 var sysstatus = global.sysstatus;
-var versions = "LesoViK v.7.0.5";
+var versions = "LesoViK v.a7.0.7";
  sysstatus = {
     useronline: "Off",
-    idvk : "No",
+    idvk : 0,
     processstatus: "Free",
-    barstatus: versions,
+    barstatus: "",
     statusmsg: {
         title: versions,
         msg: "Ваш бизнес Вконтакте",
@@ -34,7 +34,7 @@ var versions = "LesoViK v.7.0.5";
         if (sysstatus.statusmsg.title) {
             message = message + "<h3>" + sysstatus.statusmsg.title + "</h3>";
         }
-        if (sysstatus.statusmsg.title){
+        if (sysstatus.statusmsg.img){
             message = message + "<img src=" + sysstatus.statusmsg.img + ">";
         };
         if (sysstatus.statusmsg.msg){
@@ -48,11 +48,12 @@ var versions = "LesoViK v.7.0.5";
         };
     },
 
-    barstatus: "LesoViK v.3.0.5"
+
 };
-// window.alert(message);
+
+sysstatus.barstatus = versions;
 sysstatus.setbar();
-//window.alert(sysstatus.statusmsg.title);
+
 
 //gui.Shell(); //оболочка
 //gui.Tray // трей
@@ -104,3 +105,12 @@ for (var i = 0; i < menu.items.length; ++i) {
 
 console.log(versions2);
 // пробы
+
+
+//https://oauth.vk.com/authorize?client_id=5130857&scope=friends,photos&redirect_uri=http://oauth.vk.com/blank.html&display=touch&response_type=token
+//https://oauth.vk.com/authorize?client_id=5130857&scope=friends,photos&redirect_uri=http://oauth.vk.com/blank.html&display=wap&response_type=token
+//client_id=APP_ID&
+//scope=SETTINGS&
+//redirect_uri=REDIRECT_URI&
+//display=DISPLAY&
+//response_type=token

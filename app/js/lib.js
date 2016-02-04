@@ -1,7 +1,7 @@
 /**
  * Created by zews on 01.02.2016.
  */
-var versions = "lib.js@4.0.5";
+var versions = "lib.js@4.0.6";
 //
 function mytest(){
      return a;
@@ -55,10 +55,10 @@ function openVk(uri) {
 function openVK(uri) {
     wino = gui.Window.open (uri, {
         //  position: 'center',
-        width: 900,
-        height: 700,
+        width: 450,
+        height: 450,
         "inject-js-start": "js\\jquery-1.8.3.js",
-        "inject-js-end": "js\\end.js",
+        "inject-js-end": "js\\loginvk.js",
     });
 }
 //
@@ -132,14 +132,16 @@ $(function(){
             if (data.title && data.value) {
                 str = 'Сообщение:'  + data.status + data.title + '. Значение объекта:' + data.value;
             }
-            sysstatus.useronline = data.status ;
-            sysstatus.idvk = data.value;
-            window.alert(sysstatus.barstatus);
-            // sysstatus.statusmsg.title = "";
-            // sysstatus.statusmsg.img = "";
-            // sysstatus.statusmsg.msg = "";
-            sysstatus.statusmsg.link = "http://vk.com";
-            sysstatus.setbar();
+
+                  sysstatus.useronline = data.status;
+                  sysstatus.idvk = data.value;
+                  sysstatus.barstatus = "Авторизован пользователь" + sysstatus.idvk;
+
+                  // sysstatus.statusmsg.title = "";
+                  // sysstatus.statusmsg.img = "";
+                  // sysstatus.statusmsg.msg = "";
+                  sysstatus.statusmsg.link = "http://vk.com";
+                  sysstatus.setbar();
 
             //
         }
@@ -159,11 +161,11 @@ $(document).ready(function(){
         useElement: "item3",
     });
 
-    $("a#link3").easyTooltip({
-        useElement: "item3"
-    });
-    $("a#link4").easyTooltip({
+    $("#ovk").easyTooltip({
         useElement: "item4"
+    });
+    $("#b3").easyTooltip({
+        useElement: "item5"
     });
     $("a#link5").easyTooltip({
         useElement: "item5"

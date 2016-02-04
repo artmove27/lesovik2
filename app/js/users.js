@@ -10,7 +10,7 @@ function Users() {
       this.cn = "";
       this.LogIn = function(){
             //
-            var uri = "http://vk.com/login.php?cmd=login&luser=";
+            var uri = "https://m.vk.com/" + "login.php?cmd=login&luser=";
             uri = uri + this.getLogin() + "&lpass=";
           uri = uri + this.getPass() ;
                        //window.alert(uri);

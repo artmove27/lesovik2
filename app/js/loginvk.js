@@ -1,7 +1,10 @@
 /**
+ * Created by zews on 04.02.2016.
+ */
+/**
  * Created by zews on 28.01.2016.
  */
-var versions = "end.js@1.0.11";
+var versions = "loginvk.js@0.0.11";
 
 //localStorage.setItem('key', 'COM');
 //   alert(localStorage.getItem('key'));
@@ -25,7 +28,7 @@ var parseQueryString = function (strQuery) {
 
 var queryStr = parseQueryString(window.location.search);
 //  var someVar1 = queryStr['cmd']; // 111
- //   someVar2 = queryStr['luser'], // "foo"
+//   someVar2 = queryStr['luser'], // "foo"
 //    someVar2 = queryStr['lpass']; // "bar"
 //window.alert(queryStr['luser']);
 
@@ -39,42 +42,43 @@ var sendObject = {
 
 function LogOut(){
     $('#logout_link').trigger("click");
-   // window.alert("QUIT");
-      window.close();
-   }
+    // window.alert("QUIT");
+    window.close();
+}
 
 function WinClo(){
     window.close();
-    }
+}
 
 function LogIn(){
 
     //  $("#email").val("+79538845740");
-    $("#email").val(queryStr['luser']);
-    $("#pass").val(queryStr['lpass']);
-    //  $("#pass").val("!q22lesy13!%");
-    $('#quick_login_button').trigger("focus");
-    $('#login').submit();
+
+    $("input[name = email]").val(queryStr['luser']);
+    $("input[name =pass]").val(queryStr['lpass']);
+
+   // $('#quick_login_button').trigger("focus");
+    $('form').submit();
+
 //
 
     //$("title").html("Новье!")
 }
 
 //uri = "http://vk.com/login.php?cmd=login&luser=uwuwu&lpass=slls";
-
+//
 //cmd
 
 switch (queryStr['cmd']) {
     case "login":
-      //  window.alert(queryStr['lpass']);
         LogIn();
-        break;
+         break;
     case "quit":
-      //  alert( 'В точку!' );
+        //  alert( 'В точку!' );
         LogOut();
         break;
-      default:
-      //  alert( 'Я таких значений не знаю' );
+    default:
+    //  alert( 'Я таких значений не знаю' );
 };
 
 //
@@ -82,14 +86,14 @@ switch (queryStr['cmd']) {
 switch (vk.id) {
     case undefined:
         //  window.alert(undefined);
-          break;
+        break;
     case 0:
-      //  window.alert( 'Ноль' );
+        //  window.alert( 'Ноль' );
         break;
     default:
-       //   window.alert('Сработало');
-          opener.postMessage(sendObject, '*');
-          WinClo();
-   };
+        //  window.alert('Сработало');
+        opener.postMessage(sendObject, '*');
+        WinClo();
+};
+//
 
-alert( 'В точку!' );

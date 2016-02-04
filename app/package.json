@@ -1,5 +1,5 @@
 {
-    "version": "7.0.6",
+    "version": "a.7.0.8",
     "app_name": "LesoViK",
     "chromium-args": "--enable-gcm",
     "node-main": "",
