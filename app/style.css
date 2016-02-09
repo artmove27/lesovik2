@@ -95,3 +95,99 @@ a:visited {
     color: #fff;
     text-decoration: underline;
 }
+
+.wsto {
+    width: 100%;
+}
+input {
+    width: 100%;
+    font-size: 25px;
+    padding: 6px 0 4px 10px;
+    background: #F6F6f6;
+
+}
+.control-label {
+
+    font-size: 35px;
+    padding: 6px 0 4px 10px;
+
+}
+.editusers {
+    font-size: 15px;
+
+}
+.eddit {
+    font-size: 25px;
+}
+
+.eddits {
+    font-size: 20px;
+}
+#tfo {
+    font-size: 20px;
+}
+
+.boxer {
+    display: table;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.boxer .box-row {
+    display: table-row;
+}
+
+.boxer .box {
+    display: table-cell;
+    text-align: center;
+    vertical-align: top;
+
+}
+/* pointer-events. */
+
+.poev {
+
+    pointer-events: none; /* disables click event */
+}
+
+/* */
+
+.imginfo {
+    max-width: 90%;
+    height: auto;
+    margin: 10px;
+    border:3px solid #ffff00;
+    padding:30px;
+
+}
+
+.contentinfo {
+    max-width: 50%;
+    height: auto;
+    margin: 10px;
+    border:3px solid #ffff00;
+
+}
+
+.column p.tes {
+    font-weight: 300;
+    font-size: 2em;
+    padding: 0;
+    margin: 0;
+    text-align: lift;
+    line-height: 1.5;
+}
+
+.contentcenter {
+    text-align: center;
+
+}
+
+/* */
+textarea {
+    width: 100%;
+    font-size: 25px;
+    padding: 6px 0 4px 10px;
+    background: #F6F6f6;
+
+}

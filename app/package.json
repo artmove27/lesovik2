@@ -1,84 +1,85 @@
 {
-    "title": "lesovik",
-    "bg-script": "js\\background.js",
-    "description": "workinng is vk.com",
-    "nodejs": true,
-    "user-agent": "",
-    "additional_trust_anchors": [
-        ""
-    ],
-    "inject-js-end": "",
-    "engines": {
-        "fennec": ">=38.0a1",
-        "firefox": ">=38.0a1"
-    },
-    "author": "A.M. Tomilov",
-    "dependencies": {
-        "nw": "^0.12.3",
-        "node-uuid": "^1.4.7"
-    },
-    "name": "LesoViK",
-    "main": "index.html",
-    "node-main": "",
-    "single-instance": true,
-    "chromium-args": "--enable-gcm",
-    "webexe_settings": {
-        "nw_version": "0.12.3",
-        "linux-x32": false,
-        "force_download": false,
-        "mac-x32": false,
-        "mac-x64": false,
-        "uncompressed_folder": false,
-        "windows-x32": false,
-        "download_dir": "C:/Users/zews/AppData/Local/Web2Executable/Web2Executable/files/downloads",
-        "linux-x64": false,
-        "windows-x64": true,
-        "nw_compression_level": 9,
-        "export_dir": "C:\\nodejs\\lesovik2\\build",
-        "custom_script": ""
-    },
-    "node-remote": "",
-    "webkit": {
-        "page-cache": false,
-        "plugin": true,
-        "java": true
-    },
-    "snapshot": "",
-    "js-flags": "",
-    "devDependencies": {
-        "grunt-contrib-copy": "^0.8.2",
-        "grunt-contrib-uglify": "^0.11.0",
-        "grunt-version": "^1.0.0",
-        "grunt-newer": "^1.1.1"
-    },
-    "version": "a.8.0.9",
-    "license": " Commercial",
-    "window": {
-        "title": "LesoViK",
-        "resizable": true,
-        "kiosk": false,
-        "kiosk_emulation": false,
-        "as_desktop": false,
-        "width": 900,
-        "show_in_taskbar": true,
-        "mac_icon": "icons\\icon-128.png",
-        "icon": "icons\\icon-128.png",
-        "frame": true,
-        "always-on-top": false,
-        "min_width": 500,
-        "min_height": 600,
-        "max_width": 900,
-        "max_height": 850,
-        "position": "center",
-        "exe_icon": "icons\\icon-128.png",
-        "height": 850,
-        "toolbar": true,
-        "visible": true,
-        "show": true,
-        "transparent": false,
-        "fullscreen": false
-    },
-    "inject-js-start": "js\\jquery-1.8.3.js",
-    "keywords": [],
-    "app_name": "LesoViK"
+  "webkit": {
+    "java": true,
+    "plugin": true,
+    "page-cache": false
+  },
+  "description": "workinng is vk.com",
+  "devDependencies": {
+    "grunt-newer": "^1.1.1",
+    "grunt-contrib-uglify": "^0.11.0",
+    "grunt-version": "^1.0.0",
+    "grunt-contrib-copy": "^0.8.2"
+  },
+  "js-flags": "",
+  "node-main": "",
+  "version": "a.8.0.10",
+  "author": "A.M. Tomilov",
+  "node-remote": "",
+  "main": "index.html",
+  "name": "LesoViK",
+  "additional_trust_anchors": [
+    ""
+  ],
+  "app_name": "LesoViK",
+  "snapshot": "",
+  "keywords": [],
+  "nodejs": true,
+  "inject-js-end": "",
+  "window": {
+    "show_in_taskbar": true,
+    "visible": true,
+    "width": 1150,
+    "icon": "icons\\icon-128.png",
+    "kiosk_emulation": false,
+    "resizable": true,
+    "min_height": 600,
+    "as_desktop": false,
+    "position": "center",
+    "frame": true,
+    "kiosk": false,
+    "min_width": 450,
+    "height": 750,
+    "mac_icon": "icons\\icon-128.png",
+    "show": true,
+    "max_width": 1150,
+    "max_height": 900,
+    "title": "LesoViK",
+    "always-on-top": false,
+    "exe_icon": "icons\\icon-128.png",
+    "fullscreen": false,
+    "transparent": false,
+    "toolbar": false
+  },
+  "engines": {
+    "firefox": ">=38.0a1",
+    "fennec": ">=38.0a1"
+  },
+  "inject-js-start": "js\\jquery-1.8.3.js",
+  "single-instance": true,
+  "bg-script": "js\\background.js",
+  "webexe_settings": {
+    "export_dir": "C:\\nodejs\\lesovik2\\build",
+    "windows-x32": false,
+    "custom_script": "",
+    "windows-x64": true,
+    "download_dir": "C:/Users/zews/AppData/Local/Web2Executable/Web2Executable/files/downloads",
+    "mac-x64": false,
+    "force_download": false,
+    "uncompressed_folder": false,
+    "mac-x32": false,
+    "linux-x32": false,
+    "linux-x64": false,
+    "nw_compression_level": 9,
+    "nw_version": "0.12.3"
+  },
+  "chromium-args": "--enable-gcm",
+  "license": " Commercial",
+  "dependencies": {
+    "mongoose": "^4.4.2",
+    "node-uuid": "^1.4.7",
+    "nw": "^0.12.3"
+  },
+  "user-agent": "",
+  "title": "LesoViK"
 }

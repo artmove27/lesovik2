@@ -1,7 +1,7 @@
 /**
  * Created by zews on 25.01.2016.
  */
-var versions = "Users.js@1.3.5";
+var versions = "Users.js@1.3.6";
 $ = global.jQuery;
 function Users(name) {
     self = this;
@@ -66,10 +66,16 @@ function Users(name) {
                  $("input[name = login]").val("Введите логин");
                  $("input[name = pass]").val("Введите пароль");
                  $("input[name = idusers]").val(this.name);
+                 $("#formtitle").html("Добавить аккаунт");
+                 $("#tfo").html("");
+
+
              }else {
                  $("input[name = login]").val(this.login());
                  $("input[name = pass]").val(this.pass());
                  $("input[name = idusers]").val(this.name);
+                 $("#formtitle").html(this.login());
+                 $("#tfo").html("Редактировать");
 
              }
                  }
@@ -78,12 +84,13 @@ function Users(name) {
         var string ;
          if (this.login() == null){
 
-             string = "<li><a href=# id=" + this.name + "-edit class=editusers data-edit=" + this.name + ">Добавить аккаунт</a></li>";
+             string = "<li class=wsto><a href=#  id=" + this.name + "-edit class=eddits  data-edit=" + this.name + ">Добавить аккаунт</a></li>";
+             //
             //return string;
         } else {
 
-             string = "<li><a href=# id=" + this.name + ">" + this.login();
-             string = string + "</a>  <a href=# id=" + this.name + "-edit class=editusers data-edit=" + this.name + ">(Редактировать)</a></li>";
+             string = "<li class=wsto><a href=# class=eddit  id=" + this.name + ">" + this.login();
+             string = string + "</a>&nbsp;&nbsp;<a href=# id=" + this.name + "-edit class=editusers data-edit=" + this.name + ">(edit)</a></li>";
            /// return string;
         }
                 return string;

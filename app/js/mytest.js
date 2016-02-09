@@ -119,3 +119,75 @@ localStorage.getItem("Ключ");
 localStorage.removeItem("Ключ");
 // Очистка всего хранилища
 localStorage.clear();
+/// объект
+
+function UserList(name) {
+    this.name = name;
+
+    this.lkey = function() {
+        var lkey =  this.name + "_l";
+        return lkey;
+    };
+    this.pkey = function(){
+        var pkey =  this.name + "_p";
+        return pkey;
+    };
+    this.login = function(log){
+        if (!arguments.length) {
+
+            var login = window.localStorage.getItem(this.lkey());
+            return login;
+
+        } else {
+
+            window.localStorage.setItem(this.lkey(), log);
+        }
+    };
+    this.pass = function(ps){
+        if (!arguments.length) {
+
+            var ps = window.localStorage.getItem(this.pkey());
+            return ps;
+
+        } else {
+
+            window.localStorage.setItem(this.pkey(), ps);
+        }
+
+    };
+
+};
+///
+
+var optionk = {
+    key : "Ctrl+d",
+    active : function() {
+        console.log("Global desktop keyboard shortcut: " + this.key + " active.");
+    },
+    failed : function(msg) {
+        // :(, fail to register the |key| or couldn't parse the |key|.
+        console.log(msg);
+    }
+};
+
+//
+// Create a shortcut with |option|.
+var shortcut = new gui.Shortcut(optionk);
+
+// Register global desktop shortcut, which can work without focus.
+gui.App.registerGlobalHotKey(shortcut);
+
+// If register |shortcut| successfully and user struck "Ctrl+Shift+A", |shortcut|
+// will get an "active" event.
+
+// You can also add listener to shortcut's active and failed event.
+shortcut.on('active', function() {
+    console.log("Global desktop keyboard shortcut: " + this.key + " active.");
+});
+
+shortcut.on('failed', function(msg) {
+    console.log(msg);
+});
+
+// Unregister the global desktop shortcut.
+//gui.App.unregisterGlobalHotKey(shortcut);

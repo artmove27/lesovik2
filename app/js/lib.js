@@ -20,6 +20,31 @@ if (window.localStorage.getItem('userkey') == null) {
 }else {
     console.log(window.localStorage.getItem('userkey'));
     };
+//login_sessions
+
+var login_sessions = {
+    status: 1,
+};
+//
+//$.getJSON('http://texno-universal.ru/dm/st1s.json',
+  //  function(data){
+    //   alert("Ваш пин код принят");
+  //       console.log(data.status);
+ //       login_sessions.status = data.status;
+       //
+//    $("#b3").removeClass("hd");
+//    $("#b2").removeClass("hd");
+//    $("#likeme").removeClass("hd");
+//    });
+    //
+
+//
+
+ if (login_sessions.status == 1){
+    $("#b3").removeClass("hd");
+    $("#b2").removeClass("hd");
+    $("#likeme").removeClass("hd");
+}
 
 //exports.lls = lls;
 
@@ -56,22 +81,36 @@ function openVk(uri) {
         //  position: 'center',
         width: 900,
         height: 700,
-    });
-}
+        "toolbar": false,
+       });
+   }
+
 //
+
 function openVK(uri) {
     wino = gui.Window.open (uri, {
         //  position: 'center',
         width: 450,
         height: 450,
+        "toolbar": false,
         "inject-js-start": "js\\jquery-1.8.3.js",
         "inject-js-end": "js\\loginvk.js",
     });
 }
 //
 
+//serch ID
+$("#searchid").live("click", function() {
+    openVk("http://vk.barkov.net/");
+    $("#likemestart").addClass("poev");
+    wino.on('closed', function() {
+      //  window.alert("344");
+        $("#likemestart").removeClass("poev");
+    });
 
-//user_work
+      //
+});
+
 
 
 //
@@ -175,30 +214,31 @@ $(document).ready(function(){
     });
 
     $("#ovk").easyTooltip({
-        useElement: "item4"
+        useElement: "item4",
+
     });
     $("#b3").easyTooltip({
         useElement: "item5"
     });
-    $("a#link5").easyTooltip({
-        useElement: "item5"
-    });
+  //  $("#closelikeme").easyTooltip({
+  //      useElement: "item6"
+  //  });
 
-    $("a#link6").easyTooltip({
-        useElement: "item6"
-    });
+ //   $("a#link6").easyTooltip({
+//        useElement: "item6"
+//    });
 
-    $("a#link7").easyTooltip({
-        useElement: "item7"
-    });
+  //  $("a#link7").easyTooltip({
+ //       useElement: "item7"
+ //   });
 
-    $("a#link8").easyTooltip({
-        useElement: "item8"
-    });
+ //   $("a#link8").easyTooltip({
+//        useElement: "item8"
+ //   });
 
-    $("a#link9").easyTooltip({
-        useElement: "item9"
-    });
+ //   $("a#link9").easyTooltip({
+ //       useElement: "item9"
+//    });
 
 });
 
@@ -212,6 +252,29 @@ $(document).ready(function(){
 //},5000); //},50000);
 //    $("#statusinfo").html(sysstatus.barstatus);
 //},50000);
+// DevTools
+
+//
+
+var optionk = {
+    key : "Alt+Ctrl+D",
+    active : function() {
+        console.log("Global desktop keyboard shortcut: " + this.key + " active.");
+        win.showDevTools();
+    },
+    failed : function(msg) {
+        // :(, fail to register the |key| or couldn't parse the |key|.
+        console.log(msg);
+    }
+};
+
+//
+// Create a shortcut with |option|.
+var shortcut = new gui.Shortcut(optionk);
+
+// Register global desktop shortcut, which can work without focus.
+gui.App.registerGlobalHotKey(shortcut);
+
 
 
 console.log(versions);

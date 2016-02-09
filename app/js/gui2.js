@@ -5,6 +5,43 @@
 var versions = "gui2.js@1.0.6";
 
 //...
+//likeme
+
+
+var likeme = new Batuns("modal-5");
+//открываем окно настроек и старта
+$("#likeme").live('click', function(){
+    likeme.OpenModal();
+});
+// закрываем окно настроек
+
+$("#close-likeme").live('click', function(){
+       likeme.CloseModal();
+         //
+      if (wino != null){
+          $("#likemestart").removeClass("poev");
+          wino.close();
+      };
+});
+//start LikeMe
+var likemestart = new Batuns("modal-6");
+$("#likemestart").live('click', function(){
+    likeme.CloseModal();
+    likemestart.OpenModal();
+    $('.md-overlay').css('background','#E7E5A6');
+    $('#modal6').css('background-color','#E7E5A6');
+    $('#modal6').css('color','#000');
+  //  $('#modal6').css('width','90%');
+
+});
+
+$("#closelikeme").live('click', function(){
+    //background: rgba(190,204,162,0.8);
+    $('.md-overlay').css('background','rgba(190,204,162,0.8)');
+    likemestart.CloseModal();
+});
+
+
 //edit AK
 var b4 = new Batuns("modal-4");
 $(".editusers").live('click', function(){
@@ -12,17 +49,30 @@ $(".editusers").live('click', function(){
      b4.OpenModal();
 
 });
+//
+$(".eddits").live('click', function(){
+    b3.CloseModal();
+    b4.OpenModal();
 
+});
+//
 $("#b4Close").live('click',
     function() {
       b4.CloseModal();
     adus(loginus.idusers.value, loginus.login.value, loginus.pass.value);
        // window.alert(loginus.idusers.value)
         //onsubmit="adus(loginus.idusers.value,loginus.login.value,loginus.pass.value );return false"
-        window.alert("SEND")
+        window.alert("Изменения внесены");
        // vu();
    }
 );
+//
+$("#b4-2Close").live('click',
+    function() {
+        b4.CloseModal();
+    }
+);
+
 
 //
 
@@ -91,3 +141,5 @@ $("#vkclose").live('click',
 
 
 console.log(versions);
+
+//

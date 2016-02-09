@@ -13,8 +13,16 @@ global.gui = gui;
 var win = gui.Window.get(); //окно
 global.jQuery = jQuery;
 var gui = require('nw.gui');
+
+
+//splash
+//win.resizeTo(100, 100);
+
+//alert("asdasd");
+//
+
 var sysstatus = global.sysstatus;
-var versions = "LesoViK v.a8.0.9";
+var versions = "LesoViK v.a8.0.10";
  sysstatus = {
     useronline: "Off",
     idvk : 0,
@@ -66,27 +74,33 @@ console.log("Start Init");
 
 //lib
 require('nw.gui').Window.get().evalNWBin(null, './js/lib.bin');
-//localStorage.setItem('userkey', 'no');
-//alert(localStorage.getItem('userkey'));
 //require('./js/lib.js');
+//require('./js/lykeme.js');
 
 //старотвые установки
-
-
 //модули программы bin
 //require('nw.gui').Window.get().evalNWBin(null, './js/mytest.bin');
 
 //GUI
 //menu
 var menu = new gui.Menu();
-menu.append(new gui.MenuItem({ label: 'Item A' }));
-menu.append(new gui.MenuItem({ label: 'Item B' }));
+var submenu = new gui.Menu();
+menu.append(new gui.MenuItem({ label: 'Настройки' }));
+menu.append(new gui.MenuItem({
+    label: 'Справка',
+    submenu: submenu
+}));
+submenu.append(new gui.MenuItem({ label: 'Справка' }));
+submenu.append(new gui.MenuItem({ label: 'О программе' }));
+submenu.append(new gui.MenuItem({ label: 'Лицензия' }));
 menu.append(new gui.MenuItem({ type: 'separator' }));
 menu.append(new gui.MenuItem({ label: 'Выход',
     click: function() {
         self.win.close();
     }
 }));
+
+
 
 //menu.removeAt(1);
 //menu.popup(10, 10);
@@ -101,49 +115,21 @@ document.body.addEventListener('contextmenu', function(e) {
 
 for (var i = 0; i < menu.items.length; ++i) {
     console.log(menu.items[i]);
+};
+if (login_sessions == 0){
+   // menu.removeAt(0);
+   // menu.removeAt(1);
 }
+
+//
 
 console.log(versions2);
 // пробы
 
-//class userlist
 
+win.on('minimize', function() {
+    console.log('Window is minimized');
+});
 
-function UserList(name) {
-    this.name = name;
+//
 
-    this.lkey = function() {
-            var lkey =  this.name + "_l";
-        return lkey;
-    };
-    this.pkey = function(){
-        var pkey =  this.name + "_p";
-        return pkey;
-    };
-    this.login = function(log){
-        if (!arguments.length) {
-
-            var login = window.localStorage.getItem(this.lkey());
-            return login;
-
-        } else {
-
-            window.localStorage.setItem(this.lkey(), log);
-        }
-    };
-    this.pass = function(ps){
-        if (!arguments.length) {
-
-            var ps = window.localStorage.getItem(this.pkey());
-              return ps;
-
-        } else {
-
-            window.localStorage.setItem(this.pkey(), ps);
-        }
-
-    };
-
-};
-
-//window.alert(user3.pkey());

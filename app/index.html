@@ -44,16 +44,31 @@ return i;
 	<!-- Modal Users -->
 	<div class="md-modal md-effect-17 mod-overf" id="modal-4">
 		<div class="md-content">
-			<h3>Добавить / редактировать аккаунт</h3>
+			<h3 id="formtitle">#Login</h3>
 			<div>
 				<form name="loginus" id="logizna">
-					<ul>
-						<li>Логин   <input type="text" class="useredit" name="login"></li>
-						<li>Пароль  <input type="text" class="useredit" name="pass"></li>
-					</ul>
-					<input type="hidden" name="idusers" value="0">
+					<div>
+							<!-- Form Name -->
+						<legend id="tfo">Редактировать аккаунт</legend>
+							<!-- Text input-->
+							<label class="col-md-4 control-label" for="textinput">Логин</label><br/>
+							 <input type="text" class="useredit" name="login">
+					<br/>
+						<!-- Text input-->
+							<label class="col-md-4 control-label" for="textinput">Пароль</label><br/>
+							<input type="text" class="useredit" name="pass">
+					     	<input type="hidden" name="idusers" value="0">
+
 				</form>
-				<button class="md-close" id="b4Close">Сохранить</button>
+                     </div>
+			<br/>
+			<div class="boxer">
+				<div class="box-row">
+					<div class="box"><button class="md-close" id="b4-2Close">&nbsp;Закрыть&nbsp;</button> </div>
+					<div class="box"><button class="md-close" id="b4Close">Сохранить</button></div>
+				</div>
+			</div>
+
 			</div>
 		</div>
 	</div>
@@ -86,11 +101,55 @@ return i;
 			<h3>Key Id</h3>
 			<div>
 				<p>Укажите ваш ключ</p>
-
+               <a href="http://vk.com">VK</a>
 			<button class="md-close" id="b1Close">Закрыть</button>
 			</div>
 		</div>
 	</div>
+<!-- setmodal likeme -->
+<div class="md-modal md-effect-1" id="modal-5">
+	<div class="md-content" id="modal5">
+		<h3>LikeMe</h3>
+		<div>
+			<p>Вставьте список ID по одному на каждую строку</p>
+			<form>
+				<textarea rows="7" id="adduseid"></textarea>
+			</form>
+			<ul>
+				<li><a href="#" id="searchid"><strong>Подобрать ID используя сервис.</strong></a> Скопируйте найденные ID используя сочетания клавиш <strong>Ctrl+C</strong> и вставьте их в поле
+					<strong>Ctrl+V</strong>.</li>
+				<li><strong>ВНИМАНИЕ:</strong> Кнопка "Старт" при открытом окне подбора ID будет не активна</li>
+			</ul>
+			<br/>
+			<div class="boxer">
+				<div class="box-row">
+					<div class="box"><button class="md-close" id="close-likeme">&nbsp;Закрыть&nbsp;</button> </div>
+					<div class="box"><button class="md-close" id="likemestart">&nbsp;<<Старт>></button></div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>
+<div class="md-modal md-effect-12" id="modal-6">
+	<div class="md-content" id="modal6">
+		<h3 id="m6">LikeMe</h3>
+		<div>
+			<p>Запущена система лайков</p>
+			<ul>
+
+
+			</ul>
+			<div class="boxer">
+				<div class="box-row">
+					<div class="box"><button class="md-close" id="closelikeme">&nbsp;Закрыть&nbsp;</button> </div>
+					<div class="box"><button class="md-close" id="likemestop">&nbsp;<<Стоп>></button></div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>
  <!-- мои окна -->
 		<div class="container">
 			<!-- Top Navigation -->
@@ -102,17 +161,26 @@ return i;
 				<h1>LesoViK<span>Разговор на языке Энтов требует много времени</span></h1>
 			</header>
 			<div class="main clearfix">
-				<div class="column">
-					<p>There are many possibilities for modal overlays to appear. Here are some modern ways of showing them using CSS transitions and animations.</p>
+				<div class="column" id="infolesovik">
+					<p class="inf" id="ifobox">Добро пожаловать!</p>
+					<img src="./images/page.jpeg" class="imginfo hd">
+					<div class="boxer" id="contentinfo">
+						<div class="box-row">
+							<div class="box"><button class="md-close hd" id="">&nbsp;Закрыть&nbsp;</button> </div>
+							<div class="box"><button class="md-close hd" id="">&nbsp;<<Стоп>></button></div>
+						</div>
+					</div>
 				</div>
+
+				<!-- -->
 				<div class="column" id="menu">
 					<!-- Button trigger modal -->
 					                                  <button id="ovk">Открыть VK</button>
-					<button id="openvk">VK</button>
-												<button class="md-trigger" id="b3">Аккаунты</button>
-                 <button class="md-trigger" id="b1">Код активации</button><button class="md-trigger" id="b2">Помощь</button>
-					<button id="wv">webview</button> <button id="vkclose">Закрыть VK</button>
-
+					<button id="openvk" class="hd">VK</button>
+												<button class="md-trigger hd" id="b3">Аккаунты VK</button> <button class="md-trigger hd" id="likeme">LikeMe</button>
+                 <button class="md-trigger" id="b1">Настройки</button>
+					<button id="wv" class="md-trigger hd">webview</button> <button class="md-trigger hd" id="vkclose">Закрыть VK</button>
+					<button class="md-trigger hd" id="b2">Справка</button>
 					<!--
                                     <button id="mdclose" bots="lesovic.js" class="mdclose" data-action="testbot">Post VK</button>
                                     <button id="mdclose" bots="user1.iim" class="mdclose" data-action="testbot">User</button>
@@ -153,13 +221,15 @@ return i;
                                         
 
 				</div>
+
 			</div>
+			<p>копирайт и.т.д.</p>
 		</div><!-- /container -->
 		<div class="md-overlay" ib="mdoverlay"></div><!-- the overlay element -->
 </div>
 
 <!-- подсказки -->
-<div id="item3">
+<div id="item3" class="sys-status">
 </div>
 <div id="item4">
 	<h3 id="status-msg2">ВКонтакте</h3>
@@ -171,8 +241,13 @@ return i;
 </div>
 <div id="item5">
 	<h3 id="status-msg2">Аккаунты</h3>
-	<p><b>Управление аккаунтами.</b>Добовляем или редактируем аккаунты</p>
+	<p><b>Управление аккаунтами.</b> Добовляем или редактируем аккаунты</p>
 </div>
+<div id="item6">
+	<h3 id="status-msg6">6Добавить аккаунт</h3>
+	<p><b>Управление аккаунтами.</b> Добовляем или редактируем аккаунты</p>
+</div>
+<!-- /подсказки -->
 <script src="js/app.js"></script>
 <script src="js/gui2.js"></script>
 <script>
@@ -183,7 +258,6 @@ return i;
 
 var a = "Подключаем BIN файл";
 console.log(mytest());
-
 </script>
 
 	</body>
