@@ -191,3 +191,13 @@ textarea {
     background: #F6F6f6;
 
 }
+/* */
+.img-info {
+    height: 200px;
+    width: 200px;
+
+}
+
+#imglike {
+    text-align: center; /* Выравнивание по центру */
+}

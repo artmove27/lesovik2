@@ -1,9 +1,17 @@
 /**
  * Created by zews on 01.02.2016.
  */
+console.time('Start-APP');
+var versions2 = "app.js@7.3.20"
+//
 
-var versions2 = "app.js@6.2.15"
 
+window.onerror = function(message, url, lineNumber) {
+    alert("Поймана ошибка, выпавшая в глобальную область!\n" +
+       "Сообщение: " + message + "\n(" + url + ":" + lineNumber + ")");
+};
+
+//
 // Load native UI library
 var gui = require('nw.gui'); //or global.window.nwDispatcher.requireNwGui()
 global.window = window
@@ -74,9 +82,11 @@ console.log("Start Init");
 
 //lib
 require('nw.gui').Window.get().evalNWBin(null, './js/lib.bin');
+require('nw.gui').Window.get().evalNWBin(null, './js/gui2.bin');
 //require('./js/lib.js');
-//require('./js/lykeme.js');
-
+//require('./js/gui2.js');
+//<script src="./js/_gui2.js"></script>
+const util = require('util');
 //старотвые установки
 //модули программы bin
 //require('nw.gui').Window.get().evalNWBin(null, './js/mytest.bin');
@@ -85,6 +95,13 @@ require('nw.gui').Window.get().evalNWBin(null, './js/lib.bin');
 //menu
 var menu = new gui.Menu();
 var submenu = new gui.Menu();
+menu.append(new gui.MenuItem({ label: 'Обновить',
+   click: function() {
+    win.reload();
+}
+
+}));
+menu.append(new gui.MenuItem({ type: 'separator' }));
 menu.append(new gui.MenuItem({ label: 'Настройки' }));
 menu.append(new gui.MenuItem({
     label: 'Справка',
@@ -96,7 +113,8 @@ submenu.append(new gui.MenuItem({ label: 'Лицензия' }));
 menu.append(new gui.MenuItem({ type: 'separator' }));
 menu.append(new gui.MenuItem({ label: 'Выход',
     click: function() {
-        self.win.close();
+        gui.App.quit();
+
     }
 }));
 
@@ -116,14 +134,18 @@ document.body.addEventListener('contextmenu', function(e) {
 for (var i = 0; i < menu.items.length; ++i) {
     console.log(menu.items[i]);
 };
-if (login_sessions == 0){
-   // menu.removeAt(0);
-   // menu.removeAt(1);
-}
+
+//var logs = window.sessionStorage.getItem('login_sessions');
+//if ( logs != "LogIn"){
+//    menu.removeAt(0);
+//    menu.removeAt(1);
+//}
 
 //
 
 console.log(versions2);
+console.log(util.inspect(process.memoryUsage()));
+console.timeEnd('Start-APP');
 // пробы
 
 
@@ -132,4 +154,7 @@ win.on('minimize', function() {
 });
 
 //
+
+//win.reload();
+
 

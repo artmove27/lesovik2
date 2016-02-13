@@ -4,7 +4,7 @@
 /**
  * Created by zews on 28.01.2016.
  */
-var versions = "loginvk.js@0.0.11";
+var versions = "loginvk.js@0.0.12";
 
 //localStorage.setItem('key', 'COM');
 //   alert(localStorage.getItem('key'));
@@ -83,6 +83,8 @@ switch (queryStr['cmd']) {
 
 //
 
+//
+
 switch (vk.id) {
     case undefined:
         //  window.alert(undefined);
@@ -93,7 +95,7 @@ switch (vk.id) {
     default:
         //  window.alert('Сработало');
         opener.postMessage(sendObject, '*');
-        WinClo();
+           WinClo();
 };
 //
 

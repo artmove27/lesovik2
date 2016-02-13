@@ -12,6 +12,8 @@ var likeme = new Batuns("modal-5");
 //открываем окно настроек и старта
 $("#likeme").live('click', function(){
     likeme.OpenModal();
+    getIDList();
+    //чтение списка
 });
 // закрываем окно настроек
 
@@ -21,16 +23,31 @@ $("#close-likeme").live('click', function(){
       if (wino != null){
           $("#likemestart").removeClass("poev");
           wino.close();
-      };
+      }
 });
 //start LikeMe
+
+$("#likemestop").live('click', function(){
+    window.alert("Пауза. Для продолжения нажмите <<ОК>>");
+
+
+    });
+
 var likemestart = new Batuns("modal-6");
 $("#likemestart").live('click', function(){
+    setIDList();
     likeme.CloseModal();
     likemestart.OpenModal();
-    $('.md-overlay').css('background','#E7E5A6');
-    $('#modal6').css('background-color','#E7E5A6');
-    $('#modal6').css('color','#000');
+   // $('.md-overlay').css('background','#E7E5A6');
+  //  $('#modal6').css('background-color','#E7E5A6');
+  //  $('#modal6').css('color','#000');
+    setTimeout(listidtop(), 1000);
+
+    //ruid();
+   // console.log(Uinfo.id);
+   // console.log(Uinfo.photo_200);
+
+
   //  $('#modal6').css('width','90%');
 
 });
@@ -39,6 +56,7 @@ $("#closelikeme").live('click', function(){
     //background: rgba(190,204,162,0.8);
     $('.md-overlay').css('background','rgba(190,204,162,0.8)');
     likemestart.CloseModal();
+   // win.reload();
 });
 
 
@@ -77,14 +95,22 @@ $("#b4-2Close").live('click',
 //
 
 var b1 = new Batuns("modal-1");
-$("#b1").live('click', function(){b1.OpenModal()});
+$("#b1").live('click', function(){
+    b1.OpenModal();
+    $("input[name = pincode]").val(PinCode.get());
+
+});
 $("#b1Close").live('click',
     function() {
+        PinCode.set(pcode.pincode.value)
         b1.CloseModal();
-       // win.window.close();
+          PinCode.verify();
+      //   win.reload();
+        // win.window.close();
     }
         );
 //...
+// work
 var b2 = new Batuns("modal-2");
 $("#b2").live('click', function(){b2.OpenModal()});
 $("#b2Close").live('click',
@@ -135,11 +161,13 @@ $("#wv").live('click',
 //vkclose
 $("#vkclose").live('click',
     function() {
-       wino.window.close();
+      // wino.window.close();
+        setTimeout( tokens.window.close(),1000);
+
     }
 );
 
-
+//end work
 console.log(versions);
 
 //

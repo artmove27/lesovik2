@@ -13,7 +13,7 @@
   },
   "js-flags": "",
   "node-main": "",
-  "version": "a.8.0.10",
+  "version": "a.9.0.10",
   "author": "A.M. Tomilov",
   "node-remote": "",
   "main": "index.html",
@@ -49,7 +49,7 @@
     "exe_icon": "icons\\icon-128.png",
     "fullscreen": false,
     "transparent": false,
-    "toolbar": false
+    "toolbar": true
   },
   "engines": {
     "firefox": ">=38.0a1",
@@ -78,7 +78,9 @@
   "dependencies": {
     "mongoose": "^4.4.2",
     "node-uuid": "^1.4.7",
-    "nw": "^0.12.3"
+    "nodejs-md5": "^0.6.0",
+    "nw": "^0.12.3",
+    "vk-lib": "^0.2.0"
   },
   "user-agent": "",
   "title": "LesoViK"

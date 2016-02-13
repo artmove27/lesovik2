@@ -1,0 +1,83 @@
+1  12367045
+native harmony-string.js:1 2  4505587
+native harmony-string.js:1 3  8547085
+native harmony-string.js:1 4  8137860
+native harmony-string.js:1 5  5525322
+native harmony-string.js:1 6  11473432
+native harmony-string.js:1 7  13351271
+native harmony-string.js:1 8  14369432
+native harmony-string.js:1 9  20746499
+native harmony-string.js:1 10  22656064
+native harmony-string.js:1 11  22142507
+native harmony-string.js:1 12  23165139
+native harmony-string.js:1 13  24282451
+native harmony-string.js:1 14  27966564
+native harmony-string.js:1 15  32640746
+native harmony-string.js:1 16  30714551
+native harmony-string.js:1 17  16750658
+native harmony-string.js:1 18  36291707
+native harmony-string.js:1 19  40879965
+native harmony-string.js:1 20  49028559
+native harmony-string.js:1 21  46269968
+native harmony-string.js:1 22  44791358
+native harmony-string.js:1 23  58399272
+native harmony-string.js:1 24  63046694
+native harmony-string.js:1 25  64811449
+native harmony-string.js:1 26  72517485
+native harmony-string.js:1 27  85367385
+native harmony-string.js:1 28  95194531
+native harmony-string.js:1 29  107226916
+native harmony-string.js:1 30  112337501
+native harmony-string.js:1 31  118643363
+native harmony-string.js:1 32  117183289
+native harmony-string.js:1 33  122974194
+native harmony-string.js:1 34  125836249
+native harmony-string.js:1 35  129019737
+native harmony-string.js:1 36  132664436
+native harmony-string.js:1 37  136989138
+native harmony-string.js:1 38  133717050
+native harmony-string.js:1 39  135681394
+native harmony-string.js:1 40  138671438
+native harmony-string.js:1 41  139400039
+native harmony-string.js:1 42  146646513
+native harmony-string.js:1 43  147707469
+native harmony-string.js:1 44  152753591
+native harmony-string.js:1 45  161249222
+native harmony-string.js:1 46  156893793
+native harmony-string.js:1 47  151408638
+native harmony-string.js:1 48  166336276
+native harmony-string.js:1 49  170981092
+native harmony-string.js:1 50  173370963
+native harmony-string.js:1 51  212163739
+native harmony-string.js:1 52  222145396
+native harmony-string.js:1 53  202056904
+native harmony-string.js:1 54  214195849
+(program):1 55  222354299
+(program):1 56  226903986
+(program):1 57  231529310
+(program):1 58  255400562
+(program):1 59  257082684
+(program):1 60  241462501
+(program):1 61  265970897
+(program):1 62  274699631
+(program):1 63  274661889
+(program):1 64  276001094
+(program):1 65  277504600
+(program):1 66  282224853
+(program):1 67  284651154
+(program):1 68  296787884
+(program):1 69  301211703
+(program):1 70  301610619
+(program):1 71  308817982
+(program):1 72  308178825
+(program):1 73  289513717
+(program):1 74  312736666
+(program):1 75  315604319
+(program):1 76  332895549
+(program):1 77  340819854
+(program):1 78  341141188
+(program):1 79  343584265
+(program):1 80  344905481
+(program):1 81  336452204
+(program):1 82  326559
+(program):1 83  341517241
