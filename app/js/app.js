@@ -20,7 +20,7 @@ global.window = window
 global.gui = gui;
 var win = gui.Window.get(); //окно
 global.jQuery = jQuery;
-var gui = require('nw.gui');
+
 
 
 //splash
@@ -82,8 +82,8 @@ console.log("Start Init");
 
 //lib
 require('nw.gui').Window.get().evalNWBin(null, './js/lib.bin');
-require('nw.gui').Window.get().evalNWBin(null, './js/gui2.bin');
 //require('./js/lib.js');
+require('nw.gui').Window.get().evalNWBin(null, './js/gui2.bin');
 //require('./js/gui2.js');
 //<script src="./js/_gui2.js"></script>
 const util = require('util');
@@ -102,7 +102,25 @@ menu.append(new gui.MenuItem({ label: 'Обновить',
 
 }));
 menu.append(new gui.MenuItem({ type: 'separator' }));
-menu.append(new gui.MenuItem({ label: 'Настройки' }));
+//menu.append(new gui.MenuItem({ label: 'Вырезать' }));
+menu.append(new gui.MenuItem({ label: 'Копировать',
+    click: function() {
+           document.execCommand("copy");
+    }
+
+}));
+menu.append(new gui.MenuItem({ label: 'Вставить',
+    click: function() {
+        document.execCommand("paste");
+    }
+}));
+menu.append(new gui.MenuItem({ type: 'separator' }));
+menu.append(new gui.MenuItem({ label: 'Настройки',
+    click: function() {
+        b1.OpenModal();
+        $("input[name = pincode]").val(PinCode.get());
+    }
+}));
 menu.append(new gui.MenuItem({
     label: 'Справка',
     submenu: submenu
@@ -114,7 +132,6 @@ menu.append(new gui.MenuItem({ type: 'separator' }));
 menu.append(new gui.MenuItem({ label: 'Выход',
     click: function() {
         gui.App.quit();
-
     }
 }));
 

@@ -38,6 +38,7 @@ var login_sessions = {
 //pin-code
 
 var PinCode = {
+
     set: function(pin){
       window.localStorage.setItem("pin-code", pin)
     } ,
@@ -169,8 +170,10 @@ var power = "enable" ;
             //  position: 'center',
             width: 900,
             height: 700,
-            "toolbar": false,
-        });
+          //  menu: menu,
+            //
+            });
+          //
     }
 
 //

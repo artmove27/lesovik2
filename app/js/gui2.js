@@ -146,6 +146,7 @@ $("#openvk").live('click',
 $("#ovk").live('click',
     function() {
         openVk("http://vk.com/");
+
     }
 );
 
