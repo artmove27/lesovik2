@@ -135,6 +135,7 @@ var win1 ;
 $("#openvk").live('click',
     function() {
           openVK(user1.LogIn());
+
        // self.window.focus()
         //win.window.close()
 
@@ -163,8 +164,13 @@ $("#wv").live('click',
 $("#vkclose").live('click',
     function() {
       // wino.window.close();
-        setTimeout( tokens.window.close(),1000);
-
+     //   setTimeout( tokens.window.close(),1000);
+        lkVK("57009022");
+          lkvk.on('loaded', function(){
+            // the native onload event has just occurred
+            var document = lkvk.window.document;
+            document.write("<p>Некоторый текст 222222</p>");
+        });
     }
 );
 

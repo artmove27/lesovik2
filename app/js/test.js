@@ -11,3 +11,5 @@ function AA(){
 exports.a = AA;
 
 console.log(versions);
+
+document.write('{"token_code": dddd}')

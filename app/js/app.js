@@ -6,10 +6,10 @@ var versions2 = "app.js@7.3.20"
 //
 
 
-window.onerror = function(message, url, lineNumber) {
-    alert("Поймана ошибка, выпавшая в глобальную область!\n" +
-       "Сообщение: " + message + "\n(" + url + ":" + lineNumber + ")");
-};
+//window.onerror = function(message, url, lineNumber) {
+//    alert("Поймана ошибка, выпавшая в глобальную область!\n" +
+//       "Сообщение: " + message + "\n(" + url + ":" + lineNumber + ")");
+//};
 
 //
 // Load native UI library
@@ -30,7 +30,8 @@ global.jQuery = jQuery;
 //
 
 var sysstatus = global.sysstatus;
-var versions = "LesoViK v.a8.0.10";
+var versions = "LesoViK v.a.10.1.11";
+
  sysstatus = {
     useronline: "Off",
     idvk : 0,

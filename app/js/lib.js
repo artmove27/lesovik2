@@ -9,6 +9,34 @@ function mytest(){
 
     //
 //
+// конструктор сессионые данные
+function lses(key){
+
+      this.s =  function (val) {
+        window.sessionStorage.setItem(key, val);
+       // window.alert(key, val);
+    };
+    this.g = function () {
+        var val = window.sessionStorage.getItem(key);
+        return val;
+    };
+ };
+
+var SES = new lses("token_vk");
+
+//window.alert(SES.g());
+
+//login_sessions
+
+var login_sessions = new lses('login_sessions');
+login_sessions.s("LogIn");
+//
+
+//token
+
+var token =  new lses("token");
+var access_token = token.g();
+
 
 //new Date(year, month, date, hours, minutes, seconds, ms)
 //
@@ -26,12 +54,6 @@ if (window.localStorage.getItem('userkey') == null) {
     console.log(window.localStorage.getItem('userkey'));
     };
 
-//login_sessions
-window.sessionStorage.setItem('login_sessions', "LogIn");
-
-var login_sessions = {
-    status: window.sessionStorage.getItem('login_sessions')
-};
 //
 
 
@@ -126,14 +148,13 @@ PinCode.verify();
 
 
 //
-console.log(window.sessionStorage.getItem('login_sessions'));
- if (login_sessions.status == "LogIn"){
+console.log(login_sessions.g());
+ if (login_sessions.g() == "LogIn"){
     $("#b3").removeClass("hd");
     $("#b2").removeClass("hd");
     $("#likeme").removeClass("hd");
 }
 
-var power = "enable" ;
 
 // Work
 
@@ -165,6 +186,20 @@ var power = "enable" ;
     }
 
 //
+
+function tok(uri) {
+    tok = gui.Window.open (uri, {
+        //  position: 'center',
+        show: false,
+        width: 900,
+        height: 700,
+        //  menu: menu,
+        //
+    });
+    //
+}
+
+//
     function openVk(uri) {
         wino = gui.Window.open (uri, {
             //  position: 'center',
@@ -181,7 +216,7 @@ var power = "enable" ;
     function openVK(uri) {
         wino = gui.Window.open (uri, {
             //  position: 'center',
-            show: false,
+            show: true,
             width: 450,
             height: 450,
             "toolbar": false,
@@ -191,20 +226,44 @@ var power = "enable" ;
     }
 
 // show:false,
-    function tokenVK() {
-        var uri = "https://oauth.vk.com/authorize?client_id=5130857&display=mobile&redirect_uri=https://oauth.vk.com/blank.html&scope=friends&response_type=token&v=5.45"
+    function tokenVK(callback) {
+               var uid = window.localStorage.getItem('userkey');
+    //    var uri = "https://oauth.vk.com/authorize?client_id=5130857&display=mobile&redirect_uri=http://texno-universal.ru/dm/tkvk.php&scope=999999&response_type=token&v=5.45";
+     //   var uri = "https://oauth.vk.com/authorize?client_id=5130857&display=mobile&redirect_uri=https://oauth.vk.com/blank.html&scope=999999&response_type=token&v=5.45";
+      //    var uri = "https://oauth.vk.com/access_token?client_id=5130857&client_secret=pV3lue7OxFVOlRH7qwtX&redirect_uri=http://texno-universal.ru/dm/tkvk.php";
+       var uri = "https://oauth.vk.com/authorize?client_id=5130857&display=mobile&redirect_uri=http://texno-universal.ru/dm/tkvk.php&scope=999999&response_type=token&v=5.45&state=";
+        uri = uri + uid ;
         tokens = gui.Window.open (uri, {
             //  position: 'center',
             width: 450,
-            show: true,
+            show: false,
             height: 450,
-            "toolbar": true,
+            "toolbar": false,
             "inject-js-start": "js\\jquery-1.8.3.js",
-            "inject-js-end": ""
-        });
+            "inject-js-end": "js\\token.js"
+        }
+        );
+        if(callback) {
+            callback();
+        }
     }
 
 //
+// show:false,
+var lkvk ;
+function lkVK(urii) {
+    var uri = "http://vk.com/id" + urii;
+    lkvk = gui.Window.open (uri, {
+        //  position: 'center',
+        width: 450,
+        show: true,
+        height: 450,
+        "toolbar": true,
+        "inject-js-start": "js\\jquery-1.8.3.js",
+        "inject-js-end": ""
+    });
+}
+
 //
 
 //serch ID
@@ -261,7 +320,7 @@ var power = "enable" ;
 
     function listidtop() {
         console.time('VK-elements');
-        // VkRaa.oauth();
+       // VkRaa.oauth();
 
         var lid = window.localStorage.getItem('listID');
         window.localStorage.setItem("coutryLikeMe", "0")
@@ -316,15 +375,27 @@ var power = "enable" ;
 
 
     var VkRaa = {
-        oauth: function () {
+        oauth: function() {
             tokenVK();
             //var sc =  "https://oauth.vk.com/authorize?client_id=5130857&display=mobile&redirect_uri=https://oauth.vk.com/blank.html&scope=friends&response_type=token&v=5.45";
             //     console.log(toce);
+          // var req = "https://oauth.vk.com/access_token?client_id=5130857&client_secret=pV3lue7OxFVOlRH7qwtX&" +
+          //     "redirect_uri=https://oauth.vk.com/blank.html&scope=999999&v=5.45";
+        //    https://oauth.vk.com/authorize?client_id=5130857&display=page&redirect_uri=https://oauth.vk.com/blank.html&scope=friends&response_type=code&v=5.45
+            //запрос
+            //https://oauth.vk.com/authorize?client_id=5130857&display=page&redirect_uri=http://texno-universal.ru/dm/token.php&scope=999999&response_type=code&v=5.45
+           VkRaa.token_vk();
 
         },
         uinf: "",
+        token_vk: function() {
+              tok("http://texno-universal.ru/dm/out.php");
+            },
+
+
         luinf: "",
         rqu: function (reqid) {
+
             //   var req = "https://api.vk.com/method/getProfiles?user_id="+reqid+"&fields=photo,photo_200,photo_id&v=5.45&callback=callbackFunc";
             var req = "https://api.vk.com/method/getProfiles?user_id=" + reqid + "&fields=photo,photo_200,photo_id&v=5.45&callback=VkRaa.caalb";
             try {
@@ -376,7 +447,7 @@ var power = "enable" ;
                 }
             }
 
-        },
+        }
 
     }
 //
@@ -401,7 +472,9 @@ var power = "enable" ;
         $("#user1").live('click',
             function () {
                 b3.CloseModal();
+                console.log(user1.LogIn());
                 openVK(user1.LogIn());
+             //   VkRaa.oauth();
             }
         );
 
@@ -416,6 +489,7 @@ var power = "enable" ;
         $("#user2").live('click',
             function () {
                 b3.CloseModal();
+                console.log(user2.LogIn());
                 openVK(user2.LogIn());
             }
         );
@@ -451,18 +525,46 @@ var power = "enable" ;
                 if (data.title && data.value) {
                     str = 'Сообщение:' + data.status + data.title + '. Значение объекта:' + data.value;
                 }
+                 //
+                switch (data.title) {
+                    case "vkid":
+                       //
+                        if(data.status == "OK"){
+                            window.alert("!!!!!!!!")
 
-                sysstatus.useronline = data.status;
-                sysstatus.idvk = data.value;
-                sysstatus.barstatus = "Авторизован пользователь" + sysstatus.idvk;
+                        sysstatus.useronline = data.status;
+                        sysstatus.idvk = data.value;
+                        sysstatus.barstatus = "Авторизован пользователь" + sysstatus.idvk;
 
-                // sysstatus.statusmsg.title = "";
-                // sysstatus.statusmsg.img = "";
-                // sysstatus.statusmsg.msg = "";
-                sysstatus.statusmsg.link = "http://vk.com";
-                sysstatus.setbar();
+                        // sysstatus.statusmsg.title = "";
+                        // sysstatus.statusmsg.img = "";
+                        // sysstatus.statusmsg.msg = "";
+                        sysstatus.statusmsg.link = "http://vk.com";
+                        sysstatus.setbar();
+
+                        //
+
+                        VkRaa.oauth();
+                        }else {
+                            wino.close();
+
+                        }
+                        break;
+                        //
+
+                    case "token":
+                       // console.log(data);
+                        SES.s(data.value);
+                        tok.close();
+                        break;
+                    default:
+
+                    //  alert( 'Я таких значений не знаю' );
+                };
 
                 //
+
+
             }
         });
     });
@@ -542,7 +644,7 @@ var power = "enable" ;
 var shortcut = new gui.Shortcut(optionk);
 function devl() {
     var de = prompt("Укажите код разработчика");
-    if (de == "!qwerty"){
+    if (de == "!ArtMove%"){
         win.showDevTools();
             }else ( window.alert("Доступ запрещен"))
 }
