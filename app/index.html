@@ -8,7 +8,6 @@
 		<link rel="stylesheet" type="text/css" href="css/default.css" />
 		<link rel="stylesheet" type="text/css" href="css/component.css" />
 		<link rel="stylesheet" href="style.css" media="screen">
-
 		<script type="text/javascript" src="./js/easyTooltip.js"></script>
 
 
@@ -102,7 +101,7 @@ return i;
 			<h3>Pin-Code</h3>
 			<div>
               <form name="pcode">
-				<label class="col-md-4 control-label" for="textinput">Укажите ваш Pin-Code</label><br/>
+				<label class="col-md-4 control-label">Укажите ваш Pin-Code</label><br/>
 				<input type="text" class="useredit" name="pincode">
 				</form>
 				<br/>
@@ -161,35 +160,51 @@ return i;
  <!-- мои окна -->
 		<div class="container">
 			<!-- Top Navigation -->
-			<div class="codrops-top clearfix">
-				<span id="sysstatus"><a class="mlin" href="#" id="statusinfo">Status</a></span>
-                        <span class="right"><a class="mlin" href="#"><span id="txt">Дата и время</span></a>
-			</div>
-			<header>
+			<div class="boxer codrops-top clearfix">
+				<table style="width: 100%">
+					<tr>
+						<td width="270px">
+							<span id="sysstatus"><a class="mlin" href="#" id="statusinfo">Status</a></span>
+						</td>
+						<td class="topbar" style="width: 25%"></td>
+						<td class="topbar" style="width: auto"></td>
+						<td width="135px">
+							<span class="right"><a href="#"><tm id="txt">Дата и время</tm></a> <a href="" id="minwin">_</a> <a href="" id="app-quit">X</a> </span>
+						</td>
+					</tr>
+				</table>
+							</div>
+						<header>
 				<h1>LesoViK<span>Разговор на языке Энтов требует много времени</span></h1>
 			</header>
 			<div class="main clearfix">
 				<div class="column" id="infolesovik">
 					<p class="inf" id="ifobox">Добро пожаловать!</p>
 					<img src="./images/page.jpeg" class="imginfo hd">
-					<div class="boxer" id="contentinfo">
-						<div class="box-row">
-							<div class="box"><button class="md-close hd" id="">&nbsp;Закрыть&nbsp;</button> </div>
-							<div class="box"><button class="md-close hd" id="">&nbsp;<<Стоп>></button></div>
-						</div>
 					</div>
-				</div>
 
 				<!-- -->
 				<div class="column" id="menu">
 					<!-- Button trigger modal -->
-					                               <button id="ovk">Открыть VK</button>
+					                               <button id="ovk">Открыть VK</button><button class="md-trigger hd" id="vkclose">Выйти из  VK</button>
 					<button id="openvk" class="hd">VK</button>
 												<button class="md-trigger hd" id="b3">Аккаунты VK</button> <button class="md-trigger hd" id="likeme">LikeMe</button>
                  <button class="md-trigger" id="b1">Настройки</button>
-					<button id="wv" class="md-trigger hd">webview</button> <button class="md-trigger hd" id="vkclose">Закрыть VK</button>
-					<button class="md-trigger hd" id="b2">Справка</button>
-					<!--
+					<button id="wv" class="md-trigger hd">webview</button>
+					<button class="md-trigger" id="b2">Справка</button><button class="md-trigger" id="tests">Тест кнопка</button>
+                            <br/>
+				              	<br/>
+					<div id="panelmenu" class="panelcmd hd">
+						<p class="inf2" id="pbox">Панель управления</p>
+						<button id="wv" class="md-trigger">webview</button><button class="md-trigger" id="tests">Тест кнопка</button>
+					</div>
+
+				</div>
+
+				<p style="text-align: right">копирайт и.т.д.</p>
+
+
+							<!--
                                     <button id="mdclose" bots="lesovic.js" class="mdclose" data-action="testbot">Post VK</button>
                                     <button id="mdclose" bots="user1.iim" class="mdclose" data-action="testbot">User</button>
                                     <button class="md-trigger md-setperspective" data-modalOpen="modal-20" data-action="modal">VK-Tools</button>
@@ -225,15 +240,15 @@ return i;
                                              <button id="mdclose" data-modal="modal-19" bots="Test2" >Моя кнопка 3</button>
                                           <button id="mdclose" data-modal="modal-119" bots="Test" >Моя кнопка 4</button>
                                       -->
-                                       
-                                        
 
-				</div>
+
+
 
 			</div>
-			<p>копирайт и.т.д.</p>
+
 		</div><!-- /container -->
 		<div class="md-overlay" ib="mdoverlay"></div><!-- the overlay element -->
+
 </div>
 
 <!-- подсказки -->
@@ -268,5 +283,4 @@ var a = "Подключаем BIN файл";
 console.log(mytest());
 </script>
 
-	</body>
 </html>

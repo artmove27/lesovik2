@@ -1,7 +1,7 @@
 /**
  * Created by zews on 25.01.2016.
  */
-var versions = "Users.js@1.3.6";
+var versions = "Users.js@1.4.6";
 $ = global.jQuery;
 function Users(name) {
     self = this;
@@ -25,7 +25,7 @@ function Users(name) {
             return login;
 
         } else {
-              window.localStorage.setItem(this.name, log);
+              window.localStorage.setItem(this.lkey(), log);
         }
     };
     //
@@ -62,7 +62,7 @@ function Users(name) {
 
      //edit user
      this.edit = function(){
-             if(this.login() == null ){
+             if(this.login() == null || this.login() == "" ){
                  $("input[name = login]").val("Введите логин");
                  $("input[name = pass]").val("Введите пароль");
                  $("input[name = idusers]").val(this.name);
@@ -82,7 +82,7 @@ function Users(name) {
     //view
     this.view = function(){
         var string ;
-         if (this.login() == null){
+         if (this.login() == null || this.login() == ""){
 
              string = "<li class=wsto><a href=#  id=" + this.name + "-edit class=eddits  data-edit=" + this.name + ">Добавить аккаунт</a></li>";
              //

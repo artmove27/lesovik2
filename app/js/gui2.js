@@ -165,15 +165,53 @@ $("#vkclose").live('click',
     function() {
       // wino.window.close();
      //   setTimeout( tokens.window.close(),1000);
-        lkVK("57009022");
-          lkvk.on('loaded', function(){
+        logoutVK("http://vk.com/feed?cmd=quit");
+
+      //  lkVK("57009022");
+      //    lkvk.on('loaded', function(){
             // the native onload event has just occurred
-            var document = lkvk.window.document;
-            document.write("<p>Некоторый текст 222222</p>");
-        });
+      //      var document = lkvk.window.document;
+      //      document.write("<p>Некоторый текст 222222</p>");
+      //  });
+    }
+);
+//
+
+$("#app-quit").live('click',
+    function() {
+        gui.App.quit();
     }
 );
 
+$("#wclose").live('click',
+    function() {
+        self.close();
+    }
+);
+
+$("#minwin").live('click',
+    function() {
+        win.minimize();
+    }
+);
+// tests
+
+$("#tests").live('click',
+    function() {
+
+      var lymy = gui.Window.open('./w2.html',{
+          toolbar:false,
+          frame:true,
+          width:700,
+          height:400,
+          "inject-js-start": "js\\jquery-1.8.3.js",
+
+      });
+
+     //   window.location.href("./w2.html");
+    }
+);
+//./likeme.html
 //end work
 console.log(versions);
 

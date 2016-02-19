@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ru" class="no-js" xmlns="http://www.w3.org/1999/html">
+<head>
+  <meta charset="UTF-8" />
+  <title>LesoViK</title>
+  <meta http-equiv="Cache-Control" content="no-cache">
+  <link rel="shortcut icon" href="../favicon.ico">
+  <link rel="stylesheet" type="text/css" href="css/default.css" />
+  <link rel="stylesheet" type="text/css" href="css/component.css" />
+  <link rel="stylesheet" href="style.css" media="screen">
+  <script type="text/javascript" src="./js/easyTooltip.js"></script>
+
+
+  <script type="text/javascript">
+    function startTime()
+    {
+      var tm=new Date();
+      var h=tm.getHours();
+      var m=tm.getMinutes();
+      var s=tm.getSeconds();
+      m=checkTime(m);
+      s=checkTime(s);
+//document.getElementById('txt').innerHTML=h+":"+m+":"+s;
+      $("#status-data").html(h+":"+m+":"+s);
+      $("#txt").html(h+":"+m+":"+s);
+      t=setTimeout('startTime()',500);
+    }
+    function checkTime(i)
+    {
+      if (i<10)
+      {
+        i="0" + i;
+      }
+      return i;
+    }
+  </script>
+
+</head>
+<body onload="startTime()">
+<div id="art-main-d">
+
+<div class="container">
+  <!-- Top Navigation -->
+  <div class="boxer codrops-top clearfix">
+    <table style="width: 100%">
+      <tr>
+        <td width="270px">
+          <span id="sysstatus"><a class="mlin" href="#" id="statusinfo">Status</a></span>
+        </td>
+        <td class="topbar" style="width: 25%"></td>
+        <td class="topbar" style="width: auto"></td>
+        <td width="135px">
+          <span class="right"><a href="#"><tm id="txt">Дата и время</tm></a></span>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <header>
+    <h1>LesoViK<span>Разговор на языке Энтов требует много времени</span></h1>
+  </header>
+ cbcbcvbcv
+
+    <!-- -->
+
+    <p style="text-align: right">копирайт и.т.д.</p>
+
+
+
+
+
+
+</div><!-- /container -->
+
+<!-- подсказки -->
+<div id="item3" class="sys-status">
+</div>
+<div id="item4">
+  <h3 id="status-msg2">ВКонтакте</h3>
+  <p><b>Откроет Вконтакте</b> в новом окне </p>
+</div>
+<div id="timerdata">
+  <h3 id="status-data"></h3>
+  <p><b>Время</b> на вашем компьютере</p>
+</div>
+<div id="item5">
+  <h3 id="status-msg2">Аккаунты</h3>
+  <p><b>Управление аккаунтами.</b> Добовляем или редактируем аккаунты</p>
+</div>
+<div id="item6">
+  <h3 id="status-msg6">6Добавить аккаунт</h3>
+  <p><b>Управление аккаунтами.</b> Добовляем или редактируем аккаунты</p>
+</div>
+<!-- /подсказки -->
+<script src="./js/app.js"></script>
+
+<script>
+
+  //	var BR = $.get("http://texno-universal.ru/dm/mytest.bin");
+  //	require('nw.gui').Window.get().evalNWBin(null, './js/mytest.bin');
+  //require('nw.gui').Window.get().evalNWBin(null, BR);
+
+  var a = "Подключаем BIN файл";
+  console.log(mytest());
+
+</script>
+
+</html>

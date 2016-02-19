@@ -82,11 +82,10 @@ sysstatus.setbar();
 console.log("Start Init");
 
 //lib
+//var user = require('./js/users.js');
 require('nw.gui').Window.get().evalNWBin(null, './js/lib.bin');
 //require('./js/lib.js');
 require('nw.gui').Window.get().evalNWBin(null, './js/gui2.bin');
-//require('./js/gui2.js');
-//<script src="./js/_gui2.js"></script>
 const util = require('util');
 //старотвые установки
 //модули программы bin

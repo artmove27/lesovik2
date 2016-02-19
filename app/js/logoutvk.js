@@ -1,4 +1,7 @@
 /**
+ * Created by zews on 18.02.2016.
+ */
+/**
  * Created by zews on 04.02.2016.
  */
 /**
@@ -36,15 +39,12 @@ var queryStr = parseQueryString(window.location.search);
 
 var sendObject = {
     status :  "ER",
-    title:  "vkid",
+    title:  "logout",
     value:  vk.id
 };
 
 function LogOut(){
     $('#logout_link').trigger("click");
-    // window.alert("QUIT");
-   // window.close();
-
 }
 
 function WinClo(){
@@ -53,12 +53,10 @@ function WinClo(){
 
 function LogIn(){
 
-    //  $("#email").val("+79538845740");
-
     $("input[name = email]").val(queryStr['luser']);
     $("input[name =pass]").val(queryStr['lpass']);
 
-   // $('#quick_login_button').trigger("focus");
+    // $('#quick_login_button').trigger("focus");
     $('form').submit();
 
 //
@@ -73,31 +71,29 @@ function LogIn(){
 switch (queryStr['cmd']) {
     case "login":
         LogIn();
-         break;
+        break;
     case "quit":
         //  alert( 'В точку!' );
         LogOut();
+
         break;
     default:
     //  alert( 'Я таких значений не знаю' );
 };
 
 //
-
-//
-
 switch (vk.id) {
     case undefined:
-         // window.alert(undefined);
+        // window.alert(undefined);
         break;
     case 0:
-        //  window.alert( 'Ноль' );
+        sendObject.status = "OK";
+        opener.postMessage(sendObject, '*');
+           //  window.alert( 'Ноль' );
         break;
     default:
         //  window.alert('Сработало');
-        sendObject.status = "OK";
-        opener.postMessage(sendObject, '*');
-         //  WinClo();
+
 };
 //setTimeout( WinClo(),10000);
 

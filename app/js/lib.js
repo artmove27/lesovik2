@@ -101,7 +101,8 @@ var PinCode = {
                           //  window.alert("!!!");
                                    }
 
-                           $("#vkclose").hide();
+                          // $("#vkclose").hide();
+                            powerButon.hide();
                         break;
                     case "activate":
                         var VD = new Date();
@@ -114,11 +115,10 @@ var PinCode = {
                         }else {
                             if (data.signature == signature){
                              //  $("#vkclose").removeClass("hd");
-                                $("#vkclose").show();
+                                powerButon.show();
                             } else {
                                 alert( "Указан неверный или не существующий pin-code" );
-                               // $("#vkclose").addClass("hd");
-                                $("#vkclose").hide();
+                                                               powerButon.hide();
 
                             }
                         }
@@ -142,6 +142,28 @@ var PinCode = {
 
 }
 
+var powerButon = {
+
+    show: function(){
+        $("#vkclose").show();
+        $("#b3").show();
+        $("#likeme").show();
+        //
+        $("#vkclose").removeClass("poev");
+        $("#b3").removeClass("poev");
+        $("#likeme").removeClass("poev");
+    },
+    hide: function(){
+        $("#vkclose").hide();
+        $("#b3").hide();
+        $("#likeme").hide();
+        //
+        $("#vkclose").addClass("poev");
+        $("#b3").addClass("poev");
+        $("#likeme").addClass("poev");
+    }
+}
+
 //window.localStorage.setItem("pin-code", "df1f066c-f385-4e77-a08f-c053b4a450e5")
 PinCode.verify();
 
@@ -150,9 +172,9 @@ PinCode.verify();
 //
 console.log(login_sessions.g());
  if (login_sessions.g() == "LogIn"){
-    $("#b3").removeClass("hd");
-    $("#b2").removeClass("hd");
-    $("#likeme").removeClass("hd");
+  //  $("#b3").removeClass("hd");
+  //  $("#b2").removeClass("hd");
+  //  $("#likeme").removeClass("hd");
 }
 
 
@@ -213,13 +235,26 @@ function tok(uri) {
 
 //
 // show:false,
+
+function logoutVK(uri) {
+    lgo = gui.Window.open (uri, {
+        //  position: 'center',
+        show: false,
+        width: 450,
+        height: 450,
+        "toolbar": false,
+        "inject-js-start": "js\\jquery-1.8.3.js",
+        "inject-js-end": "js\\logoutvk.js",
+    });
+}
+
     function openVK(uri) {
         wino = gui.Window.open (uri, {
             //  position: 'center',
             show: true,
             width: 450,
             height: 450,
-            "toolbar": false,
+            "toolbar": true,
             "inject-js-start": "js\\jquery-1.8.3.js",
             "inject-js-end": "js\\loginvk.js",
         });
@@ -270,8 +305,10 @@ function lkVK(urii) {
     $("#searchid").live("click", function () {
         openVk("http://vk.barkov.net/");
         $("#likemestart").addClass("poev");
+        $("#searchid").addClass("poev");
         wino.on('closed', function () {
             //  window.alert("344");
+            $("#searchid").removeClass("poev");
             $("#likemestart").removeClass("poev");
         });
 
@@ -327,13 +364,12 @@ function lkVK(urii) {
         numbers = JSON.parse(lid);
         var arr = numbers.split("\n");
         window.localStorage.setItem("LikeMeStop", arr.length)
-        arr.forEach(function (item, i, arr) {
+               arr.forEach(function (item, i, arr) {
 
             var die = Math.floor(Math.random() * 3 + 1);
             // console.log(die);
             die = die * 25000;
-            // setTimeout(RAA(item), die);
-            setTimeout(VkRaa.rqu(item), die);
+               setTimeout(VkRaa.rqu(item), die);
             //   console.log(i + " " + item );
         });
         var date = new Date();
@@ -455,6 +491,7 @@ function lkVK(urii) {
 //
     var user_list = ["cl_user", "user1", "user2", "user3", "user4", "user5"];
     var user = require('./js/users.js');
+
     user1 = new user.users("user1");
     user2 = new user.users("user2");
     user3 = new user.users("user3");
@@ -530,7 +567,7 @@ function lkVK(urii) {
                     case "vkid":
                        //
                         if(data.status == "OK"){
-                            window.alert("!!!!!!!!")
+                           // window.alert("!!!!!!!!")
 
                         sysstatus.useronline = data.status;
                         sysstatus.idvk = data.value;
@@ -543,7 +580,7 @@ function lkVK(urii) {
                         sysstatus.setbar();
 
                         //
-
+                            wino.close();
                         VkRaa.oauth();
                         }else {
                             wino.close();
@@ -556,6 +593,29 @@ function lkVK(urii) {
                        // console.log(data);
                         SES.s(data.value);
                         tok.close();
+                        break;
+                    case "logout":
+
+                        if(data.status == "OK"){
+
+                            sysstatus.useronline = "off";
+                            sysstatus.idvk = data.value;
+                            sysstatus.barstatus = "LogOut VK";
+
+                            // sysstatus.statusmsg.title = "";
+                            // sysstatus.statusmsg.img = "";
+                            // sysstatus.statusmsg.msg = "";
+                            sysstatus.statusmsg.link = "http://vk.com";
+                            sysstatus.setbar();
+
+                            //
+                            SES.s("NON")
+                            lgo.close();
+
+                        }else {
+                            lgo.close();
+
+                        }
                         break;
                     default:
 
@@ -571,17 +631,21 @@ function lkVK(urii) {
 // подсказки
 // useElement: "statusmsg",
     $(document).ready(function () {
+
+        /*
         $("#txt").easyTooltip({
             xOffset: -200,
             yOffset: -20,
             useElement: "timerdata1",
         });
+*/
+
         $("#statusinfo").easyTooltip({
             xOffset: -10,
             yOffset: -25,
             useElement: "item3",
         });
-
+/*
         $("#ovk").easyTooltip({
             useElement: "item4",
 
@@ -589,6 +653,7 @@ function lkVK(urii) {
         $("#b3").easyTooltip({
             useElement: "item5"
         });
+   */
         //  $("#closelikeme").easyTooltip({
         //      useElement: "item6"
         //  });
