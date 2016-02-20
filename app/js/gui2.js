@@ -63,6 +63,7 @@ $("#closelikeme").live('click', function(){
 //edit AK
 var b4 = new Batuns("modal-4");
 $(".editusers").live('click', function(){
+
      b3.CloseModal();
      b4.OpenModal();
 
@@ -121,7 +122,9 @@ $("#b2Close").live('click',
 
 // аккаунты
 var b3 = new Batuns("modal-3");
-$("#b3").live('click', function(){b3.OpenModal()});
+$("#b3").live('click', function(){
+    b3.OpenModal()
+});
 $("#b3Close").live('click',
     function() {
         b3.CloseModal();
@@ -196,21 +199,19 @@ $("#minwin").live('click',
 );
 // tests
 
-$("#tests").live('click',
+$("#lcpan").live('click',
     function() {
+        $("#pcm").slideDown();
 
-      var lymy = gui.Window.open('./w2.html',{
-          toolbar:false,
-          frame:true,
-          width:700,
-          height:400,
-          "inject-js-start": "js\\jquery-1.8.3.js",
 
-      });
-
-     //   window.location.href("./w2.html");
     }
 );
+
+$("#cmdeditid").live('click',
+    function() {
+        $("#pcm").slideUp();
+    });
+
 //./likeme.html
 //end work
 console.log(versions);

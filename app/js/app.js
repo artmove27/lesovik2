@@ -2,7 +2,7 @@
  * Created by zews on 01.02.2016.
  */
 console.time('Start-APP');
-var versions2 = "app.js@7.3.20"
+var versions2 = "app.js@8.3.20"
 //
 
 
@@ -95,13 +95,17 @@ const util = require('util');
 //menu
 var menu = new gui.Menu();
 var submenu = new gui.Menu();
+
 menu.append(new gui.MenuItem({ label: 'Обновить',
    click: function() {
-    win.reload();
+              win.reload();
+
 }
 
 }));
 menu.append(new gui.MenuItem({ type: 'separator' }));
+
+
 //menu.append(new gui.MenuItem({ label: 'Вырезать' }));
 menu.append(new gui.MenuItem({ label: 'Копировать',
     click: function() {
@@ -164,6 +168,7 @@ console.log(versions2);
 console.log(util.inspect(process.memoryUsage()));
 console.timeEnd('Start-APP');
 // пробы
+
 
 
 win.on('minimize', function() {

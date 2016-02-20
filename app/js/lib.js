@@ -1,7 +1,7 @@
 /**
  * Created by zews on 01.02.2016.
  */
-var versions = "lib.js@6.2.21";
+var versions = "lib.js@7.2.21";
 //
 function mytest(){
      return a;
@@ -148,19 +148,29 @@ var powerButon = {
         $("#vkclose").show();
         $("#b3").show();
         $("#likeme").show();
+        $("#lcpan").show();
+        $("#lkmstart").show();
+
+
         //
         $("#vkclose").removeClass("poev");
         $("#b3").removeClass("poev");
         $("#likeme").removeClass("poev");
+        $("#lcpan").removeClass("poev");
+        $("#lkmstart").removeClass("poev");
     },
     hide: function(){
         $("#vkclose").hide();
         $("#b3").hide();
         $("#likeme").hide();
+        $("#lcpan").hide();
+        $("#lkmstart").hide();
         //
         $("#vkclose").addClass("poev");
         $("#b3").addClass("poev");
         $("#likeme").addClass("poev");
+        $("#lcpan").addClass("poev");
+        $("#lkmstart").addClass("poev");
     }
 }
 
@@ -496,7 +506,6 @@ function lkVK(urii) {
     user2 = new user.users("user2");
     user3 = new user.users("user3");
 
-//user1.addUsers ("+79538845740", "!q22lesy13!%");
     function vu() {
 
 //user1

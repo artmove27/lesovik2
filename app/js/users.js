@@ -62,6 +62,7 @@ function Users(name) {
 
      //edit user
      this.edit = function(){
+
              if(this.login() == null || this.login() == "" ){
                  $("input[name = login]").val("Введите логин");
                  $("input[name = pass]").val("Введите пароль");
@@ -71,6 +72,7 @@ function Users(name) {
 
 
              }else {
+
                  $("input[name = login]").val(this.login());
                  $("input[name = pass]").val(this.pass());
                  $("input[name = idusers]").val(this.name);

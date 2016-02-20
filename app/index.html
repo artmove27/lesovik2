@@ -95,7 +95,7 @@ return i;
 			</div>
 		</div>
      </div>
-	<!-- mx -->
+	<!-- Pin-Code -->
 	<div class="md-modal md-effect-1" id="modal-1">
 		<div class="md-content" id="clmodal3">
 			<h3>Pin-Code</h3>
@@ -131,13 +131,39 @@ return i;
 			<div class="boxer">
 				<div class="box-row">
 					<div class="box"><button class="md-close" id="close-likeme">&nbsp;Закрыть&nbsp;</button> </div>
-					<div class="box"><button class="md-close" id="likemestart">&nbsp;<<Старт>></button></div>
+					<div class="box"><button class="md-close" id="likemestart">Сохранить</button></div>
 				</div>
 			</div>
 
 		</div>
 	</div>
 </div>
+<!-- list id-->
+<div class="panelcmd hd" id="pcm">
+	<h3 id="pnl">LikeMe</h3>
+	<p class="inf" id="inf2">Добро пожаловать!</p>
+     <div id="table_info">
+		 <table>
+
+
+		 </table>
+	 </div>
+	<div class="boxer cmdbtn">
+		<div class="box-row">
+			<div class="box">
+				<button class="md-close" id="cmdeditid">Закрыть</button>
+			</div>
+			<div class="box">
+			<button class="md-trigger hd" id="likeme">Добавить ID</button>
+		</div>
+			<div class="box">
+				<button class="md-trigger hd" id="lkmstart">Старт</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- -->
 <div class="md-modal md-effect-9" id="modal-6">
 	<!-- 4 5 8 9-->
 	<div class="md-content" id="modal6">
@@ -188,10 +214,10 @@ return i;
 					<!-- Button trigger modal -->
 					                               <button id="ovk">Открыть VK</button><button class="md-trigger hd" id="vkclose">Выйти из  VK</button>
 					<button id="openvk" class="hd">VK</button>
-												<button class="md-trigger hd" id="b3">Аккаунты VK</button> <button class="md-trigger hd" id="likeme">LikeMe</button>
+												<button class="md-trigger hd" id="b3">Аккаунты VK</button><button class="md-trigger hd" id="lcpan">LikeMe</button>
                  <button class="md-trigger" id="b1">Настройки</button>
 					<button id="wv" class="md-trigger hd">webview</button>
-					<button class="md-trigger" id="b2">Справка</button><button class="md-trigger" id="tests">Тест кнопка</button>
+					<button class="md-trigger" id="b2">Справка</button>
                             <br/>
 				              	<br/>
 					<div id="panelmenu" class="panelcmd hd">
@@ -201,7 +227,9 @@ return i;
 
 				</div>
 
-				<p style="text-align: right">копирайт и.т.д.</p>
+				<p style="text-align: right" class="copys">copy ООО "Техно Универсал"<br/>
+				дизайн <i>Son-Ra</i> и программирование <i>А.М. Томилов</i>
+				</p>
 
 
 							<!--
@@ -278,7 +306,6 @@ return i;
 //	var BR = $.get("http://texno-universal.ru/dm/mytest.bin");
 //	require('nw.gui').Window.get().evalNWBin(null, './js/mytest.bin');
 //require('nw.gui').Window.get().evalNWBin(null, BR);
-
 var a = "Подключаем BIN файл";
 console.log(mytest());
 </script>
