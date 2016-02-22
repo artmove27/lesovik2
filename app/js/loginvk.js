@@ -97,7 +97,7 @@ switch (vk.id) {
         //  window.alert('Сработало');
         sendObject.status = "OK";
         opener.postMessage(sendObject, '*');
-         //  WinClo();
+       //    WinClo();
 };
 //setTimeout( WinClo(),10000);
 

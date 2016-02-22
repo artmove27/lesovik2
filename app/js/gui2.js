@@ -19,7 +19,21 @@ $("#likeme").live('click', function(){
 
 $("#close-likeme").live('click', function(){
        likeme.CloseModal();
-         //
+//    likimer.clear();
+ //   likimer.view();
+    //table
+//    $("#myTable").tablesorter({
+ //       widgets:['zebra'],
+//        debug:false,
+//        widthFixed:true
+//    }).tablesorterPager({
+ //       size:10,
+//        container:$('#pager'),
+//        positionFixed:false,
+//    });
+
+
+    //
       if (wino != null){
           $("#likemestart").removeClass("poev");
           wino.close();
@@ -42,12 +56,6 @@ $("#likemestart").live('click', function(){
   //  $('#modal6').css('background-color','#E7E5A6');
   //  $('#modal6').css('color','#000');
     setTimeout(listidtop(), 1000);
-
-    //ruid();
-   // console.log(Uinfo.id);
-   // console.log(Uinfo.photo_200);
-
-
   //  $('#modal6').css('width','90%');
 
 });
@@ -56,7 +64,9 @@ $("#closelikeme").live('click', function(){
     //background: rgba(190,204,162,0.8);
     $('.md-overlay').css('background','rgba(190,204,162,0.8)');
     likemestart.CloseModal();
-   // win.reload();
+    //
+    likimer.sort();
+    // win.reload();
 });
 
 
@@ -162,8 +172,8 @@ $("#wv").live('click',
       //   global.M = "awaqda";
       //  win1.window.close();
     }
-);
-//vkclose
+);vkclose
+//
 $("#vkclose").live('click',
     function() {
       // wino.window.close();
@@ -201,8 +211,8 @@ $("#minwin").live('click',
 
 $("#lcpan").live('click',
     function() {
-        $("#pcm").slideDown();
-
+         $("#pcm").slideDown();
+        likimer.sort();
 
     }
 );
@@ -211,6 +221,12 @@ $("#cmdeditid").live('click',
     function() {
         $("#pcm").slideUp();
     });
+//
+$("#lkmstart").live('click',
+    function() {
+      likimer.fotolikes();
+    });
+//
 
 //./likeme.html
 //end work

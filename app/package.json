@@ -37,7 +37,7 @@
         "width": 1150,
         "min_height": 700,
         "kiosk_emulation": false,
-        "frame": false,
+        "frame": true,
         "max_width": 1150,
         "fullscreen": false,
         "transparent": false,
@@ -49,7 +49,7 @@
         "as_desktop": false,
         "visible": true,
         "min_width": 450,
-        "toolbar": false,
+        "toolbar": true,
         "show_in_taskbar": true
     },
     "bg-script": "js\\background.js",
@@ -61,7 +61,7 @@
     "inject-js-end": "",
     "license": " Commercial",
     "nodejs": true,
-    "version": "a.11.2.11",
+    "version": "a.12.2.11",
     "additional_trust_anchors": [
         ""
     ],
@@ -71,9 +71,8 @@
     "dependencies": {
         "nw": "^0.12.3",
         "nodejs-md5": "^0.6.0",
-        "node-uuid": "^1.4.7",
-        "vk-lib": "^0.2.0",
-        "mongoose": "^4.4.2"
+        "node-uuid": "^1.4.7"
+
     },
     "user-agent": "",
     "name": "LesoViK",

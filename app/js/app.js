@@ -2,7 +2,7 @@
  * Created by zews on 01.02.2016.
  */
 console.time('Start-APP');
-var versions2 = "app.js@8.3.20"
+var versions2 = "app.js@8.4.20"
 //
 
 
@@ -174,7 +174,7 @@ console.timeEnd('Start-APP');
 win.on('minimize', function() {
     console.log('Window is minimized');
 });
-
+win.showDevTools();
 //
 
 //win.reload();

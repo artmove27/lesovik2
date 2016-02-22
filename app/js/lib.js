@@ -1,14 +1,26 @@
 /**
  * Created by zews on 01.02.2016.
  */
-var versions = "lib.js@7.2.21";
+var versions = "lib.js@8.2.21";
 //
 function mytest(){
      return a;
 };
 
     //
-//
+// конструктор базы
+function alkomer(key){
+
+    this.s =  function (val) {
+        window.localStorage.setItem(key, val);
+        // window.alert(key, val);
+    };
+    this.g = function () {
+        var val = window.localStorage.getItem(key);
+        return val;
+    };
+};
+
 // конструктор сессионые данные
 function lses(key){
 
@@ -23,19 +35,19 @@ function lses(key){
  };
 
 var SES = new lses("token_vk");
-
+SES.s("NON");
 //window.alert(SES.g());
 
 //login_sessions
 
 var login_sessions = new lses('login_sessions');
-login_sessions.s("LogIn");
+login_sessions.s("Non");
 //
 
 //token
 
-var token =  new lses("token");
-var access_token = token.g();
+//var token =  new lses("token");
+//token.s("NON");
 
 
 //new Date(year, month, date, hours, minutes, seconds, ms)
@@ -317,7 +329,7 @@ function lkVK(urii) {
         $("#likemestart").addClass("poev");
         $("#searchid").addClass("poev");
         wino.on('closed', function () {
-            //  window.alert("344");
+
             $("#searchid").removeClass("poev");
             $("#likemestart").removeClass("poev");
         });
@@ -337,13 +349,18 @@ function lkVK(urii) {
 // записываем список ID
 
     function setIDList() {
-        // удаляем данные базы
+
         var lid = window.localStorage.getItem('listID');
-        numbers = JSON.parse(lid);
-        var arr = numbers.split("\n");
-        arr.forEach(function (item, i, arr) {
-            delete localStorage[item]
-        });
+       // console.log(lid);
+        if(lid == !null){
+            // удаляем данные базы
+           // numbers = JSON.parse(lid);
+            var arr = numbers.split("\n");
+            arr.forEach(function (item, i, arr) {
+                delete localStorage[item]
+            });
+
+        }
 
         // записываем новые
         var str = JSON.stringify(idlist.adduseid.value);
@@ -394,27 +411,6 @@ function lkVK(urii) {
 
 
 // user info
-//https://api.vkontakte.ru/method/getProfiles?uids=36203173&fields=photo
-// {"response":
-// [
-// {"uid":36203173,
-// "first_name":"Ростислав",
-// "last_name":"Гр",
-// "photo":"http:\/\/cs627818.vk.me\/v627818173\/1a488\/FVSDbogcsAc.jpg"
-// }
-// ]}
-//VK
-//var req="https://api.vkontakte.ru/method/getProfiles?uids=36203173&fields=photo"
-    /*
-     var script = document.createElement('SCRIPT');
-
-     script.src = "https://api.vk.com/method/users.get?user_id=66748&v=5.45&callback=callbackFunc";
-
-     document.getElementsByTagName("head")[0].appendChild(script);
-     foto
-     //https://api.vk.com/method/photos.getById?&photos=109823187_383326739&v=5.45
-
-     */
     /* объект для работы с запросами vk *.
      //https://oauth.vk.com/authorize?client_id=1&display=mobile&redirect_uri=https://oauth.vk.com/blank.html&scope=friends&response_type=token&v=5.45&callback=callbackFunc
      */
@@ -473,8 +469,9 @@ function lkVK(urii) {
                 coutryLikeMe++;
                 window.localStorage.setItem("coutryLikeMe", coutryLikeMe);
                 //"http://cs621925.vk.me/v621925161/34704/rjMxpe9sHEg.jpg"
+
                 //{"lname":"Красников","fname":"Дмитрий","pfoto":"http://cs4228.vk.me/u127879/e_a84a5a00.jpg","likeme":"no"}
-                console.log(coutryLikeMe + "  " + result.response[0].id);
+             //   console.log(coutryLikeMe + "  " + result.response[0].id);
                 //  data_uin
                 $("#imglike").html("<img class=img-info src=" + result.response[0].photo + ">");
                 $("#data_uin").html("<h3>Получаем данные:<br/> #" + window.localStorage.getItem("coutryLikeMe") + "<br/> ID-" + result.response[0].id + "</h3>");
@@ -495,7 +492,7 @@ function lkVK(urii) {
 
         }
 
-    }
+    };
 //
 
 //
@@ -505,6 +502,16 @@ function lkVK(urii) {
     user1 = new user.users("user1");
     user2 = new user.users("user2");
     user3 = new user.users("user3");
+function userReLogIn(callback){
+
+    if(login_sessions.g()== "LogIn"){
+        logoutVK("http://vk.com/feed?cmd=quit");
+    }
+    if(callback) {
+        callback();
+    }
+
+}
 
     function vu() {
 
@@ -519,7 +526,7 @@ function lkVK(urii) {
             function () {
                 b3.CloseModal();
                 console.log(user1.LogIn());
-                openVK(user1.LogIn());
+               openVK(user1.LogIn());
              //   VkRaa.oauth();
             }
         );
@@ -549,6 +556,7 @@ function lkVK(urii) {
         $("#user3").live('click',
             function () {
                 b3.CloseModal();
+                console.log(user3.LogIn());
                 openVK(user3.LogIn());
             }
         );
@@ -558,7 +566,7 @@ function lkVK(urii) {
     };
     vu();
 
-//ообщение окон
+//общение окон
 
 
     $(function () {
@@ -566,6 +574,7 @@ function lkVK(urii) {
             var data = e.originalEvent.data;
             console.log(data);
             if (data) {
+                wino.close();
                 var str = 'Пришли неверные данные';
 
                 if (data.title && data.value) {
@@ -590,18 +599,18 @@ function lkVK(urii) {
 
                         //
                             wino.close();
+                            login_sessions.s("LogIn");
                         VkRaa.oauth();
                         }else {
                             wino.close();
-
                         }
                         break;
                         //
 
                     case "token":
                        // console.log(data);
-                        SES.s(data.value);
-                        tok.close();
+                          SES.s(data.value);
+                             tok.close();
                         break;
                     case "logout":
 
@@ -619,6 +628,7 @@ function lkVK(urii) {
 
                             //
                             SES.s("NON")
+                            login_sessions.s("LogOut");
                             lgo.close();
 
                         }else {
@@ -682,10 +692,144 @@ function lkVK(urii) {
         //   $("a#link9").easyTooltip({
         //       useElement: "item9"
 //    });
+//table
+ //      {
+//                   $("#myTable").tablesorter({
+ //             widgets:['zebra'],
+ //              debug:false,
+ //               widthFixed:true
+ //          }).tablesorterPager({
+  //              size:10,
+ //               container:$('#pager'),
+  //             positionFixed:false,
+          //     page:0,
+    //           cssNext:'.next',
+     //           cssPrev:'.prev',
+       //         cssPrev:'.first',
+         //       cssPrev:'.last',
+     //      });
+    //    }
+
 
     });
 
+//likemer
 
+
+
+//
+
+
+
+var likimer = {
+    id: "",
+    //
+    dt: function(){
+        var dat = window.localStorage.getItem(likimer.id);
+        var info = JSON.parse(dat);
+        return info;
+    },
+    view: function(){
+        //
+        var listid = window.localStorage.getItem('listID');
+        var  numbers = JSON.parse(listid);
+         var arr = numbers.split("\n");
+            arr.forEach(function (item, i, arr) {
+                 if (item ==""){
+                    console.log("Noitem");
+                    var linetr = "<tr><td>NoData</td>" +
+                        "<td>NoData</td>" +
+                        "<td>NoData</td>" +
+                        "<td>NoData</td></tr>";
+                    $("#listd").append(linetr);
+
+                } else {
+
+                    likimer.id = item;
+
+                    var ima = "./images/right-titlebar.png";
+                    // likimer.dt().likeme = "yes";
+                     if (likimer.dt().likeme == "yes" ) {
+                        //   var ima = "./images/right-titlebar.png";
+                        ima = "./images/top-titlebar.png";
+                    }
+
+
+                    var linetr = "<tr><td class='item'><img src=" + ima + " alt=NoLike></td>" +
+                        "<td class="+item+">" + likimer.id + "</td>" +
+                        "<td class="+item+">" + likimer.dt().lname + "</td>" +
+                        "<td class="+item+">" + likimer.dt().fname + "</td></tr>";
+                    //{"lname":"Novozhilov","fname":"Koluy","pfoto":"http://cs627116.vk.me/v627116267/270ec/LY8CtBbX29c.jpg","pfoto_id":"111988267_388018995","likeme":"no"}
+
+                    $("#listd").append(linetr);
+                }
+                }
+
+
+
+            );
+
+    },
+    clear: function(){
+        $("#listd").empty();
+    },
+    //
+    sort: function(){
+
+            likimer.clear();
+           likimer.view();
+              //table
+       $("#myTable").tablesorter({
+           widgets: ['zebra'],
+            debug: false,
+            widthFixed: true
+       }).tablesorterPager({
+            size: 10,
+            container: $('#pager'),
+            positionFixed: false,
+        });
+         //
+
+    },
+    fotolikes: function(){
+        //https://api.vk.com/method/likes.add?type=photo&owner_id=USERID&item_id=PHOTOID&access_token=TOKEN&v=5.21
+       if(login_sessions.g() == "LogIn") {
+           //
+
+           var tokens = SES.g();
+           if(tokens == "NON" || tokens == "errors"){
+               //
+               //    VkRaa.token_vk();
+           }
+           var listid = window.localStorage.getItem('listID');
+           var  numbers = JSON.parse(listid);
+           var arr = numbers.split("\n");
+             arr.forEach(function (item, i, arr){
+                 likimer.id = item;
+               var listuser = likimer.dt();
+                 console.log(listuser.pfoto_id + " " + item);
+              //   {"lname":"Перснев","fname":"Иван","pfoto":"http://cs605729.vk.me/v605729022/4ea8/6kG_UNXCcMQ.jpg","pfoto_id":"57009022_327777542","likeme":"no"}
+           });
+
+           var req = "https://api.vk.com/method/likes.add?type=photo&owner_id=USERID&item_id=PHOTOID&access_token=" + tokens +"&v=5.21";
+           window.alert("START");
+
+       } else {
+
+           var autoriz = confirm("Требуется авторизация. Хотите автоизоваться сейчас?");
+              if(autoriz){
+                  b3.OpenModal();
+              }
+
+         }
+
+
+    }
+    //
+
+};
+
+//
 //статус информер
 
 //var timerId = setInterval(function() {

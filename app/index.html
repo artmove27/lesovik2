@@ -7,7 +7,11 @@
 		<link rel="shortcut icon" href="../favicon.ico">
 		<link rel="stylesheet" type="text/css" href="css/default.css" />
 		<link rel="stylesheet" type="text/css" href="css/component.css" />
-		<link rel="stylesheet" href="style.css" media="screen">
+		<link rel="stylesheet" href="./themes/blue/style.css" type="text/css" media="print, projection, screen" />
+				<link rel="stylesheet" href="style.css" media="screen">
+		<link rel="stylesheet" href="./pager/jquery.tablesorter.pager.css" media="screen">
+		<script type="text/javascript" src="./vendor/jquery.tablesorter.js"></script>
+		<script type="text/javascript" src="./pager/jquery.tablesorter.pager.js"></script>
 		<script type="text/javascript" src="./js/easyTooltip.js"></script>
 
 
@@ -56,7 +60,7 @@ return i;
 					<br/>
 						<!-- Text input-->
 							<label class="col-md-4 control-label" for="textinput">Пароль</label><br/>
-							<input type="text" class="useredit" name="pass">
+							<input type="password" class="useredit" name="pass">
 					     	<input type="hidden" name="idusers" value="0">
 
 				</form>
@@ -125,7 +129,7 @@ return i;
 			<ul>
 				<li><a href="#" id="searchid"><strong>Подобрать ID используя сервис.</strong></a> Скопируйте найденные ID используя сочетания клавиш <strong>Ctrl+C</strong> и вставьте их в поле
 					<strong>Ctrl+V</strong>.</li>
-				<li><strong>ВНИМАНИЕ:</strong> Кнопка "Старт" при открытом окне подбора ID будет не активна</li>
+				<li><strong>ВНИМАНИЕ:</strong> Кнопка <strong>"Сохранить"</strong> при открытом окне подбора ID будет не активна</li>
 			</ul>
 			<br/>
 			<div class="boxer">
@@ -139,14 +143,47 @@ return i;
 	</div>
 </div>
 <!-- list id-->
+
 <div class="panelcmd hd" id="pcm">
 	<h3 id="pnl">LikeMe</h3>
-	<p class="inf" id="inf2">Добро пожаловать!</p>
-     <div id="table_info">
-		 <table>
+	<p class="inf" id="inf2">Список ID</p>
+	<div id="table_info">
+				<table id="myTable" class="tablesorter">
+			<thead>
+			<tr>
+				<th style="width: 55px">Like</th>
+				<th style="width: 105px">ID</th>
+				<th>Last Name</th>
+				<th>First Name</th>
+			</tr>
 
+			</thead>
+			<tbody id="listd">
+			<tr>
+				<td style="width: 55px">Like</td>
+				<td style="width: 105px">ID</td>
+				<td>Last Name</td>
+				<td>First Name</td>
 
-		 </table>
+			</tr>
+			</tbody>
+		</table>
+		<div id="pager" class="pager">
+			<form>
+				<img src="./images/first.png" style="width: 25px; vertical-align: bottom" class="first"/>
+				<img src="./images/prev.png" style="width: 25px;  vertical-align: bottom" class="prev"/>
+				<input type="text" class="pagedisplay"/>
+				<img src="./images/next.png" style="width: 25px;  vertical-align: bottom" class="next"/>
+				<img src="./images/last.png" style="width: 25px;  vertical-align: bottom" class="last"/>
+								<select class="pagesize">
+					<option selected="selected"  value="10">10</option>
+					<option  value="5">5</option>
+				</select>
+
+			</form>
+
+		</div>
+
 	 </div>
 	<div class="boxer cmdbtn">
 		<div class="box-row">
@@ -157,7 +194,7 @@ return i;
 			<button class="md-trigger hd" id="likeme">Добавить ID</button>
 		</div>
 			<div class="box">
-				<button class="md-trigger hd" id="lkmstart">Старт</button>
+				<button class="md-trigger hd" id="lkmstart">Старт LikeMe</button>
 			</div>
 		</div>
 	</div>
@@ -214,7 +251,7 @@ return i;
 					<!-- Button trigger modal -->
 					                               <button id="ovk">Открыть VK</button><button class="md-trigger hd" id="vkclose">Выйти из  VK</button>
 					<button id="openvk" class="hd">VK</button>
-												<button class="md-trigger hd" id="b3">Аккаунты VK</button><button class="md-trigger hd" id="lcpan">LikeMe</button>
+								<button class="md-trigger hd" id="b3">Аккаунты VK</button><button class="md-trigger hd" id="lcpan">LikeMe</button>
                  <button class="md-trigger" id="b1">Настройки</button>
 					<button id="wv" class="md-trigger hd">webview</button>
 					<button class="md-trigger" id="b2">Справка</button>
@@ -227,8 +264,10 @@ return i;
 
 				</div>
 
-				<p style="text-align: right" class="copys">copy ООО "Техно Универсал"<br/>
+				<p style="text-align: right" class="copys">ООО "Техно Универсал"©<br/>
+					<!--
 				дизайн <i>Son-Ra</i> и программирование <i>А.М. Томилов</i>
+				-->
 				</p>
 
 
