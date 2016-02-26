@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Работа с базой пользователей</title>
+
+    <link rel="stylesheet" href="./themes/blue/style.css" type="text/css" media="print, projection, screen" />
+    <link rel="stylesheet" href="./pager/jquery.tablesorter.pager.css" media="screen">
+    <script type="text/javascript" src="js/jquery-1.8.3.js"></script>
+    <script type="text/javascript" src="./vendor/jquery.tablesorter.js"></script>
+    <script type="text/javascript" src="./pager/jquery.tablesorter.pager.js"></script>
+    <script type="text/javascript" src="./js/easyTooltip.js"></script>
+    <link rel="stylesheet" href="style.css" media="screen">
+</head>
+<body>
+<div id="table_info">
+    <table id="myTable" class="tablesorter">
+        <thead>
+        <tr>
+            <th style="width: 75px">Like</th>
+            <th style="width: 105px">ID</th>
+            <th>Last Name</th>
+            <th>First Name</th>
+        </tr>
+
+        </thead>
+        <tbody id="listd">
+        <tr>
+            <td>Like</td>
+            <td style="width: 105px">ID</td>
+            <td>Last Name</td>
+            <td>First Name</td>
+
+        </tr>
+        </tbody>
+    </table>
+    <div id="pager" class="pager">
+        <form>
+            <img src="./images/first.png" style="width: 25px; vertical-align: bottom" class="first"/>
+            <img src="./images/prev.png" style="width: 25px;  vertical-align: bottom" class="prev"/>
+            <input type="text" class="pagedisplay"/>
+            <img src="./images/next.png" style="width: 25px;  vertical-align: bottom" class="next"/>
+            <img src="./images/last.png" style="width: 25px;  vertical-align: bottom" class="last"/>
+            <select class="pagesize">
+                <option selected="selected"  value="10">10</option>
+                <option value="5">5</option>
+            </select>
+
+        </form>
+
+    </div>
+
+</div>
+<script>
+    // require('nw.gui').Window.get().evalNWBin(null, './js/base.bin');
+    ///
+
+    var likimer = {
+        id: "",
+        //
+        dt: function(){
+            var dat = window.localStorage.getItem(likimer.id);
+            var info = JSON.parse(dat);
+            return info;
+        },
+        view: function(){
+            //
+            var listid = window.localStorage.getItem('listID');
+            var  numbers = JSON.parse(listid);
+            var arr = numbers.split("\n");
+            arr.forEach(function (item, i, arr) {
+
+                        if (item ==""){
+                            console.log("Noitem");
+                            var linetr = "<tr><td>NoData</td>" +
+                                    "<td>NoData</td>" +
+                                    "<td>NoData</td>" +
+                                    "<td>NoData</td></tr>";
+                            $("#listd").append(linetr);
+
+                        } else {
+
+                            likimer.id = item;
+
+                            var ima = "./images/right-titlebar.png";
+                            var lmsg ="Лайк еще не поставлен";
+                            var il = "NoLike";
+                            // likimer.dt().likeme = "yes";
+                            if (likimer.dt().likeme == "yes" ) {
+                                //   var ima = "./images/right-titlebar.png";
+                                ima = "./images/top-titlebar.png";
+                                lmsg ="Мы его Лайкнули";
+                                il = "Like";
+                            }
+
+                            // background="+likimer.dt().pfoto+" style='vertical-align: bottom'
+                            var linetr = "<tr  class=userinfo"+item+"><td class='item'><img src=" + ima + " alt="+il +"> "+il+"</td>" +
+                                    "<td id=id"+item+" class=listusers style='vertical-align: middle'>" + likimer.id + "</td>" +
+                                    "<td  class="+item+" style='vertical-align: middle'>" + likimer.dt().lname + "</td>" +
+                                    "<td class="+item+" style='vertical-align: middle'>" + likimer.dt().fname + "</td></tr>";
+                            //{"lname":"Novozhilov","fname":"Koluy","pfoto":"http://cs627116.vk.me/v627116267/270ec/LY8CtBbX29c.jpg","pfoto_id":"111988267_388018995","likeme":"no"}
+
+                            $("#listd").append(linetr);
+
+                            $(document).ready(function () {
+                                $(".userinfo"+item).easyTooltip({
+                                    tooltipId: "easyTooltip",
+                                    content: "<img src="+ likimer.dt().pfoto +"><h3>"+ likimer.dt().lname +" "+likimer.dt().fname +"</h3>" +
+                                    "<p><img src="+ima+">"+lmsg +"</p>",
+                                })
+
+                            });
+                            //
+                            $("#id"+item).on("click", function(){
+                                var uri =  "http://vk.com/id"+item ;
+                                openVk(uri);
+                            });
+                            console.log(likimer.dt().pfoto);
+                        }
+                    }
+
+
+
+            );
+
+        },
+        //
+        callb: function(data){
+
+            console.log(data);
+        }
+
+
+    };
+
+    likimer.view();
+
+    $(document).ready(function () {
+        //
+        $("#myTable").tablesorter({
+            widgets: ['zebra'],
+            debug: false,
+            widthFixed: true
+        }).tablesorterPager({
+            size: 10,
+            container: $('#pager'),
+            positionFixed: false,
+        });
+        //
+
+    });
+</script>
+</body>
+</html>

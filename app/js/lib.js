@@ -3,9 +3,6 @@
  */
 var versions = "lib.js@9.2.21";
 //
-function mytest(){
-     return a;
-};
 
     //
 // конструктор базы
@@ -390,7 +387,7 @@ function lkVK(urii) {
     }
 
     function listidtop() {
-        console.time('VK-elements');
+      //  console.time('VK-elements');
        // VkRaa.oauth();
 
         var lid = window.localStorage.getItem('listID');
@@ -411,7 +408,7 @@ function lkVK(urii) {
         var M = date.getMinutes();
         var S = date.getSeconds();
         //  tclo();
-        console.timeEnd('VK-elements');
+      //  console.timeEnd('VK-elements');
         console.log("DATA-End " + H + ":" + M + ":" + S + " STOP-elements " + arr.length);
         // console.log(util.inspect(process.memoryUsage()));
     }
@@ -779,31 +776,28 @@ var likimer = {
                     //{"lname":"Novozhilov","fname":"Koluy","pfoto":"http://cs627116.vk.me/v627116267/270ec/LY8CtBbX29c.jpg","pfoto_id":"111988267_388018995","likeme":"no"}
 
                     $("#listd").append(linetr);
-                     $("#myTable").ready(function () {
-                         $(".userinfo"+item).easyTooltip({
-                             tooltipId: "easyTooltip2",
-                             content: "<img src="+ likimer.dt().pfoto +"><h3>"+ likimer.dt().lname +" "+likimer.dt().fname +"</h3>" +
-                             "<p><img src="+ima+">"+lmsg +"</p>"
+                 //    $("#myTable").ready(function () {
+                 //        $(".userinfo"+item).easyTooltip({
+                  //           tooltipId: "easyTooltip2",
+                  //           content: "<img src="+ likimer.dt().pfoto +"><h3>"+ likimer.dt().lname +" "+likimer.dt().fname +"</h3>" +
+                  //           "<p><img src="+ima+">"+lmsg +"</p>"
 
-                     })
+                 //    })
 
-                       });
+                   //    });
                      //
                      $("#id"+item).on("click", function(){
                          var uri =  "http://vk.com/id"+item ;
                          openVk(uri);
                      });
+               }
                 }
-                }
-
-
-
             );
-
     },
     clear: function(){
         $(".listusers").off();
-        $("#listd").empty();
+    //    $("#myTable").unbind("ready");
+            $("#listd").empty();
     },
     //
     sort: function(){
@@ -812,8 +806,7 @@ var likimer = {
            likimer.view();
               //table
 
-        $(document).ready(function () {
-          //
+        $("#myTable").ready(function () {
             $("#myTable").tablesorter({
                 widgets: ['zebra'],
                 debug: false,
@@ -821,13 +814,13 @@ var likimer = {
             }).tablesorterPager({
                 size: 10,
                 container: $('#pager'),
-                positionFixed: false,
-            });
+               positionFixed: false,
+           });
             //
 
-        });
+            });
 
-        //
+            //
 
     },
     fotolikes2: function(){
@@ -881,31 +874,7 @@ var likimer = {
 
             var tokensu = SES.g();
             console.log(tokensu);
-              //-----------------------
-            //{"lname":"Кузнецова","fname":"Светлана","pfoto":"http://cs629211.vk.me/v629211747/1f115/TkKuh0Uw4Kg.jpg","pfoto_id":"133979747_390878109","likeme":"no"}
-        //    var  listid = localStorage.getItem("listID");
-        //    var numbers = JSON.parse(listid);
-        //    var id = numbers.split("\n");
-        //    indexlike_id = [];
-            //indexlike_id = global.indexlike_id ;
-
-       //     id.forEach(function (item, i, id) {
-       //         var userinfo = localStorage.getItem(item);
-       //         userinfo = JSON.parse(userinfo);
-       //         if(userinfo.likeme == "no"){
-         //           indexlike_id[i] = item ;
-                   // console.log(indexlike_id[i]);
-                    // return indexlike_id[i];
-       //         }
-       //     });
-
-     //          var lid = JSON.stringify([indexlike_id]);
-      //      console.log(lid);
-     //         indexlikeid.s(indexlike_id);
-   //-------------------------------------------------
-
-
-            //
+             //
             likys.s("next");
             var uri = "tw.html";
             //   window.open(uri, "likee");
@@ -938,6 +907,7 @@ var likimer = {
             var autoriz = confirm("Требуется авторизация. Хотите автоизоваться сейчас?");
             if(autoriz){
                 logoutVK("http://vk.com/feed?cmd=quit");
+                ModalPanel.del();
                 $("#pcm").slideUp();
                 setTimeout(  b3.OpenModal(), 2000);
 

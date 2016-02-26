@@ -5,7 +5,7 @@
 var versions = "gui2.js@2.0.6";
 
 //...
-
+var wino ;
 
 //likeme
 
@@ -18,6 +18,7 @@ $("#closelikeme").live('click', function(){
     //background: rgba(190,204,162,0.8);
     $('.md-overlay').css('background','rgba(190,204,162,0.8)');
     likemestart.CloseModal();
+    Modal5.del();
     //
     likimer.sort();
 });
@@ -65,7 +66,7 @@ $("#b3Close").live('click',
 );
 
 //vkopen_link
-var wino ;
+
 //
 var win1 ;
 $("#openvk").live('click',
@@ -79,11 +80,6 @@ $("#openvk").live('click',
 //
 
 //wv
-$("#wv").live('click',
-    function() {
-        var win2 =  window.open('tw.html', "win-wv");
-    }
-);
 
 $("#app-quit").live('click',
     function() {
@@ -91,66 +87,17 @@ $("#app-quit").live('click',
     }
 );
 
-$("#wclose").live('click',
-    function() {
-        self.close();
-    }
-);
-
-$("#minwin").live('click',
-    function() {
-        win.minimize();
-    }
-);
-
-
 
 //
 var about = new Batuns("modal-about");
-
-$("#tests").live('click',
-    function() {
-
-        var uri = "tw.html";
-        //   window.open(uri, "likee");
-        wino =  gui.Window.open (uri, {
-            //  position: 'center',
-            id: "LiK",
-            width: 540,
-            show: true,
-            height: 650,
-            "toolbar": true,
-            resizable: false,
-            "frame": true,
-            "nodejs": true,
-            "inject-js-start": "js\\jquery-1.8.3.js",
-            "inject-js-end": "js\\lykeme.js",
-
-        });
-
-    });
-//------------------
-
-
-$("#tests2").live('click',
-    function() {
-        window.frames[0].location="http://m.vk.com/photo170597960_402144690";
-      //  $('span.like_wrap a').trigger('click');
-
-    });
-
-$("#tests3").live('click',
-    function() {
-
-        $('span.like_wrap a').trigger('click');
-
-    });
-//<span class="fl_l" id="pv_like_link">Мне нравится</span>
-
-
-
 // объект меню
 
+$("#minwin").live('click',
+    function() {
+
+        win.minimize();
+    }
+);
 //глобальный обработчик
 
 $('#menu').on('click', "button", function(){
@@ -167,10 +114,10 @@ $('#menu').on('click', "button", function(){
             b3.OpenModal();
             break;
         case "lcpan":
-            likimer.ftokenus();
-            $("#pcm").slideDown();
-            likimer.sort();
+                  likimer.ftokenus();
             ModalPanel.event();
+            likimer.sort();
+            $("#pcm").slideDown();
             break;
         case "b1":
             b1.OpenModal();
@@ -211,14 +158,14 @@ var ModalSetting ={
 
 }
 
-$("#lkmstart").live('click',
-    function() {
-        likimer.fotolikes();
-    });
+//$("#lkmstart").live('click',
+ //  function() {
+ //      likimer.fotolikes();
+ //   });
 //панель лайкера
 var ModalPanel = {
     del: function(){
-        $('#pcm5').off('click');
+        $('#pcm').off('click');
 
     },
 
@@ -228,24 +175,24 @@ var ModalPanel = {
           //  console.log(data);
             switch (data){
                 case "cmdeditid":
+                    ModalPanel.del();
                     $("#pcm").slideUp();
                     if (likeris != null){
                         likeris.close(true);
                     }
                     $("#likeme").removeClass("poev");
                     $("#lkmstart").removeClass("poev");
-
-                   ModalPanel.del();
                     break;
                 case "likeme":
                     likeme.OpenModal();
                     getIDList();
                     Modal5.event();
                     break;
-             //   case "lkmstart":
-                //    likimer.fotolikes();
+                case "lkmstartn":
+                    console.log(data);
+                        likimer.fotolikes();
 
-              //      break;
+                    break;
                 default:
             }
 

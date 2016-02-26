@@ -80,7 +80,7 @@ sysstatus.setbar();
 
 //server-echo
 
-console.log("Start Init");
+//console.log("Start Init");
 
 //lib
 //var user = require('./js/users.js');
@@ -173,16 +173,41 @@ for (var i = 0; i < menu.items.length; ++i) {
 //
 
 console.log(versions2);
-console.log(util.inspect(process.memoryUsage()));
-console.timeEnd('Start-APP');
+//console.log(util.inspect(process.memoryUsage()));
+//console.timeEnd('Start-APP');
 // пробы
 
+//win.on('minimize', function() {
+ //   $('#menu').off('click');
+ //   console.log('Window is minimized');
+//});
 
+//win.on("restore", function(){
 
+ //   console.log('Window is restore');
+//})
 //win.on('minimize', function() {
 //    console.log('Window is minimized');
 //});
+
+gui.Window.get().on('close', function() {
+    // Hide the window to give user the feeling of closing immediately
+    this.hide();
+
+    // If the new window is still open then close it.
+    if (win != null)
+        likeris.close(true);
+
+    // After closing the new window, close the main window.
+    this.close(true);
+});
+
+
+
+
 win.showDevTools();
+
+
 
 //
 

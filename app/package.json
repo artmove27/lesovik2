@@ -2,7 +2,7 @@
     "name": "LesoViK",
     "app_name": "LesoViK",
     "description": "workinng is vk.com",
-    "version": "a.14.2.11",
+    "version": "a.14.3.11",
     "inject-js-start": "js\\jquery-1.8.3.js",
     "title": "LesoViK",
     "window": {
@@ -28,7 +28,7 @@
         "min_height": 700,
         "icon": "icons\\icon-128.png",
         "title": "LesoViK",
-        "frame": false
+        "frame": true
     },
     "single-instance": true,
     "nodejs": true,
