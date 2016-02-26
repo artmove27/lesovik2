@@ -30,11 +30,11 @@ console.log(window.location.hash);
 
 //window.sessionStorage.setItem("token_code", queryStr['code']);
 
-var sendObject = {
-    status :  "OK",
-    title:  "token",
-    value:  "adadasdasdasd"
-};
+//var sendObject = {
+//    status :  "OK",
+//    title:  "token",
+//    value:  ""
+//};
 
 
 //opener.postMessage(sendObject, '*');

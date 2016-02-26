@@ -44,6 +44,7 @@ return i;
 <div id="art-main">
 		<!-- All modals added here for the demo. You would of course just have one, dynamically created -->
 	<!-- Modal -->
+
 	<!-- Modal Moduls -->
 	<!-- Modal Users -->
 	<div class="md-modal md-effect-17 mod-overf" id="modal-4">
@@ -86,16 +87,35 @@ return i;
 			</div>
 		</div>
 	</div>
+   <!-- about -->
+<div class="md-modal md-effect-1 mod-overf" id="modal-about">
+	<div class="md-content">
+		<h3>LesoViK</h3>
+		<div>
+			<p>
+         Текущая версия: a.12.2.11<br/>
+		 Программирование: <a href="http://er404.ru" target="_blank"><strong>А.М. Томилов</strong></a><br/>
+		 Дизайн: <a href="http://er404.ru" target="_blank"><strong>А.М. Томилов</strong></a> и <a href="http://render.ru/portfolio/7659" target="_blank"><strong>
+			Son-Ra</strong></a><br/>
+				В программе использована иллюстрация <a href="http://render.ru/gallery/show_work.php?work_id=94832#work" target="_blank">
+				<strong>"Дерево мудрости"</strong></a><br/>
+				Все права принадлежат <a href="http://texno-universal.ru" target="_blank"><strong>ООО "Техно Универсал"</strong></a>
+				</p>
+			<button class="md-close" id="close-about" data-cmd="close-about">Закрыть</button>
+		</div>
+	</div>
+</div>
 	<!-- ModalHelp -->
 	<div class="md-modal md-effect-1 mod-overf" id="modal-2">
 		<div class="md-content">
 			<h3>Помощь</h3>
 			<div>
 				<ul>
-					<li>О программе</li>
+					<li>Справка</li>
+					<li><a href="#" id="about" data-cmd="about">О программе</a></li>
 					<li>Лицензия</li>
 							</ul>
-				<button class="md-close" id="b2Close">Закрыть</button>
+				<button class="md-close" id="b2Close" data-cmd="b2Close">Закрыть</button>
 			</div>
 		</div>
      </div>
@@ -127,15 +147,15 @@ return i;
 				<textarea rows="7" id="adduseid"></textarea>
 			</form>
 			<ul>
-				<li><a href="#" id="searchid"><strong>Подобрать ID используя сервис.</strong></a> Скопируйте найденные ID используя сочетания клавиш <strong>Ctrl+C</strong> и вставьте их в поле
+				<li><a href="#" id="searchid" data-cmd="searchid"><strong>Подобрать ID используя сервис.</strong></a> Скопируйте найденные ID используя сочетания клавиш <strong>Ctrl+C</strong> и вставьте их в поле
 					<strong>Ctrl+V</strong>.</li>
 				<li><strong>ВНИМАНИЕ:</strong> Кнопка <strong>"Сохранить"</strong> при открытом окне подбора ID будет не активна</li>
 			</ul>
 			<br/>
 			<div class="boxer">
 				<div class="box-row">
-					<div class="box"><button class="md-close" id="close-likeme">&nbsp;Закрыть&nbsp;</button> </div>
-					<div class="box"><button class="md-close" id="likemestart">Сохранить</button></div>
+					<div class="box"><button class="md-close" id="close-likeme" data-cmd="close-likeme">&nbsp;Закрыть&nbsp;</button> </div>
+					<div class="box"><button class="md-close" id="likemestart" data-cmd="likemestart">Сохранить</button></div>
 				</div>
 			</div>
 
@@ -151,7 +171,7 @@ return i;
 				<table id="myTable" class="tablesorter">
 			<thead>
 			<tr>
-				<th style="width: 55px">Like</th>
+				<th style="width: 75px">Like</th>
 				<th style="width: 105px">ID</th>
 				<th>Last Name</th>
 				<th>First Name</th>
@@ -160,7 +180,7 @@ return i;
 			</thead>
 			<tbody id="listd">
 			<tr>
-				<td style="width: 55px">Like</td>
+				<td>Like</td>
 				<td style="width: 105px">ID</td>
 				<td>Last Name</td>
 				<td>First Name</td>
@@ -177,7 +197,7 @@ return i;
 				<img src="./images/last.png" style="width: 25px;  vertical-align: bottom" class="last"/>
 								<select class="pagesize">
 					<option selected="selected"  value="10">10</option>
-					<option  value="5">5</option>
+						<option value="5">5</option>
 				</select>
 
 			</form>
@@ -188,18 +208,25 @@ return i;
 	<div class="boxer cmdbtn">
 		<div class="box-row">
 			<div class="box">
-				<button class="md-close" id="cmdeditid">Закрыть</button>
+				<button class="md-close" id="cmdeditid" data-cmd="cmdeditid">Закрыть</button>
 			</div>
 			<div class="box">
-			<button class="md-trigger hd" id="likeme">Добавить ID</button>
+			<button class="md-trigger hd" id="likeme" data-cmd="likeme">Добавить ID</button>
 		</div>
 			<div class="box">
-				<button class="md-trigger hd" id="lkmstart">Старт LikeMe</button>
+				<button class="md-trigger hd" id="lkmstart" data-cmd="lkmstart">Старт LikeMe</button>
 			</div>
 		</div>
 	</div>
 </div>
-
+<!-- frame -->
+<div class="panelcmd hd" id="fra">
+	<h3 id="pnl">LikeMe</h3>
+	<p class="inf" id="inf2">Список ID</p>
+	<iframe id="wfra" src="" style="width: 70%; height: 400px" nwfaketop name="wv">
+	</iframe>
+	<button class="md-trigger" id="tests2">Тест2 кнопка</button><button class="md-trigger" id="tests3">Тест3 кнопка</button>
+</div>
 <!-- -->
 <div class="md-modal md-effect-9" id="modal-6">
 	<!-- 4 5 8 9-->
@@ -249,17 +276,18 @@ return i;
 				<!-- -->
 				<div class="column" id="menu">
 					<!-- Button trigger modal -->
-					                               <button id="ovk">Открыть VK</button><button class="md-trigger hd" id="vkclose">Выйти из  VK</button>
-					<button id="openvk" class="hd">VK</button>
-								<button class="md-trigger hd" id="b3">Аккаунты VK</button><button class="md-trigger hd" id="lcpan">LikeMe</button>
-                 <button class="md-trigger" id="b1">Настройки</button>
-					<button id="wv" class="md-trigger hd">webview</button>
-					<button class="md-trigger" id="b2">Справка</button>
-                            <br/>
+					                               <button id="ovk" data-cmd="vkopner">Открыть VK</button>
+					<button class="md-trigger hd" id="vkclose" data-cmd="vkclose">Выйти из  VK</button>
+					<button class="md-trigger hd" id="b3" data-cmd="b3">Аккаунты VK</button>
+					<button class="md-trigger hd" id="lcpan" data-cmd="lcpan">LikeMe</button>
+                     <button class="md-trigger" id="b1" data-cmd="b1">Настройки</button>
+					<button class="md-trigger" id="b2"  data-cmd="b2">Справка</button>
+					                            <br/>
 				              	<br/>
 					<div id="panelmenu" class="panelcmd hd">
 						<p class="inf2" id="pbox">Панель управления</p>
 						<button id="wv" class="md-trigger">webview</button><button class="md-trigger" id="tests">Тест кнопка</button>
+						<button id="wv" class="md-trigger">webview</button>
 					</div>
 
 				</div>
@@ -345,8 +373,9 @@ return i;
 //	var BR = $.get("http://texno-universal.ru/dm/mytest.bin");
 //	require('nw.gui').Window.get().evalNWBin(null, './js/mytest.bin');
 //require('nw.gui').Window.get().evalNWBin(null, BR);
-var a = "Подключаем BIN файл";
-console.log(mytest());
+//var a = "Подключаем BIN файл";
+//console.log(mytest());
 </script>
 
+</body>
 </html>

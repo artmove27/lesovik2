@@ -1,4 +1,7 @@
 /**
+ * Created by zews on 25.02.2016.
+ */
+/**
  * Created by zews on 18.02.2016.
  */
 
@@ -84,19 +87,18 @@ switch (queryStr['cmd']) {
 switch (vk.id) {
     case undefined:
         //queryStr['luser']
-              //  window.alert("Вы не авторизованы");
-        sendObject.status = "OK";
+              sendObject.status = "OK";
         opener.postMessage(sendObject, '*');
-             WinClo();
+        WinClo();
         break;
     case 0:
-      //  window.alert("qiut");
+        //  window.alert("qiut");
         sendObject.status = "OK";
         opener.postMessage(sendObject, '*');
-           //  window.alert( 'Ноль' );
+        //  window.alert( 'Ноль' );
         break;
     default:
-      //  WinClo();
+    //  WinClo();
 
 };
 

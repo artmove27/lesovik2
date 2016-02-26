@@ -2,7 +2,7 @@
  * Created by zews on 01.02.2016.
  */
 console.time('Start-APP');
-var versions2 = "app.js@8.4.20"
+var versions2 = "app.js@8.5.20"
 //
 
 
@@ -19,6 +19,7 @@ global.window = window
 //
 global.gui = gui;
 var win = gui.Window.get(); //окно
+
 global.jQuery = jQuery;
 
 
@@ -30,7 +31,7 @@ global.jQuery = jQuery;
 //
 
 var sysstatus = global.sysstatus;
-var versions = "LesoViK v.a.10.1.11";
+var versions = "LesoViK v.a12.2.11";
 
  sysstatus = {
     useronline: "Off",
@@ -86,6 +87,7 @@ console.log("Start Init");
 require('nw.gui').Window.get().evalNWBin(null, './js/lib.bin');
 //require('./js/lib.js');
 require('nw.gui').Window.get().evalNWBin(null, './js/gui2.bin');
+//require('./js/gui2.js');
 const util = require('util');
 //старотвые установки
 //модули программы bin
@@ -130,7 +132,13 @@ menu.append(new gui.MenuItem({
     submenu: submenu
 }));
 submenu.append(new gui.MenuItem({ label: 'Справка' }));
-submenu.append(new gui.MenuItem({ label: 'О программе' }));
+submenu.append(new gui.MenuItem({ label: 'О программе',
+   click: function(){
+       b2.CloseModal();
+       about.OpenModal();
+       //
+   }
+}));
 submenu.append(new gui.MenuItem({ label: 'Лицензия' }));
 menu.append(new gui.MenuItem({ type: 'separator' }));
 menu.append(new gui.MenuItem({ label: 'Выход',
@@ -171,10 +179,11 @@ console.timeEnd('Start-APP');
 
 
 
-win.on('minimize', function() {
-    console.log('Window is minimized');
-});
+//win.on('minimize', function() {
+//    console.log('Window is minimized');
+//});
 win.showDevTools();
+
 //
 
 //win.reload();

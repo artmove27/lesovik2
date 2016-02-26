@@ -44,7 +44,8 @@ body, html{
 }
 /* Easy Tooltip */
 
-#easyTooltip{
+
+#easyTooltip, #easyTooltip2{
     margin:0 10px 1em 0;
     width:250px;
     padding:8px;
@@ -52,22 +53,23 @@ body, html{
     border:1px solid #a5ad7a;
     line-height:130%;
     background: #E7E5A6;
+    z-index: 1500;
 
 }
 
-#easyTooltip h3{
+#easyTooltip h3, #easyTooltip2 h3{
     margin:0 0 .5em 0;
     font:13px Arial, Helvetica, sans-serif;
     text-transform:uppercase;
     color: #990033;
 }
 
-#easyTooltip p{
+#easyTooltip p, #easyTooltip2 p{
     margin:0 0 .5em 0;
     color: #000;
 }
 
-#easyTooltip img{
+#easyTooltip img, #easyTooltip2 img{
     background:#fff;
     padding:1px;
     border:1px solid #e1e1e1;
@@ -311,4 +313,10 @@ html { overflow-y: hidden; }
     bottom: 25px;
     right: 25px;
     width: auto;
+}
+
+.iconus {
+
+    text-align: right;
+    height:50px;
 }

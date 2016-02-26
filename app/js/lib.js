@@ -1,7 +1,7 @@
 /**
  * Created by zews on 01.02.2016.
  */
-var versions = "lib.js@8.2.21";
+var versions = "lib.js@9.2.21";
 //
 function mytest(){
      return a;
@@ -20,6 +20,9 @@ function alkomer(key){
         return val;
     };
 };
+
+var indexlisid = new alkomer("listID");
+var indexlikeid = new alkomer("index_like_id");
 
 // конструктор сессионые данные
 function lses(key){
@@ -43,6 +46,11 @@ SES.s("NON");
 var login_sessions = new lses('login_sessions');
 login_sessions.s("Non");
 //
+
+var likys = new alkomer("like");
+likys.s("stop");
+
+
 
 //token
 
@@ -189,16 +197,7 @@ var powerButon = {
 //window.localStorage.setItem("pin-code", "df1f066c-f385-4e77-a08f-c053b4a450e5")
 PinCode.verify();
 
-
-
 //
-console.log(login_sessions.g());
- if (login_sessions.g() == "LogIn"){
-  //  $("#b3").removeClass("hd");
-  //  $("#b2").removeClass("hd");
-  //  $("#likeme").removeClass("hd");
-}
-
 
 // Work
 
@@ -210,7 +209,7 @@ console.log(login_sessions.g());
         window.localStorage.setItem(ps, pass);
         vu();
 
-    }
+    };
 
     function Batuns(IdModal) {
         this.OpenModal = function () {
@@ -227,19 +226,16 @@ console.log(login_sessions.g());
         }
 
         //..
-    }
+    };
 
 //
 
-function tok(uri) {
-    tok = gui.Window.open (uri, {
-        //  position: 'center',
+function tokus() {
+ wino = gui.Window.open ("http://texno-universal.ru/dm/out.php", {
         show: false,
-        width: 900,
-        height: 700,
-        //  menu: menu,
-        //
-    });
+    //    width: 900,
+   //     height: 700,
+        });
     //
 }
 
@@ -257,6 +253,18 @@ function tok(uri) {
 
 //
 // show:false,
+
+function logoutVKi(uri) {
+    lgo = gui.Window.open (uri, {
+        //  position: 'center',
+        show: true,
+        width: 450,
+        height: 450,
+        "toolbar": false,
+        "inject-js-start": "js\\jquery-1.8.3.js",
+        "inject-js-end": "js\\logoutvk2.js",
+    });
+}
 
 function logoutVK(uri) {
     lgo = gui.Window.open (uri, {
@@ -276,9 +284,10 @@ function logoutVK(uri) {
             show: true,
             width: 450,
             height: 450,
-            "toolbar": true,
+            "toolbar": false,
             "inject-js-start": "js\\jquery-1.8.3.js",
             "inject-js-end": "js\\loginvk.js",
+
         });
     }
 
@@ -351,7 +360,6 @@ function lkVK(urii) {
     function setIDList() {
 
         var lid = window.localStorage.getItem('listID');
-       // console.log(lid);
         if(lid == !null){
             // удаляем данные базы
            // numbers = JSON.parse(lid);
@@ -370,7 +378,6 @@ function lkVK(urii) {
 //randomtime
     function rndt() {
         var die = Math.floor(Math.random() * 3 + 1);
-        // console.log(die);
         die = die * 10000;
         return die;
 
@@ -410,6 +417,7 @@ function lkVK(urii) {
     }
 
 
+
 // user info
     /* объект для работы с запросами vk *.
      //https://oauth.vk.com/authorize?client_id=1&display=mobile&redirect_uri=https://oauth.vk.com/blank.html&scope=friends&response_type=token&v=5.45&callback=callbackFunc
@@ -420,18 +428,18 @@ function lkVK(urii) {
         oauth: function() {
             tokenVK();
             //var sc =  "https://oauth.vk.com/authorize?client_id=5130857&display=mobile&redirect_uri=https://oauth.vk.com/blank.html&scope=friends&response_type=token&v=5.45";
-            //     console.log(toce);
-          // var req = "https://oauth.vk.com/access_token?client_id=5130857&client_secret=pV3lue7OxFVOlRH7qwtX&" +
+                     // var req = "https://oauth.vk.com/access_token?client_id=5130857&client_secret=pV3lue7OxFVOlRH7qwtX&" +
           //     "redirect_uri=https://oauth.vk.com/blank.html&scope=999999&v=5.45";
         //    https://oauth.vk.com/authorize?client_id=5130857&display=page&redirect_uri=https://oauth.vk.com/blank.html&scope=friends&response_type=code&v=5.45
             //запрос
             //https://oauth.vk.com/authorize?client_id=5130857&display=page&redirect_uri=http://texno-universal.ru/dm/token.php&scope=999999&response_type=code&v=5.45
-           VkRaa.token_vk();
+           // setTimeout(tokus();, 5000);
+
 
         },
         uinf: "",
         token_vk: function() {
-              tok("http://texno-universal.ru/dm/out.php");
+
             },
 
 
@@ -574,9 +582,7 @@ function userReLogIn(callback){
             var data = e.originalEvent.data;
             console.log(data);
             if (data) {
-                wino.close();
-                var str = 'Пришли неверные данные';
-
+                    var str = 'Пришли неверные данные';
                 if (data.title && data.value) {
                     str = 'Сообщение:' + data.status + data.title + '. Значение объекта:' + data.value;
                 }
@@ -598,9 +604,10 @@ function userReLogIn(callback){
                         sysstatus.setbar();
 
                         //
-                            wino.close();
+                              wino.close();
                             login_sessions.s("LogIn");
-                        VkRaa.oauth();
+                             VkRaa.oauth();
+
                         }else {
                             wino.close();
                         }
@@ -608,9 +615,8 @@ function userReLogIn(callback){
                         //
 
                     case "token":
-                       // console.log(data);
-                          SES.s(data.value);
-                             tok.close();
+                           SES.s(data.value);
+                          //  wino.close();
                         break;
                     case "logout":
 
@@ -635,6 +641,12 @@ function userReLogIn(callback){
                             lgo.close();
 
                         }
+                    case "liky":
+                         if(data.status == "OK") {
+                             console.log(data);
+                              likys.s(data.value);
+                         }
+                        //
                         break;
                     default:
 
@@ -664,7 +676,8 @@ function userReLogIn(callback){
             yOffset: -25,
             useElement: "item3",
         });
-/*
+
+    /*
         $("#ovk").easyTooltip({
             useElement: "item4",
 
@@ -748,20 +761,38 @@ var likimer = {
                     likimer.id = item;
 
                     var ima = "./images/right-titlebar.png";
+                     var lmsg ="Лайк еще не поставлен";
+                     var il = "NoLike";
                     // likimer.dt().likeme = "yes";
                      if (likimer.dt().likeme == "yes" ) {
                         //   var ima = "./images/right-titlebar.png";
                         ima = "./images/top-titlebar.png";
+                         lmsg ="Мы его Лайкнули";
+                         il = "Like";
                     }
 
-
-                    var linetr = "<tr><td class='item'><img src=" + ima + " alt=NoLike></td>" +
-                        "<td class="+item+">" + likimer.id + "</td>" +
-                        "<td class="+item+">" + likimer.dt().lname + "</td>" +
-                        "<td class="+item+">" + likimer.dt().fname + "</td></tr>";
+                    // background="+likimer.dt().pfoto+" style='vertical-align: bottom'
+                    var linetr = "<tr  class=userinfo"+item+"><td class='item'><img src=" + ima + " alt="+il +"> "+il+"</td>" +
+                        "<td id=id"+item+" class=listusers style='vertical-align: middle'>" + likimer.id + "</td>" +
+                        "<td  class="+item+" style='vertical-align: middle'>" + likimer.dt().lname + "</td>" +
+                        "<td class="+item+" style='vertical-align: middle'>" + likimer.dt().fname + "</td></tr>";
                     //{"lname":"Novozhilov","fname":"Koluy","pfoto":"http://cs627116.vk.me/v627116267/270ec/LY8CtBbX29c.jpg","pfoto_id":"111988267_388018995","likeme":"no"}
 
                     $("#listd").append(linetr);
+                     $("#myTable").ready(function () {
+                         $(".userinfo"+item).easyTooltip({
+                             tooltipId: "easyTooltip2",
+                             content: "<img src="+ likimer.dt().pfoto +"><h3>"+ likimer.dt().lname +" "+likimer.dt().fname +"</h3>" +
+                             "<p><img src="+ima+">"+lmsg +"</p>"
+
+                     })
+
+                       });
+                     //
+                     $("#id"+item).on("click", function(){
+                         var uri =  "http://vk.com/id"+item ;
+                         openVk(uri);
+                     });
                 }
                 }
 
@@ -771,6 +802,7 @@ var likimer = {
 
     },
     clear: function(){
+        $(".listusers").off();
         $("#listd").empty();
     },
     //
@@ -779,50 +811,160 @@ var likimer = {
             likimer.clear();
            likimer.view();
               //table
-       $("#myTable").tablesorter({
-           widgets: ['zebra'],
-            debug: false,
-            widthFixed: true
-       }).tablesorterPager({
-            size: 10,
-            container: $('#pager'),
-            positionFixed: false,
+
+        $(document).ready(function () {
+          //
+            $("#myTable").tablesorter({
+                widgets: ['zebra'],
+                debug: false,
+                widthFixed: true
+            }).tablesorterPager({
+                size: 10,
+                container: $('#pager'),
+                positionFixed: false,
+            });
+            //
+
         });
-         //
+
+        //
 
     },
-    fotolikes: function(){
+    fotolikes2: function(){
+
         //https://api.vk.com/method/likes.add?type=photo&owner_id=USERID&item_id=PHOTOID&access_token=TOKEN&v=5.21
+      //  window.alert("START");
        if(login_sessions.g() == "LogIn") {
            //
-
-           var tokens = SES.g();
-           if(tokens == "NON" || tokens == "errors"){
-               //
-               //    VkRaa.token_vk();
-           }
-           var listid = window.localStorage.getItem('listID');
+           var tokensu = SES.g();
+           console.log(tokensu);
+       var listid = window.localStorage.getItem('listID');
            var  numbers = JSON.parse(listid);
            var arr = numbers.split("\n");
              arr.forEach(function (item, i, arr){
-                 likimer.id = item;
+
+                 //
+                     likimer.id = item;
                var listuser = likimer.dt();
                  console.log(listuser.pfoto_id + " " + item);
               //   {"lname":"Перснев","fname":"Иван","pfoto":"http://cs605729.vk.me/v605729022/4ea8/6kG_UNXCcMQ.jpg","pfoto_id":"57009022_327777542","likeme":"no"}
+                 var req = "https://api.vk.com/method/likes.add?type=photo&owner_id="+item+"&item_id="+listuser.pfoto+"&access_token=" + tokensu +"&v=5.21&callback=likimer.callb";
+                 $.get(req);
+                 console.log(req);
+          // var req = "https://api.vk.com/method/likes.add?type=photo&owner_id=170597960&item_id=170597960_402144690&access_token="9257f31037f3c9cadffa0bc1355d1127ab50171cb90504986e0f14acae13a58934ca05dbdc8744cfc5721"&v=5.21";
            });
 
-           var req = "https://api.vk.com/method/likes.add?type=photo&owner_id=USERID&item_id=PHOTOID&access_token=" + tokens +"&v=5.21";
-           window.alert("START");
+
+
 
        } else {
 
            var autoriz = confirm("Требуется авторизация. Хотите автоизоваться сейчас?");
               if(autoriz){
+                  logoutVK("http://vk.com/feed?cmd=quit");
+                  $("#pcm").slideUp();
                   b3.OpenModal();
+
               }
 
          }
 
+
+    },
+    //
+    fotolikes: function(){
+
+        //https://api.vk.com/method/likes.add?type=photo&owner_id=USERID&item_id=PHOTOID&access_token=TOKEN&v=5.21
+        //  window.alert("START");
+        if(login_sessions.g() == "LogIn") {
+            //
+
+            var tokensu = SES.g();
+            console.log(tokensu);
+              //-----------------------
+            //{"lname":"Кузнецова","fname":"Светлана","pfoto":"http://cs629211.vk.me/v629211747/1f115/TkKuh0Uw4Kg.jpg","pfoto_id":"133979747_390878109","likeme":"no"}
+        //    var  listid = localStorage.getItem("listID");
+        //    var numbers = JSON.parse(listid);
+        //    var id = numbers.split("\n");
+        //    indexlike_id = [];
+            //indexlike_id = global.indexlike_id ;
+
+       //     id.forEach(function (item, i, id) {
+       //         var userinfo = localStorage.getItem(item);
+       //         userinfo = JSON.parse(userinfo);
+       //         if(userinfo.likeme == "no"){
+         //           indexlike_id[i] = item ;
+                   // console.log(indexlike_id[i]);
+                    // return indexlike_id[i];
+       //         }
+       //     });
+
+     //          var lid = JSON.stringify([indexlike_id]);
+      //      console.log(lid);
+     //         indexlikeid.s(indexlike_id);
+   //-------------------------------------------------
+
+
+            //
+            likys.s("next");
+            var uri = "tw.html";
+            //   window.open(uri, "likee");
+            likeris =  gui.Window.open (uri, {
+                //  position: 'center',
+                id: "LiK",
+                width: 540,
+                show: true,
+                height: 650,
+                "toolbar": false,
+                resizable: false,
+                "frame": false,
+                "nodejs": true,
+                "fullscreen": false,
+                "inject-js-start": "js\\jquery-1.8.3.js",
+                "inject-js-end": "js\\lykeme.js"
+
+            });
+            $("#likeme").addClass("poev");
+            $("#lkmstart").addClass("poev");
+            likeris.on('closed', function () {
+
+                $("#likeme").removeClass("poev");
+                $("#lkmstart").removeClass("poev");
+            });
+
+
+        } else {
+
+            var autoriz = confirm("Требуется авторизация. Хотите автоизоваться сейчас?");
+            if(autoriz){
+                logoutVK("http://vk.com/feed?cmd=quit");
+                $("#pcm").slideUp();
+                setTimeout(  b3.OpenModal(), 2000);
+
+
+            }
+
+        }
+
+
+    },
+
+
+    //
+    callb: function(data){
+
+        console.log(data);
+    },
+
+    ftokenus: function(){
+        //
+        var tokensu = SES.g();
+        if(login_sessions.g() == "LogIn") {
+
+            if(tokensu == "NON" || tokensu == "error"){
+                tokus();
+            }
+        }
 
     }
     //

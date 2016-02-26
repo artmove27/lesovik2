@@ -2,71 +2,24 @@
  * Created by zews on 24.01.2016.
  */
 
-var versions = "gui2.js@1.0.6";
+var versions = "gui2.js@2.0.6";
 
 //...
+
+
 //likeme
-
-
-var likeme = new Batuns("modal-5");
-//открываем окно настроек и старта
-$("#likeme").live('click', function(){
-    likeme.OpenModal();
-    getIDList();
-    //чтение списка
-});
-// закрываем окно настроек
-
-$("#close-likeme").live('click', function(){
-       likeme.CloseModal();
-//    likimer.clear();
- //   likimer.view();
-    //table
-//    $("#myTable").tablesorter({
- //       widgets:['zebra'],
-//        debug:false,
-//        widthFixed:true
-//    }).tablesorterPager({
- //       size:10,
-//        container:$('#pager'),
-//        positionFixed:false,
-//    });
-
-
-    //
-      if (wino != null){
-          $("#likemestart").removeClass("poev");
-          wino.close();
-      }
-});
-//start LikeMe
 
 $("#likemestop").live('click', function(){
     window.alert("Пауза. Для продолжения нажмите <<ОК>>");
-
-
     });
 
 var likemestart = new Batuns("modal-6");
-$("#likemestart").live('click', function(){
-    setIDList();
-    likeme.CloseModal();
-    likemestart.OpenModal();
-   // $('.md-overlay').css('background','#E7E5A6');
-  //  $('#modal6').css('background-color','#E7E5A6');
-  //  $('#modal6').css('color','#000');
-    setTimeout(listidtop(), 1000);
-  //  $('#modal6').css('width','90%');
-
-});
-
 $("#closelikeme").live('click', function(){
     //background: rgba(190,204,162,0.8);
     $('.md-overlay').css('background','rgba(190,204,162,0.8)');
     likemestart.CloseModal();
     //
     likimer.sort();
-    // win.reload();
 });
 
 
@@ -89,10 +42,7 @@ $("#b4Close").live('click',
     function() {
       b4.CloseModal();
     adus(loginus.idusers.value, loginus.login.value, loginus.pass.value);
-       // window.alert(loginus.idusers.value)
-        //onsubmit="adus(loginus.idusers.value,loginus.login.value,loginus.pass.value );return false"
         window.alert("Изменения внесены");
-       // vu();
    }
 );
 //
@@ -102,39 +52,12 @@ $("#b4-2Close").live('click',
     }
 );
 
-
-//
-
-var b1 = new Batuns("modal-1");
-$("#b1").live('click', function(){
-    b1.OpenModal();
-    $("input[name = pincode]").val(PinCode.get());
-
-});
-$("#b1Close").live('click',
-    function() {
-        PinCode.set(pcode.pincode.value)
-        b1.CloseModal();
-          PinCode.verify();
-      //   win.reload();
-        // win.window.close();
-    }
-        );
-//...
 // work
 var b2 = new Batuns("modal-2");
-$("#b2").live('click', function(){b2.OpenModal()});
-$("#b2Close").live('click',
-    function() {
-        b2.CloseModal();
-    }
-);
 
 // аккаунты
 var b3 = new Batuns("modal-3");
-$("#b3").live('click', function(){
-    b3.OpenModal()
-});
+
 $("#b3Close").live('click',
     function() {
         b3.CloseModal();
@@ -149,46 +72,18 @@ $("#openvk").live('click',
     function() {
           openVK(user1.LogIn());
 
-       // self.window.focus()
-        //win.window.close()
-
              //
     }
 );
 
 //
-$("#ovk").live('click',
-    function() {
-        openVk("http://vk.com/");
-
-    }
-);
 
 //wv
 $("#wv").live('click',
     function() {
-        // window.open('http://oauth.vk.com/authorize?client_id=5130857&redirect_uri=close.html&display=popup&response_type=token', "win1");
-      //  var win2 =  window.open('wv.html', "win-wv");
-      //   global.M = "awaqda";
-      //  win1.window.close();
-    }
-);vkclose
-//
-$("#vkclose").live('click',
-    function() {
-      // wino.window.close();
-     //   setTimeout( tokens.window.close(),1000);
-        logoutVK("http://vk.com/feed?cmd=quit");
-
-      //  lkVK("57009022");
-      //    lkvk.on('loaded', function(){
-            // the native onload event has just occurred
-      //      var document = lkvk.window.document;
-      //      document.write("<p>Некоторый текст 222222</p>");
-      //  });
+        var win2 =  window.open('tw.html', "win-wv");
     }
 );
-//
 
 $("#app-quit").live('click',
     function() {
@@ -207,28 +102,238 @@ $("#minwin").live('click',
         win.minimize();
     }
 );
-// tests
 
-$("#lcpan").live('click',
+
+
+//
+var about = new Batuns("modal-about");
+
+$("#tests").live('click',
     function() {
-         $("#pcm").slideDown();
-        likimer.sort();
+
+        var uri = "tw.html";
+        //   window.open(uri, "likee");
+        wino =  gui.Window.open (uri, {
+            //  position: 'center',
+            id: "LiK",
+            width: 540,
+            show: true,
+            height: 650,
+            "toolbar": true,
+            resizable: false,
+            "frame": true,
+            "nodejs": true,
+            "inject-js-start": "js\\jquery-1.8.3.js",
+            "inject-js-end": "js\\lykeme.js",
+
+        });
+
+    });
+//------------------
+
+
+$("#tests2").live('click',
+    function() {
+        window.frames[0].location="http://m.vk.com/photo170597960_402144690";
+      //  $('span.like_wrap a').trigger('click');
+
+    });
+
+$("#tests3").live('click',
+    function() {
+
+        $('span.like_wrap a').trigger('click');
+
+    });
+//<span class="fl_l" id="pv_like_link">Мне нравится</span>
+
+
+
+// объект меню
+
+//глобальный обработчик
+
+$('#menu').on('click', "button", function(){
+   // console.log( $(this).data('cmd') );
+    var data = $(this).data("cmd"); // вытащим текст из нажатого элемента
+    switch (data){
+        case "vkopner":
+            openVk("http://vk.com/");
+            break;
+        case "vkclose":
+            logoutVK("http://vk.com/feed?cmd=quit");
+            break;
+        case "b3":
+            b3.OpenModal();
+            break;
+        case "lcpan":
+            likimer.ftokenus();
+            $("#pcm").slideDown();
+            likimer.sort();
+            ModalPanel.event();
+            break;
+        case "b1":
+            b1.OpenModal();
+            $("input[name = pincode]").val(PinCode.get());
+            ModalSetting.event();
+            break;
+        case "b2":
+            b2.OpenModal();
+            Modal2.event();
+            Modal2.linkevent();
+            break;
+        default:
+    }
+
+
+});
+
+//объект окна
+
+//настройки
+var b1 = new Batuns("modal-1");
+var ModalSetting ={
+    del: function(){
+        $('#modal-1').off('click');
+
+    },
+    event: function(){
+        $("#modal-1").on("click", "button", function() {
+            PinCode.set(pcode.pincode.value)
+            b1.CloseModal();
+            PinCode.verify();
+            ModalSetting.del();
+
+
+        })
 
     }
-);
 
-$("#cmdeditid").live('click',
-    function() {
-        $("#pcm").slideUp();
-    });
-//
+}
+
 $("#lkmstart").live('click',
     function() {
-      likimer.fotolikes();
+        likimer.fotolikes();
     });
+//панель лайкера
+var ModalPanel = {
+    del: function(){
+        $('#pcm5').off('click');
+
+    },
+
+    event: function(){
+        $("#pcm").on("click", "button", function(){
+            var data = $(this).data("cmd");
+          //  console.log(data);
+            switch (data){
+                case "cmdeditid":
+                    $("#pcm").slideUp();
+                    if (likeris != null){
+                        likeris.close(true);
+                    }
+                    $("#likeme").removeClass("poev");
+                    $("#lkmstart").removeClass("poev");
+
+                   ModalPanel.del();
+                    break;
+                case "likeme":
+                    likeme.OpenModal();
+                    getIDList();
+                    Modal5.event();
+                    break;
+             //   case "lkmstart":
+                //    likimer.fotolikes();
+
+              //      break;
+                default:
+            }
+
+        })
+
+    }
+
+};
+//
+$("#close-about").live('click',
+    function() {
+        about.CloseModal();
+    });
+//список ID
+var likeme = new Batuns("modal-5");
+var Modal5 = {
+    del: function(){
+        $('#modal-5').off('click');
+
+    },
+
+    event: function(){
+         $("#modal-5").on("click", "button", function(){
+             var data = $(this).data("cmd");
+             console.log(data);
+             switch (data){
+                 case "close-likeme":
+                     likeme.CloseModal();
+                     //
+                     if (wino != null){
+                         $("#likemestart").removeClass("poev");
+                         wino.close();
+                     }
+                     Modal5.del();
+                     break;
+                 case "likemestart":
+                     setIDList();
+                     likeme.CloseModal();
+                     likemestart.OpenModal();
+
+                     setTimeout(listidtop(), 1000);
+
+                     break;
+                 default:
+             }
+
+         })
+
+    }
+    //
+};
 //
 
-//./likeme.html
+//
+var Modal2 = {
+    linkevent: function(){
+        $("#modal-2").on("click", "a", function() {
+            var data = $(this).data("cmd");
+            switch (data){
+                case "about":
+
+                    b2.CloseModal();
+                    about.OpenModal();
+                    Modal2.del();
+
+                    break;
+                default:
+            }
+
+        })
+    },
+    event: function(){
+        $("#modal-2").on("click", "button", function() {
+                //b2Close
+           b2.CloseModal();
+            Modal2.del();
+        })
+        //
+    },
+    del: function(){
+        $('#modal-2').off('click');
+
+    },
+
+
+}
+
+
 //end work
 console.log(versions);
 
