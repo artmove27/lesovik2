@@ -2,34 +2,50 @@
 
 #art-main
 {
-   background: #939262 url('images/page.jpeg') top center no-repeat fixed;
-   margin:0 auto;
-   width: 100%;
-   min-height: 100%;
-   left: 0;
-   top: 0;
-   cursor:default;
-   overflow:hidden;
-   background-size: cover;
-  position: relative;
+    background: #939262 url('images/page.jpeg') top center no-repeat fixed;
+    margin:0 auto;
+    width: 100%;
+    min-height: 100%;
+    left: 0;
+    top: 0;
+    cursor:default;
+    overflow:hidden;
+    background-size: cover;
+    position: relative;
+}
+
+
+#art-main-d
+{
+    background: #939262 url('images/bg.png') top center no-repeat fixed;
+    margin:0 auto;
+    width: 100%;
+    min-height: 100%;
+    left: 0;
+    top: 0;
+    cursor:default;
+    overflow:hidden;
+    background-size: cover;
+    position: relative;
 }
 body, html{
     height:100%;
     padding:0;
     margin:0;
 } 
-
+/*
 .mod-overf {
     overflow: auto;
 
 }
-
+*/
 .hd {
     display: none;
 }
 /* Easy Tooltip */
 
-#easyTooltip{
+
+#easyTooltip, #easyTooltip2{
     margin:0 10px 1em 0;
     width:250px;
     padding:8px;
@@ -37,22 +53,23 @@ body, html{
     border:1px solid #a5ad7a;
     line-height:130%;
     background: #E7E5A6;
+    z-index: 1500;
 
 }
 
-#easyTooltip h3{
+#easyTooltip h3, #easyTooltip2 h3{
     margin:0 0 .5em 0;
     font:13px Arial, Helvetica, sans-serif;
     text-transform:uppercase;
     color: #990033;
 }
 
-#easyTooltip p{
+#easyTooltip p, #easyTooltip2 p{
     margin:0 0 .5em 0;
     color: #000;
 }
 
-#easyTooltip img{
+#easyTooltip img, #easyTooltip2 img{
     background:#fff;
     padding:1px;
     border:1px solid #e1e1e1;
@@ -94,4 +111,212 @@ body, html{
 a:visited {
     color: #fff;
     text-decoration: underline;
+}
+
+.wsto {
+    width: 100%;
+}
+input {
+    width: 100%;
+    font-size: 25px;
+    padding: 6px 0 4px 10px;
+    background: #F6F6f6;
+
+}
+
+.pagedisplay {
+    width: 10%;
+    font-size: 10px;
+}
+
+.pagesize {
+    width: 5%;
+    font-size: 10px;
+    padding: 6px 0 4px 10px;
+    background: #F6F6f6;
+
+}
+
+.control-label {
+
+    font-size: 35px;
+    padding: 6px 0 4px 10px;
+
+}
+.editusers {
+    font-size: 15px;
+
+}
+.eddit {
+    font-size: 25px;
+}
+
+.eddits {
+    font-size: 20px;
+}
+#tfo {
+    font-size: 20px;
+}
+
+.boxer {
+    display: table;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.boxer .box-row {
+    display: table-row;
+}
+
+.boxer .box {
+    display: table-cell;
+    text-align: center;
+    vertical-align: top;
+
+}
+/* pointer-events. */
+
+.poev {
+
+    pointer-events: none; /* disables click event */
+}
+
+/* */
+
+.imginfo {
+    max-width: 90%;
+    height: auto;
+    margin: 10px;
+    border:3px solid #ffff00;
+    padding:30px;
+
+}
+
+.contentinfo {
+    max-width: 50%;
+    height: auto;
+    margin: 10px;
+    border:3px solid #ffff00;
+
+}
+
+.column p.tes {
+    font-weight: 300;
+    font-size: 2em;
+    padding: 0;
+    margin: 0;
+    text-align: lift;
+    line-height: 1.5;
+}
+
+.contentcenter {
+    text-align: center;
+
+}
+
+/* */
+textarea {
+    width: 100%;
+    font-size: 25px;
+    padding: 6px 0 4px 10px;
+    background: #F6F6f6;
+
+}
+/* */
+.img-info {
+    height: 200px;
+    width: 200px;
+
+}
+
+#imglike {
+    text-align: center; /* Выравнивание по центру */
+}
+
+.topbar {
+
+    -webkit-app-region: drag;
+}
+
+html { overflow-y: hidden; }
+
+.panelcmd {
+
+    position: absolute;
+    z-index: 1000;
+    width: 90%;
+    left: 5%;
+     height: 80%;
+     top: 10%;
+    background: rgba(138, 152, 110, 0.85);
+  /*
+      background: rgba(190,204,162,0.85);
+   background-color: #2f2f17;  */
+     /*  opacity: 0.9; Полупрозрачный фон */
+    padding: 20px;
+    /*
+    background: url("./images/bg.png") top center fixed;
+   */
+}
+
+
+
+@media screen and (max-width: 46.0625em) {
+
+
+    .panelcmd {
+        top: 5%;
+        height: 70%;
+             /*
+        background: url("./images/bg.png") top center fixed;
+       */
+    }
+}
+
+@media screen and (max-width: 25em) {
+
+
+    .panelcmd {
+        top: 5%;
+        height: 55%;
+        /*
+            background: url("./images/bg.png") top center fixed;
+           */
+
+    }
+
+}
+
+
+/*   */
+
+
+.column p.inf2 {
+    font-weight: 300;
+    font-size: 2em;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    line-height: 1.5;
+}
+
+.cmdbtn {
+    position: absolute;
+    bottom: 25px;
+    right: 25px;
+    width: auto;
+}
+
+
+.copys {
+    position: absolute;
+    bottom: 25px;
+    right: 25px;
+    width: auto;
+}
+
+.iconus {
+
+    text-align: right;
+    height:50px;
 }

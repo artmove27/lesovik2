@@ -1,9 +1,17 @@
 /**
  * Created by zews on 01.02.2016.
  */
+console.time('Start-APP');
+var versions2 = "app.js@8.5.20"
+//
 
-var versions2 = "app.js@6.2.14"
 
+//window.onerror = function(message, url, lineNumber) {
+//    alert("Поймана ошибка, выпавшая в глобальную область!\n" +
+//       "Сообщение: " + message + "\n(" + url + ":" + lineNumber + ")");
+//};
+
+//
 // Load native UI library
 var gui = require('nw.gui'); //or global.window.nwDispatcher.requireNwGui()
 global.window = window
@@ -11,10 +19,20 @@ global.window = window
 //
 global.gui = gui;
 var win = gui.Window.get(); //окно
+
 global.jQuery = jQuery;
-var gui = require('nw.gui');
+
+
+
+//splash
+//win.resizeTo(100, 100);
+
+//alert("asdasd");
+//
+
 var sysstatus = global.sysstatus;
-var versions = "LesoViK v.a7.0.8";
+var versions = "LesoViK v.a12.2.11";
+
  sysstatus = {
     useronline: "Off",
     idvk : 0,
@@ -62,31 +80,74 @@ sysstatus.setbar();
 
 //server-echo
 
-console.log("Start Init");
+//console.log("Start Init");
 
 //lib
+//var user = require('./js/users.js');
 require('nw.gui').Window.get().evalNWBin(null, './js/lib.bin');
-//localStorage.setItem('userkey', 'no');
-//alert(localStorage.getItem('userkey'));
 //require('./js/lib.js');
-
+require('nw.gui').Window.get().evalNWBin(null, './js/gui2.bin');
+//require('./js/gui2.js');
+const util = require('util');
 //старотвые установки
-
-
 //модули программы bin
 //require('nw.gui').Window.get().evalNWBin(null, './js/mytest.bin');
 
 //GUI
 //menu
 var menu = new gui.Menu();
-menu.append(new gui.MenuItem({ label: 'Item A' }));
-menu.append(new gui.MenuItem({ label: 'Item B' }));
+var submenu = new gui.Menu();
+
+menu.append(new gui.MenuItem({ label: 'Обновить',
+   click: function() {
+              win.reload();
+
+}
+
+}));
+menu.append(new gui.MenuItem({ type: 'separator' }));
+
+
+//menu.append(new gui.MenuItem({ label: 'Вырезать' }));
+menu.append(new gui.MenuItem({ label: 'Копировать',
+    click: function() {
+           document.execCommand("copy");
+    }
+
+}));
+menu.append(new gui.MenuItem({ label: 'Вставить',
+    click: function() {
+        document.execCommand("paste");
+    }
+}));
+menu.append(new gui.MenuItem({ type: 'separator' }));
+menu.append(new gui.MenuItem({ label: 'Настройки',
+    click: function() {
+        b1.OpenModal();
+        $("input[name = pincode]").val(PinCode.get());
+    }
+}));
+menu.append(new gui.MenuItem({
+    label: 'Справка',
+    submenu: submenu
+}));
+submenu.append(new gui.MenuItem({ label: 'Справка' }));
+submenu.append(new gui.MenuItem({ label: 'О программе',
+   click: function(){
+       b2.CloseModal();
+       about.OpenModal();
+       //
+   }
+}));
+submenu.append(new gui.MenuItem({ label: 'Лицензия' }));
 menu.append(new gui.MenuItem({ type: 'separator' }));
 menu.append(new gui.MenuItem({ label: 'Выход',
     click: function() {
-        self.win.close();
+        gui.App.quit();
     }
 }));
+
+
 
 //menu.removeAt(1);
 //menu.popup(10, 10);
@@ -101,8 +162,55 @@ document.body.addEventListener('contextmenu', function(e) {
 
 for (var i = 0; i < menu.items.length; ++i) {
     console.log(menu.items[i]);
-}
+};
+
+//var logs = window.sessionStorage.getItem('login_sessions');
+//if ( logs != "LogIn"){
+//    menu.removeAt(0);
+//    menu.removeAt(1);
+//}
+
+//
 
 console.log(versions2);
+//console.log(util.inspect(process.memoryUsage()));
+//console.timeEnd('Start-APP');
 // пробы
+
+//win.on('minimize', function() {
+ //   $('#menu').off('click');
+ //   console.log('Window is minimized');
+//});
+
+//win.on("restore", function(){
+
+ //   console.log('Window is restore');
+//})
+//win.on('minimize', function() {
+//    console.log('Window is minimized');
+//});
+
+gui.Window.get().on('close', function() {
+    // Hide the window to give user the feeling of closing immediately
+    this.hide();
+
+    // If the new window is still open then close it.
+    if (win != null)
+        likeris.close(true);
+
+    // After closing the new window, close the main window.
+    this.close(true);
+});
+
+
+
+
+win.showDevTools();
+
+
+
+//
+
+//win.reload();
+
 

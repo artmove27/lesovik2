@@ -2,7 +2,7 @@
  * Created by zews on 24.01.2016.
  */
 
-var versions = "gui2.js@2.0.6";
+var versions = "gui2.js@3.0.6";
 
 //...
 var wino ;
@@ -115,9 +115,9 @@ $('#menu').on('click', "button", function(){
             break;
         case "lcpan":
                   likimer.ftokenus();
-            ModalPanel.event();
-            likimer.sort();
-            $("#pcm").slideDown();
+                ModalPanel.event();
+              likimer.sort();
+                $("#pcm").slideDown();
             break;
         case "b1":
             b1.OpenModal();
@@ -189,8 +189,12 @@ var ModalPanel = {
                     Modal5.event();
                     break;
                 case "lkmstartn":
-                    console.log(data);
-                        likimer.fotolikes();
+                     if(indexlisid.g() == '""'){
+                         window.alert("Список ID пуст");
+                     }else {
+                         console.log(indexlisid.g());
+                         likimer.fotolikes();
+                     };
 
                     break;
                 default:
@@ -279,6 +283,9 @@ var Modal2 = {
 
 
 }
+//
+
+
 
 
 //end work

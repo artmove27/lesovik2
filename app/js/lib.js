@@ -1,7 +1,7 @@
 /**
  * Created by zews on 01.02.2016.
  */
-var versions = "lib.js@9.2.21";
+var versions = "lib.js@10.2.21";
 //
 
     //
@@ -18,8 +18,19 @@ function alkomer(key){
     };
 };
 
-var indexlisid = new alkomer("listID");
+
+var indexlisid = new alkomer("listID");   //индекс списка ID
 var indexlikeid = new alkomer("index_like_id");
+
+var BaseID = {
+    index: function () {
+        indexlisid.g();
+    },
+    userinfo: function(){
+
+    }
+
+}
 
 // конструктор сессионые данные
 function lses(key){
@@ -47,7 +58,8 @@ login_sessions.s("Non");
 var likys = new alkomer("like");
 likys.s("stop");
 
-
+var userlogin = new lses("userlogin");
+userlogin.s("NON");
 
 //token
 
@@ -66,6 +78,9 @@ if (window.localStorage.getItem('userkey') == null) {
   //  window.alert(global.ID);
     window.localStorage.setItem('userkey', global.ID);
     window.localStorage.setItem("coutryLikeMe", "0");
+   // {"lname":"Novozhilov","fname":"Koluy","pfoto":"http://cs627116.vk.me/v627116267/270ec/LY8CtBbX29c.jpg","pfoto_id":"111988267_388018995","likeme":"no"}
+      indexlisid.s('""');
+
     // создаем пользователя и аккаунты
 }else {
     console.log(window.localStorage.getItem('userkey'));
@@ -90,14 +105,17 @@ var PinCode = {
     verify: function() {
            $.ajaxSetup({
                 cache: false
+
                              });
 
         var que = "http://pin.texno-universal.ru/" + PinCode.get()+ ".json";
         //http://pin.texno-universal.ru/df1f066c-f385-4e77-a08f-c053b4a450e5.json
         $.getJSON(que,
-                       function(data){
+                       function(data, err){
                 //alert("Ваш пин код принят");
                  console.log(data);
+                           console.log(err);
+
                 var salt = PinCode.vpc[data.versainPinCode];
                 var signature =  md5.string.quiet(salt +  data.code);
                 var sig1 = md5.string.quiet(salt +  data.activateData);
@@ -141,12 +159,7 @@ var PinCode = {
                         }
                         break;
                     default:
-
-
-
                     //
-
-
                 }
             });
         //
@@ -332,7 +345,7 @@ function lkVK(urii) {
 //serch ID
     $("#searchid").live("click", function () {
         openVk("http://vk.barkov.net/");
-        $("#likemestart").addClass("poev");
+              $("#likemestart").addClass("poev");
         $("#searchid").addClass("poev");
         wino.on('closed', function () {
 
@@ -368,7 +381,8 @@ function lkVK(urii) {
         }
 
         // записываем новые
-        var str = JSON.stringify(idlist.adduseid.value);
+        var vstr = $("#adduseid").val();
+        var str = JSON.stringify(vstr);
         window.localStorage.setItem('listID', str);
     };
 
@@ -530,7 +544,8 @@ function userReLogIn(callback){
         $("#user1").live('click',
             function () {
                 b3.CloseModal();
-                console.log(user1.LogIn());
+                console.log(user1.login());
+                userlogin.s(user1.login());
                openVK(user1.LogIn());
              //   VkRaa.oauth();
             }
@@ -547,7 +562,8 @@ function userReLogIn(callback){
         $("#user2").live('click',
             function () {
                 b3.CloseModal();
-                console.log(user2.LogIn());
+                console.log(user2.login());
+                userlogin.s(user2.login());
                 openVK(user2.LogIn());
             }
         );
@@ -561,7 +577,8 @@ function userReLogIn(callback){
         $("#user3").live('click',
             function () {
                 b3.CloseModal();
-                console.log(user3.LogIn());
+                console.log(user3.login());
+                userlogin.s(user3.login());
                 openVK(user3.LogIn());
             }
         );
@@ -592,8 +609,9 @@ function userReLogIn(callback){
 
                         sysstatus.useronline = data.status;
                         sysstatus.idvk = data.value;
-                        sysstatus.barstatus = "Авторизован пользователь" + sysstatus.idvk;
 
+                        sysstatus.barstatus = "Авторизован пользователь" +  userlogin.g();
+                        //    sysstatus.barstatus = "Авторизован пользователь" + sysstatus.idvk;
                         // sysstatus.statusmsg.title = "";
                         // sysstatus.statusmsg.img = "";
                         // sysstatus.statusmsg.msg = "";
@@ -740,60 +758,73 @@ var likimer = {
         return info;
     },
     view: function(){
+
+
         //
-        var listid = window.localStorage.getItem('listID');
-        var  numbers = JSON.parse(listid);
-         var arr = numbers.split("\n");
+        var listid = indexlisid.g();
+        if (listid != null){
+
+            var  numbers = JSON.parse(listid);
+            var arr = numbers.split("\n");
             arr.forEach(function (item, i, arr) {
-                 if (item ==""){
-                    console.log("Noitem");
-                    var linetr = "<tr><td>NoData</td>" +
-                        "<td>NoData</td>" +
-                        "<td>NoData</td>" +
-                        "<td>NoData</td></tr>";
-                    $("#listd").append(linetr);
+                    if (item ==""){
+                        console.log("Noitem");
+                        var linetr = "<tr><td>NoData</td>" +
+                            "<td>NoData</td>" +
+                            "<td>NoData</td>" +
+                            "<td>NoData</td></tr>";
+                        $("#listd").append(linetr);
 
-                } else {
+                    } else {
 
-                    likimer.id = item;
+                        likimer.id = item;
 
-                    var ima = "./images/right-titlebar.png";
-                     var lmsg ="Лайк еще не поставлен";
-                     var il = "NoLike";
-                    // likimer.dt().likeme = "yes";
-                     if (likimer.dt().likeme == "yes" ) {
-                        //   var ima = "./images/right-titlebar.png";
-                        ima = "./images/top-titlebar.png";
-                         lmsg ="Мы его Лайкнули";
-                         il = "Like";
+                        var ima = "./images/right-titlebar.png";
+                        var lmsg ="Лайк еще не поставлен";
+                        var il = "NoLike";
+                        if (likimer.dt().likeme == "yes" ) {
+                            //
+
+                            ima = "./images/top-titlebar.png";
+                            lmsg ="Мы его Лайкнули";
+                            il = "Like";
+
+                        }
+
+                        // background="+likimer.dt().pfoto+" style='vertical-align: bottom'
+                        var linetr = "<tr  class=userinfo"+item+"><td class='item'><img src=" + ima + " alt="+il +"> "+il+"</td>" +
+                            "<td id=id"+item+" class=listusers style='vertical-align: middle'>" + likimer.id + "</td>" +
+                            "<td  class="+item+" style='vertical-align: middle'>" + likimer.dt().lname + "</td>" +
+                            "<td class="+item+" style='vertical-align: middle'>" + likimer.dt().fname + "</td></tr>";
+                        //{"lname":"Novozhilov","fname":"Koluy","pfoto":"http://cs627116.vk.me/v627116267/270ec/LY8CtBbX29c.jpg","pfoto_id":"111988267_388018995","likeme":"no"}
+
+                        $("#listd").append(linetr);
+                        //    $("#myTable").ready(function () {
+                        //           $(".userinfo"+item).easyTooltip({
+                        //                tooltipId: "easyTooltip2",
+                        //                content: "<img src="+ likimer.dt().pfoto +"><h3>"+ likimer.dt().lname +" "+likimer.dt().fname +"</h3>" +
+                        //                 "<p><img src="+ima+">"+lmsg +"</p>"
+
+                        //        })
+
+                        //        });
+                        //
+                        $("#id"+item).on("click", function(){
+                            var uri =  "http://vk.com/id"+item ;
+                            openVk(uri);
+                        });
                     }
-
-                    // background="+likimer.dt().pfoto+" style='vertical-align: bottom'
-                    var linetr = "<tr  class=userinfo"+item+"><td class='item'><img src=" + ima + " alt="+il +"> "+il+"</td>" +
-                        "<td id=id"+item+" class=listusers style='vertical-align: middle'>" + likimer.id + "</td>" +
-                        "<td  class="+item+" style='vertical-align: middle'>" + likimer.dt().lname + "</td>" +
-                        "<td class="+item+" style='vertical-align: middle'>" + likimer.dt().fname + "</td></tr>";
-                    //{"lname":"Novozhilov","fname":"Koluy","pfoto":"http://cs627116.vk.me/v627116267/270ec/LY8CtBbX29c.jpg","pfoto_id":"111988267_388018995","likeme":"no"}
-
-                    $("#listd").append(linetr);
-                 //    $("#myTable").ready(function () {
-                 //        $(".userinfo"+item).easyTooltip({
-                  //           tooltipId: "easyTooltip2",
-                  //           content: "<img src="+ likimer.dt().pfoto +"><h3>"+ likimer.dt().lname +" "+likimer.dt().fname +"</h3>" +
-                  //           "<p><img src="+ima+">"+lmsg +"</p>"
-
-                 //    })
-
-                   //    });
-                     //
-                     $("#id"+item).on("click", function(){
-                         var uri =  "http://vk.com/id"+item ;
-                         openVk(uri);
-                     });
-               }
                 }
             );
+        } else {
+            //
+            window.alert("NULL") ;
+        }
+
+
     },
+
+    //жо сюда
     clear: function(){
         $(".listusers").off();
     //    $("#myTable").unbind("ready");
@@ -803,7 +834,7 @@ var likimer = {
     sort: function(){
 
             likimer.clear();
-           likimer.view();
+          likimer.view();
               //table
 
         $("#myTable").ready(function () {
@@ -884,9 +915,9 @@ var likimer = {
                 width: 540,
                 show: true,
                 height: 650,
-                "toolbar": false,
+                "toolbar": true,
                 resizable: false,
-                "frame": false,
+                "frame": true,
                 "nodejs": true,
                 "fullscreen": false,
                 "inject-js-start": "js\\jquery-1.8.3.js",

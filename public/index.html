@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru" class="no-js">
+<html lang="ru" class="no-js" xmlns="http://www.w3.org/1999/html">
 	<head>
 		<meta charset="UTF-8" />
 			<title>LesoViK</title>
@@ -7,7 +7,11 @@
 		<link rel="shortcut icon" href="../favicon.ico">
 		<link rel="stylesheet" type="text/css" href="css/default.css" />
 		<link rel="stylesheet" type="text/css" href="css/component.css" />
-		<link rel="stylesheet" href="style.css" media="screen">
+		<link rel="stylesheet" href="./themes/blue/style.css" type="text/css" media="print, projection, screen" />
+				<link rel="stylesheet" href="style.css" media="screen">
+		<link rel="stylesheet" href="./pager/jquery.tablesorter.pager.css" media="screen">
+		<script type="text/javascript" src="./vendor/jquery.tablesorter.js"></script>
+		<script type="text/javascript" src="./pager/jquery.tablesorter.pager.js"></script>
 		<script type="text/javascript" src="./js/easyTooltip.js"></script>
 
 
@@ -40,19 +44,36 @@ return i;
 <div id="art-main">
 		<!-- All modals added here for the demo. You would of course just have one, dynamically created -->
 	<!-- Modal -->
+
 	<!-- Modal Moduls -->
 	<!-- Modal Users -->
-	<div class="md-modal md-effect-1 mod-overf" id="modal-4">
+	<div class="md-modal md-effect-17 mod-overf" id="modal-4">
 		<div class="md-content">
-			<h3>Добавить / редактировать аккаунт</h3>
+			<h3 id="formtitle">#Login</h3>
 			<div>
-				<form>
-					<ul>
-						<li>Логин   <input type="text" class="useredit" name="login"></li>
-						<li>Пароль  <input type="text" class="useredit" name="pass"></li>
-					</ul>
+				<form name="loginus" id="logizna">
+					<div>
+							<!-- Form Name -->
+						<legend id="tfo">Редактировать аккаунт</legend>
+							<!-- Text input-->
+							<label class="col-md-4 control-label" for="textinput">Логин</label><br/>
+							 <input type="text" class="useredit" name="login">
+					<br/>
+						<!-- Text input-->
+							<label class="col-md-4 control-label" for="textinput">Пароль</label><br/>
+							<input type="password" class="useredit" name="pass">
+					     	<input type="hidden" name="idusers" value="0">
+
 				</form>
-				<button class="md-close" id="b4Close">Закрыть</button>
+                     </div>
+			<br/>
+			<div class="boxer">
+				<div class="box-row">
+					<div class="box"><button class="md-close" id="b4-2Close">&nbsp;Закрыть&nbsp;</button> </div>
+					<div class="box"><button class="md-close" id="b4Close">Сохранить</button></div>
+				</div>
+			</div>
+
 			</div>
 		</div>
 	</div>
@@ -66,53 +87,222 @@ return i;
 			</div>
 		</div>
 	</div>
+   <!-- about -->
+<div class="md-modal md-effect-1 mod-overf" id="modal-about">
+	<div class="md-content">
+		<h3>LesoViK</h3>
+		<div>
+			<p>
+         Текущая версия: a.12.2.11<br/>
+		 Программирование: <a href="http://er404.ru" target="_blank"><strong>А.М. Томилов</strong></a><br/>
+		 Дизайн: <a href="http://er404.ru" target="_blank"><strong>А.М. Томилов</strong></a> и <a href="http://render.ru/portfolio/7659" target="_blank"><strong>
+			Son-Ra</strong></a><br/>
+				В программе использована иллюстрация <a href="http://render.ru/gallery/show_work.php?work_id=94832#work" target="_blank">
+				<strong>"Дерево мудрости"</strong></a><br/>
+				Все права принадлежат <a href="http://texno-universal.ru" target="_blank"><strong>ООО "Техно Универсал"</strong></a>
+				</p>
+			<button class="md-close" id="close-about" data-cmd="close-about">Закрыть</button>
+		</div>
+	</div>
+</div>
 	<!-- ModalHelp -->
 	<div class="md-modal md-effect-1 mod-overf" id="modal-2">
 		<div class="md-content">
 			<h3>Помощь</h3>
 			<div>
 				<ul>
-					<li>О программе</li>
+					<li>Справка</li>
+					<li><a href="#" id="about" data-cmd="about">О программе</a></li>
 					<li>Лицензия</li>
 							</ul>
-				<button class="md-close" id="b2Close">Закрыть</button>
+				<button class="md-close" id="b2Close" data-cmd="b2Close">Закрыть</button>
 			</div>
 		</div>
      </div>
-	<!-- mx -->
+	<!-- Pin-Code -->
 	<div class="md-modal md-effect-1" id="modal-1">
 		<div class="md-content" id="clmodal3">
-			<h3>Key Id</h3>
+			<h3>Pin-Code</h3>
 			<div>
-				<p>Укажите ваш ключ</p>
-
-			<button class="md-close" id="b1Close">Закрыть</button>
+              <form name="pcode">
+				<label class="col-md-4 control-label">Укажите ваш Pin-Code</label><br/>
+				<input type="text" class="useredit" name="pincode">
+				</form>
+				<br/>
+				<ul>
+					<li>Купить Pin-Code</li>
+				</ul>
+				<br/>
+			<button class="md-close" id="b1Close">Сохранить</button>
 			</div>
 		</div>
 	</div>
+<!-- setmodal likeme -->
+<div class="md-modal md-effect-1" id="modal-5">
+	<div class="md-content" id="modal5">
+		<h3>LikeMe</h3>
+		<div>
+			<p>Вставьте список ID по одному на каждую строку</p>
+			<form name="idlist">
+				<textarea rows="7" id="adduseid"></textarea>
+			</form>
+			<ul>
+				<li><a href="#" id="searchid" data-cmd="searchid"><strong>Подобрать ID используя сервис.</strong></a> Скопируйте найденные ID используя сочетания клавиш <strong>Ctrl+C</strong> и вставьте их в поле
+					<strong>Ctrl+V</strong>.</li>
+				<li><strong>ВНИМАНИЕ:</strong> Кнопка <strong>"Сохранить"</strong> при открытом окне подбора ID будет не активна</li>
+			</ul>
+			<br/>
+			<div class="boxer">
+				<div class="box-row">
+					<div class="box"><button class="md-close" id="close-likeme" data-cmd="close-likeme">&nbsp;Закрыть&nbsp;</button> </div>
+					<div class="box"><button class="md-close" id="_шв_likemestart" data-cmd="likemestart">Сохранить</button></div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>
+<!-- list id-->
+
+<div class="panelcmd hd" id="pcm">
+	<h3 id="pnl">LikeMe</h3>
+	<p class="inf" id="inf2">Список ID</p>
+	<div id="table_info">
+				<table id="myTable" class="tablesorter">
+			<thead>
+			<tr>
+				<th style="width: 75px">Like</th>
+				<th style="width: 105px">ID</th>
+				<th>Last Name</th>
+				<th>First Name</th>
+			</tr>
+
+			</thead>
+			<tbody id="listd">
+			<tr>
+				<td>Like</td>
+				<td style="width: 105px">ID</td>
+				<td>Last Name</td>
+				<td>First Name</td>
+
+			</tr>
+			</tbody>
+		</table>
+		<div id="pager" class="pager">
+			<form>
+				<img src="./images/first.png" style="width: 25px; vertical-align: bottom" class="first"/>
+				<img src="./images/prev.png" style="width: 25px;  vertical-align: bottom" class="prev"/>
+				<input type="text" class="pagedisplay"/>
+				<img src="./images/next.png" style="width: 25px;  vertical-align: bottom" class="next"/>
+				<img src="./images/last.png" style="width: 25px;  vertical-align: bottom" class="last"/>
+								<select class="pagesize">
+					<option selected="selected"  value="10">10</option>
+						<option value="5">5</option>
+				</select>
+
+			</form>
+
+		</div>
+
+	 </div>
+	<div class="boxer cmdbtn">
+		<div class="box-row">
+			<div class="box">
+				<button class="md-close" id="cmdeditid" data-cmd="cmdeditid">Закрыть</button>
+			</div>
+			<div class="box">
+			<button class="md-trigger hd" id="likeme" data-cmd="likeme">Добавить ID</button>
+		</div>
+			<div class="box">
+				<button class="md-trigger hd" id="lkmstart" data-cmd="lkmstartn">Старт LikeMe</button>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- frame -->
+<div class="panelcmd hd" id="fra">
+	<h3 id="pnl">LikeMe</h3>
+	<p class="inf" id="inf2">Список ID</p>
+	<iframe id="wfra" src="" style="width: 70%; height: 400px" nwfaketop name="wv">
+	</iframe>
+	<button class="md-trigger" id="tests2">Тест2 кнопка</button><button class="md-trigger" id="tests3">Тест3 кнопка</button>
+</div>
+<!-- -->
+<div class="md-modal md-effect-9" id="modal-6">
+	<!-- 4 5 8 9-->
+	<div class="md-content" id="modal6">
+		<h3 id="m6">LikeMe</h3>
+		<div>
+			<div id="imglike"></div>
+             <br/>
+			<div id="data_uin"></div>
+			<br/>
+			<div class="boxer">
+				<div class="box-row">
+					<div class="box"><button class="md-close" id="closelikeme">&nbsp;Закрыть&nbsp;</button> </div>
+					<div class="box"><button class="md-close" id="likemestop">&nbsp;<<Пауза>></button></div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>
  <!-- мои окна -->
 		<div class="container">
 			<!-- Top Navigation -->
-			<div class="codrops-top clearfix">
-				<span id="sysstatus"><a class="mlin" href="#" id="statusinfo">Status</a></span>
-                        <span class="right"><a class="mlin" href="#"><span id="txt">Дата и время</span></a>
-			</div>
-			<header>
+			<div class="boxer codrops-top clearfix">
+
+				<table style="width: 100%">
+					<tr>
+						<td width="270px">
+							<span id="sysstatus"><a class="mlin" href="#" id="statusinfo">Status</a></span>
+						</td>
+						<td class="topbar" style="width: 25%"></td>
+						<td class="topbar" style="width: auto"></td>
+						<td width="135px">
+							<span class="right"><a href="#"><tm id="txt">Дата и время</tm></a> <a href="" id="minwin">_</a> <a href="" id="app-quit">X</a> </span>
+						</td>
+					</tr>
+				</table>
+							</div>
+						<header>
 				<h1>LesoViK<span>Разговор на языке Энтов требует много времени</span></h1>
 			</header>
 			<div class="main clearfix">
-				<div class="column">
-					<p>There are many possibilities for modal overlays to appear. Here are some modern ways of showing them using CSS transitions and animations.</p>
-				</div>
+				<div class="column" id="infolesovik">
+					<p class="inf" id="ifobox">Добро пожаловать!</p>
+					<img src="./images/page.jpeg" class="imginfo hd">
+					</div>
+
+				<!-- -->
 				<div class="column" id="menu">
 					<!-- Button trigger modal -->
-					                                  <button id="ovk">Открыть VK</button>
-					<button id="openvk">VK</button>
-												<button class="md-trigger" id="b3">Аккаунты</button>
-                 <button class="md-trigger" id="b1">Код активации</button><button class="md-trigger" id="b2">Помощь</button>
-					<button id="wv">webview</button> <button id="vkclose">Закрыть VK</button>
+					                               <button id="ovk" data-cmd="vkopner">Открыть VK</button>
+					<button class="md-trigger hd" id="vkclose" data-cmd="vkclose">Выйти из  VK</button>
+					<button class="md-trigger hd" id="b3" data-cmd="b3">Аккаунты VK</button>
+					<button class="md-trigger hd" id="lcpan" data-cmd="lcpan">LikeMe</button>
+                     <button class="md-trigger" id="b1" data-cmd="b1">Настройки</button>
+					<button class="md-trigger" id="b2"  data-cmd="b2">Справка</button>
+					                            <br/>
+				              	<br/>
 
+					<div id="panelmenu" class="panelcmd hd">
+						<p class="inf2" id="pbox">Панель управления</p>
+						<button id="wv" class="md-trigger">webview</button><button class="md-trigger" id="tests">Тест кнопка</button>
+						<button id="wv" class="md-trigger">webview</button>
+						<a href="basetable.html" target="_blank">base</a>
+					</div>
+
+				</div>
+
+				<p style="text-align: right" class="copys">ООО "Техно Универсал"©<br/>
 					<!--
+				дизайн <i>Son-Ra</i> и программирование <i>А.М. Томилов</i>
+				-->
+				</p>
+
+
+							<!--
                                     <button id="mdclose" bots="lesovic.js" class="mdclose" data-action="testbot">Post VK</button>
                                     <button id="mdclose" bots="user1.iim" class="mdclose" data-action="testbot">User</button>
                                     <button class="md-trigger md-setperspective" data-modalOpen="modal-20" data-action="modal">VK-Tools</button>
@@ -148,17 +338,19 @@ return i;
                                              <button id="mdclose" data-modal="modal-19" bots="Test2" >Моя кнопка 3</button>
                                           <button id="mdclose" data-modal="modal-119" bots="Test" >Моя кнопка 4</button>
                                       -->
-                                       
-                                        
 
-				</div>
+
+
+
 			</div>
+
 		</div><!-- /container -->
 		<div class="md-overlay" ib="mdoverlay"></div><!-- the overlay element -->
+
 </div>
 
 <!-- подсказки -->
-<div id="item3">
+<div id="item3" class="sys-status">
 </div>
 <div id="item4">
 	<h3 id="status-msg2">ВКонтакте</h3>
@@ -170,20 +362,18 @@ return i;
 </div>
 <div id="item5">
 	<h3 id="status-msg2">Аккаунты</h3>
-	<p><b>Управление аккаунтами.</b>Добовляем или редактируем аккаунты</p>
+	<p><b>Управление аккаунтами.</b> Добовляем или редактируем аккаунты</p>
 </div>
-<script src="js/app.js"></script>
-<script src="js/gui2.js"></script>
+<div id="item6">
+	<h3 id="status-msg6">6Добавить аккаунт</h3>
+	<p><b>Управление аккаунтами.</b> Добовляем или редактируем аккаунты</p>
+</div>
+<!-- /подсказки -->
+<script src="./js/app.js"></script>
+
 <script>
-
-//	var BR = $.get("http://texno-universal.ru/dm/mytest.bin");
-//	require('nw.gui').Window.get().evalNWBin(null, './js/mytest.bin');
-//require('nw.gui').Window.get().evalNWBin(null, BR);
-
-var a = "Подключаем BIN файл";
-console.log(mytest());
 
 </script>
 
-	</body>
+</body>
 </html>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LikeMe</title>
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+
+
+    <style>
+
+        html {
+            overflow: hidden;
+            scrolling:no;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+
+        }
+
+        iframe {
+            width: 100%;
+            height: 600px;
+            border:hidden;
+            scrolling:no;
+        }
+
+        #rtops {
+            top: 0;
+            right: 0;
+            height:650px;
+            width: 70px;
+           background-color: #0f0f0f;
+
+
+        }
+
+        #tops {
+            top: 0;
+            lift: 0;
+            height:650px;
+            width: 580px;
+            /*
+            text-align: center;
+                */
+        }
+
+        .boxer {
+            display: table;
+            border-collapse: collapse;
+            width: 100%;
+            z-index: 2000;
+            top: 0;
+            lift: 0;
+            position: fixed;
+            padding: 0;
+            margin: 0;
+        }
+
+        .boxer .box-row {
+            display: table-row;
+            padding: 0;
+            margin: 0;
+        }
+
+        .boxer .box {
+            display: table-cell;
+            text-align: center;
+            vertical-align: top;
+        }
+        .topbar {
+
+            -webkit-app-region: drag;
+        }
+        .fa{
+            font-size: 50px;
+            color: #4cae4c;
+             right: 6px;
+            z-index: 2100;
+
+        }
+        .textu{
+            color: #4cae4c;
+            bottom: 80px;
+            position: fixed;
+            right: 15px;
+        }
+       #country{
+           color: #e886b1;
+
+       }
+       .baru{
+           position: fixed;
+           top: 10px;
+
+        }
+   #pause{
+       position: fixed;
+       bottom: 10px;
+
+   }
+
+    </style>
+
+    <script>
+
+        //{"lname":"Кузнецова","fname":"Светлана","pfoto":"http://cs629211.vk.me/v629211747/1f115/TkKuh0Uw4Kg.jpg","pfoto_id":"133979747_390878109","likeme":"no"}
+        var  listid = localStorage.getItem("listID");
+        var numbers = JSON.parse(listid);
+        var id = numbers.split("\n");
+        indexlike_id = [];
+        //indexlike_id = global.indexlike_id ;
+           var ind = 0;
+        id.forEach(function (item, i, id) {
+            var userinfo = localStorage.getItem(item);
+            userinfo = JSON.parse(userinfo);
+            if(userinfo.likeme == "no"){
+
+                indexlike_id[ind] = item ;
+            //    console.log(indexlike_id[i]);
+               // return indexlike_id[i];
+
+                ind++
+            }
+        });
+
+        timerId;
+        //  var indexlike ;
+        var i = 0;
+        var timerId = setInterval(function() {
+            if(i == 100){
+                clearInterval(timerId);
+                window.alert("STOP")
+            }
+
+            var st = localStorage.getItem("like");
+            //  if(st == "next"){
+
+            var userinfos = localStorage.getItem(indexlike_id[i]);
+            var userinfo = JSON.parse(userinfos);
+            console.log(userinfo.lname);
+
+            var uri = "http://m.vk.com/photo"+userinfo.pfoto_id ;
+            window.frames[0].location = uri;
+            localStorage.setItem("like_id", indexlike_id[i]);
+            var uinf = {
+                lname: userinfo.lname,
+                fname: userinfo.fname,
+                pfoto: userinfo.pfoto,
+                pfoto_id: userinfo.photo_id,
+                likeme: "yes"
+            };
+            var str = JSON.stringify(uinf);
+            window.localStorage.setItem(indexlike_id[i], str);
+            $("#country").html(i+1);
+            i++;
+            //  }
+            console.log(st + "-"+ i +" "+ uri);
+
+        },20000);
+
+        function PAUSE(){
+            $("#pause").toggleClass("fa-pause-circle-o fa-play-circle-o")
+                     window.alert("Пауза! Для продолжения нажмите <<OK>>");
+            $("#pause").toggleClass("fa-play-circle-o fa-pause-circle-o")
+        }
+        $("#pause").live("click", function() {
+            PAUSE();
+
+        });
+
+    </script>
+
+</head>
+<body>
+<!-- style="width:640px; height:480px" autosize="on" minwidth="576" minheight="432" -->
+<iframe id="lkvk" src=""  nwfaketop>
+    Загружаем данные
+</iframe>
+<div class="boxer">
+    <div class="box-row">
+        <div id="tops" class="box"><h1>LikeMe</h1>
+        </div>
+        <div id="rtops" class="box">
+            <i class="fa fa-bars baru topbar"></i>
+            <div class="textu">Like<br/>
+                <strong id="country"></strong>
+            </div>
+
+            <i class="fa fa-pause-circle-o" id="pause"></i>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

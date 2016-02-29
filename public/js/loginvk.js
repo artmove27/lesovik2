@@ -4,7 +4,7 @@
 /**
  * Created by zews on 28.01.2016.
  */
-var versions = "loginvk.js@0.0.11";
+var versions = "loginvk.js@0.0.12";
 
 //localStorage.setItem('key', 'COM');
 //   alert(localStorage.getItem('key'));
@@ -35,7 +35,7 @@ var queryStr = parseQueryString(window.location.search);
 //window.alert(queryStr['cmd']);
 
 var sendObject = {
-    status :  "OK",
+    status :  "ER",
     title:  "vkid",
     value:  vk.id
 };
@@ -43,7 +43,8 @@ var sendObject = {
 function LogOut(){
     $('#logout_link').trigger("click");
     // window.alert("QUIT");
-    window.close();
+   // window.close();
+
 }
 
 function WinClo(){
@@ -83,17 +84,20 @@ switch (queryStr['cmd']) {
 
 //
 
+//
+
 switch (vk.id) {
     case undefined:
-        //  window.alert(undefined);
+         // window.alert(undefined);
         break;
     case 0:
         //  window.alert( 'Ноль' );
         break;
     default:
         //  window.alert('Сработало');
+        sendObject.status = "OK";
         opener.postMessage(sendObject, '*');
-        WinClo();
+       //    WinClo();
 };
-//
+//setTimeout( WinClo(),10000);
 

@@ -81,17 +81,29 @@ sysstatus.setbar();
 //server-echo
 
 //console.log("Start Init");
+var OS = require('os');
+var osarh = OS.arch();
 
-//lib
-//var user = require('./js/users.js');
-require('nw.gui').Window.get().evalNWBin(null, './js/lib.bin');
+if(osarh == "x64"){
+    console.log(OS.arch());
+    //var user = require('./js/users.js');
+    require('nw.gui').Window.get().evalNWBin(null, './js/lib_x64.bin');
 //require('./js/lib.js');
-require('nw.gui').Window.get().evalNWBin(null, './js/gui2.bin');
+    require('nw.gui').Window.get().evalNWBin(null, './js/gui2_x64.bin');
 //require('./js/gui2.js');
+}else {
+
+    //var user = require('./js/users.js');
+    require('nw.gui').Window.get().evalNWBin(null, './js/lib.bin');
+//require('./js/lib.js');
+    require('nw.gui').Window.get().evalNWBin(null, './js/gui2.bin');
+//require('./js/gui2.js');
+
+}
+
 const util = require('util');
 //старотвые установки
-//модули программы bin
-//require('nw.gui').Window.get().evalNWBin(null, './js/mytest.bin');
+
 
 //GUI
 //menu
@@ -173,7 +185,7 @@ for (var i = 0; i < menu.items.length; ++i) {
 //
 
 console.log(versions2);
-//console.log(util.inspect(process.memoryUsage()));
+console.log(util.inspect(process.memoryUsage()));
 //console.timeEnd('Start-APP');
 // пробы
 
@@ -196,10 +208,11 @@ gui.Window.get().on('close', function() {
 
     // If the new window is still open then close it.
     if (win != null)
-        likeris.close(true);
+   //    likeris.close(true);
+    gui.App.quit();
 
     // After closing the new window, close the main window.
-    this.close(true);
+ //   this.close(true);
 });
 
 

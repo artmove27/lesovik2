@@ -1,73 +1,101 @@
 /**
  * Created by zews on 25.01.2016.
  */
-var versions = "Users.js@0.3.4";
+var versions = "Users.js@1.4.6";
 $ = global.jQuery;
-function Users() {
-      self = this;
-      this.name = "";
-   //   this.login = "" ;
-   //  this.passwords = "";
-      this.cn = "";
-      this.LogIn = function(){
-            //
-            var uri = "https://m.vk.com/" + "login.php?cmd=login&luser=";
-            uri = uri + this.getLogin() + "&lpass=";
-          uri = uri + this.getPass() ;
-                       //window.alert(uri);
-           // openVK(uri);
-            return uri ;
-            //...
-      };
-      this.LogOut = function(){
-          // openVK("http://vk.com/feed?cmd=quit");
-            var uri = "http://vk.com/feed?cmd=quit";
-            return uri ;
-            //...
-      };
-      this.addUsers = function(login, pass){
-           // window.alert(this.name);
-            window.localStorage.setItem(this.name, login);
-            window.localStorage.setItem(login, pass);
-      }
+function Users(name) {
+    self = this;
+    this.cn = "";
 
-      //get
-      this.getLogin = function(){
-         //   window.alert(self.name);
-          var login = window.localStorage.getItem(this.name);
+    //
+    this.name = name;
+
+    this.lkey = function () {
+        var lkey = this.name + "_l";
+        return lkey;
+    };
+    this.pkey = function () {
+        var pkey = this.name + "_p";
+        return pkey;
+    };
+    //
+    this.login = function (log) {
+        if (!arguments.length) {
+            var login = window.localStorage.getItem(this.lkey());
             return login;
-            //...
-      }
-      this.getPass = function() {
-         var pass = window.localStorage.getItem(this.getLogin());
-          //  window.alert(pass);
+
+        } else {
+              window.localStorage.setItem(this.lkey(), log);
+        }
+    };
+    //
+    this.pass = function (pass) {
+        if (!arguments.length) {
+
+            var pass = window.localStorage.getItem(this.pkey());
             return pass;
-           //..
-      }
+
+        } else {
+
+            window.localStorage.setItem(this.pkey(), pass);
+        }
+
+    };
+    //
+
+    this.LogIn = function () {
+        //
+        var uri = "https://m.vk.com/" + "login.php?cmd=login&luser=";
+        uri = uri + this.login() + "&lpass=";
+        uri = uri + this.pass();
+        //window.alert(uri);
+        // openVK(uri);
+        return uri;
+        //...
+    };
+    this.LogOut = function () {
+        // openVK("http://vk.com/feed?cmd=quit");
+        var uri = "http://vk.com/feed?cmd=quit";
+        return uri;
+        //...
+    };
+
      //edit user
      this.edit = function(){
-             if(this.getLogin() == 0){
+
+             if(this.login() == null || this.login() == "" ){
                  $("input[name = login]").val("Введите логин");
                  $("input[name = pass]").val("Введите пароль");
+                 $("input[name = idusers]").val(this.name);
+                 $("#formtitle").html("Добавить аккаунт");
+                 $("#tfo").html("");
+
+
              }else {
-                 $("input[name = login]").val(this.getLogin());
-                 $("input[name = pass]").val(this.getPass());
+
+                 $("input[name = login]").val(this.login());
+                 $("input[name = pass]").val(this.pass());
+                 $("input[name = idusers]").val(this.name);
+                 $("#formtitle").html(this.login());
+                 $("#tfo").html("Редактировать");
+
              }
-      }
+                 }
     //view
     this.view = function(){
-        window.alert(this.getLogin());
         var string ;
-         if (this.getLogin() == 0){
-             string = "</a><a href=# id=" + this.name + "-edit class=editusers data-edit=" + this.name + ">Добавить аккаунт</a><br/>";
+         if (this.login() == null || this.login() == ""){
+
+             string = "<li class=wsto><a href=#  id=" + this.name + "-edit class=eddits  data-edit=" + this.name + ">Добавить аккаунт</a></li>";
+             //
             //return string;
         } else {
 
-             string = "<li><a href=# id=" + this.name + ">" + this.getLogin();
-             string = string + "</a>  <a href=# id=" + this.name + "-edit class=editusers data-edit=" + this.name + ">(Редактировать)</a></li>";
+             string = "<li class=wsto><a href=# class=eddit  id=" + this.name + ">" + this.login();
+             string = string + "</a>&nbsp;&nbsp;<a href=# id=" + this.name + "-edit class=editusers data-edit=" + this.name + ">(edit)</a></li>";
            /// return string;
         }
-        return string;
+                return string;
         //...
             }
 }
